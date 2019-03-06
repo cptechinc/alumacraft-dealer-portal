@@ -1,0 +1,95 @@
+/* CSS Document */
+#ui-datepicker-div .ui-datepicker-calendar thead tr {background-color: #FFFFFF!important; }
+#ui-datepicker-div tbody tr {background-color: #FFFFFF;}
+#ui-datepicker-div tbody tr:nth-of-type(odd) {
+    background: #d8d8d8;
+}
+
+.modal table.tablesorter tbody td {
+
+    padding: 7px 4px;
+}
+
+.modal .detail-heading td {
+	background-color: #92171c;	
+	color: white;
+}
+
+.page {
+	padding: 15px;	
+}
+
+.thispage {
+	background: #ccc;
+}
+
+.form-success {
+    padding: 6px;
+    border: 3px solid #50C24E;
+    color: #d6e9c6;
+    background: #dff0d8;
+}
+.form-success h2, .form-success p, .form-success h4 {
+    color: #3c763d;
+}
+
+.form-success p, .form-error p {
+	font-size: 14px;	
+}
+
+.form-error {
+    padding: 6px;
+    border: 3px solid #ebccd1;
+    color: #a94442;
+    background: #f2dede;
+}
+.form-error h2, .form-error p {
+    color: #a94442;
+}
+
+.page-section.white.table {
+	display: table;	
+}
+
+#spinner {
+	display: block;
+    position: fixed;
+    left: 50%;
+    top: 40%;
+	background-color: #FFF;
+}
+
+#loading {display: none; }
+
+input[type=checkbox] {
+  width:auto;
+	height: auto;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

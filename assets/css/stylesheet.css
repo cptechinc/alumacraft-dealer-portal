@@ -1,0 +1,51 @@
+@font-face {
+    font-family: 'franchise_freebold';
+    src: url('fonts/franchise-free-bold-webfont.eot');
+    src: url('fonts/franchise-free-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/franchise-free-bold-webfont.woff2') format('woff2'),
+         url('fonts/franchise-free-bold-webfont.woff') format('woff'),
+         url('fonts/franchise-free-bold-webfont.ttf') format('truetype'),
+         url('fonts/franchise-free-bold-webfont.svg#franchise_freebold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'helveticaneue';
+    src: url('fonts/helveticaneue.eot');
+    src: url('fonts/helveticaneue.eot?#iefix') format('embedded-opentype'),
+         url('fonts/helveticaneue.woff') format('woff'),
+         url('fonts/helveticaneue.ttf') format('truetype'),
+         url('fonts/helveticaneue.svg#helveticaneue') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'helveticaneuelight';
+    src: url('fonts/helveticaneue-light.eot');
+    src: url('fonts/helveticaneue-light.eot?#iefix') format('embedded-opentype'),
+         url('fonts/helveticaneue-light.woff') format('woff'),
+         url('fonts/helveticaneue-light.ttf') format('truetype'),
+         url('fonts/helveticaneue-light.svg#helveticaneuelight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'helveticaneuebold';
+    src: url('fonts/helvetica_bold_0-webfont.eot');
+    src: url('fonts/helvetica_bold_0-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/helvetica_bold_0-webfont.woff') format('woff'),
+         url('fonts/helvetica_bold_0-webfont.ttf') format('truetype'),
+         url('fonts/helvetica_bold_0-webfont.svg#helveticaneuebold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+

@@ -1,0 +1,134 @@
+input, textarea, select {
+    font: 100% Arial, Helvetica, sans-serif;
+    vertical-align: middle;
+    margin-bottom: 5px;
+    background: #f3f3f3;
+    color: #222222;
+}
+
+.ui-tabs .ui-tabs-active.ui-state-active {
+	background-color:black;
+}
+
+#content .wrap.wrap-bg.light {
+		background-image: none;
+	    background-color: rgba(255,255,255,0.7);
+}
+
+label.error {
+	font-weight: bold;
+	color: red;	
+}
+
+input.two-hundred {
+	width: 200px;	
+	
+}
+
+input.state {
+	width: 60px;	
+}
+
+input.zip {
+	width: 100px;	
+}
+
+.link {
+	background-color: #000;	
+}
+
+.hidden {
+	display: none;	
+}
+
+.hasDatepicker {
+	width: 100px;	
+	color: black;
+}
+
+.form-error, .error-msg {
+	padding: 15px;
+	color: #a94442;
+    background-color: #f2dede;
+    border: 2px solid #a94442;
+}
+
+.form-success {
+	padding: 15px;
+	color: #157437;
+    background-color: #CEEFD6;
+    border: 2px solid #157437;
+}
+
+#content .form-error p, #content .form-error h2 {
+	color: #a94442;
+	
+}
+
+#login {
+	background-color: #fff;	
+}
+
+#login>div {
+	padding: 10px;	
+}
+
+.listings th {
+	background-color: #f3f3f3;
+    border: 1px solid #cccccc;
+    font-size: 1em;
+    padding: 15px;
+}
+tr.odd {
+	background-color: #F1F1F1;
+	
+}
+
+.listings td {
+    font-size: 0.9em;
+    padding: 15px 7px;
+    vertical-align: top;	
+	
+}
+
+.form-column {width:33%; display:inline-block; vertical-align: top; }
+.form-column-half {width:45%; display:inline-block; vertical-align: top; }
+.form-column.hidden {display: none; }
+
+.aluma-btn, button.aluma-btn {
+	background-color: #92171c;
+    text-transform: uppercase;
+    margin: 0 0px 0 15px;
+    padding: 0px 14px;
+    line-height: 47px;
+    color: #ffffff;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: "Oswald",Arial,Helvetica,sans-serif;	
+	
+}
+
+.blueLinks a.aluma-btn {
+   color: #ffffff;
+}
+#ui-datepicker-div {
+	z-index: 3000 !important;	
+}
+
+.error-text {
+	color: red;
+}
+
+#motor-hp {
+	width: 100px;
+}
+
+.tabs.ui-tabs.ui-tabs-nav {
+	border: none;
+}
+
+tbody tr.detail-heading td {
+	background-color: #92171c;	
+	color: white;
+}

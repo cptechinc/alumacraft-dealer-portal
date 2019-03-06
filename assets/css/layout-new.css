@@ -1,0 +1,490 @@
+/***********************************************
+Example use only - Delete when done..!
+***********************************************/
+
+
+
+/***********************************************
+Screen 1200px+
+***********************************************/
+.options .grid_1                                { width:90px; margin:0 5px;}
+
+
+#jetmenu-2 > li > a {
+	font-size:13px;
+	padding: 0px 10px;
+	line-height:30px;
+}
+
+#jetmenu-1 > li > a {
+	font-size:23px;
+	padding: 0px 12px;
+	line-height:60px;
+}
+
+.dealer {
+	margin-bottom:20px;
+	}
+
+
+#features-photos img {
+	margin-bottom:20px;
+	}
+
+.img-title {
+	font-size:70px;
+	line-height:50px;
+}
+
+.img-title span {
+	font-size:40px;
+}
+
+
+/*.sidebar .img-title span {
+	font-size:30px;
+}*/
+
+#fullwidth_slider_2 {
+	margin-bottom:200px;	
+}
+
+
+
+
+
+/***********************************************
+Screen Smaller than 1200px
+***********************************************/
+
+@media only screen and (min-width: 960px) and (max-width: 1199px) {
+
+#logo {
+	top:18px;	
+}
+
+.options .grid_1								{ width:70px; margin:0 5px; }
+	
+.footer p {
+	font-size:11px;
+}
+
+.footer-links li a, .footer-links li span {
+	font-size:11px;
+}
+
+#footer-wrapper .page-section.yellow li {
+	margin-right:30px;
+	font-size:14px;
+}
+
+/*.img-frame h2 {
+	font-size:20px;
+}*/
+
+#jetmenu-2 > li > a {
+	font-size:12px;
+	padding: 0px 8px;
+	line-height:30px;
+}
+
+#jetmenu-1 > li > a {
+	font-size:23px;
+	padding: 0px 8px;
+	line-height:80px;
+}
+
+.dealer {
+	margin-bottom:20px;
+	}
+
+.options p {
+	font-size:12px;
+}	
+
+#features-photos img {
+	margin-bottom:16px;
+	}
+	
+.img-title {
+    font-size: 30px;
+}
+
+.img-title span {
+    font-size: 45px;
+}
+
+
+.sidebar .img-title span {
+    font-size:inherit;
+}
+
+
+.sidebar .img-title {
+	font-size:25px;
+	line-height:25px;
+}
+
+.sidebar .img-title.title2 {
+	font-size:60px;
+	top:80px;
+}
+
+.your-boat-btn {
+	font-size:11px;
+}
+	
+}
+
+/***********************************************
+Screen 768px+
+***********************************************/
+
+
+
+@media only screen and (min-width: 768px) {
+.sec-menu	                                    { display:none!important;  }
+}
+
+
+
+
+/***********************************************
+Tablet (Smaller than 959px)
+***********************************************/
+@media only screen and (min-width:768px) and (max-width: 959px) {
+
+#logo {
+	top:13px;	
+}
+.options .grid_1                              { width:54px; margin:0 5px; }
+
+h2 {
+	font-size:22px;
+}
+
+h3, .fullwidth-slider .es-slides h3 {
+	font-size: 20px!important;
+}
+
+
+#accordion .ui-accordion .ui-accordion-header {
+	font-size:16px;
+}
+
+
+
+.img-frame h2 {
+	font-size:25px;
+}
+
+.img-link {font-size:12px;}
+
+.footer p {
+	font-size:11px;
+}
+
+.footer-links li a, .footer-links li span {
+	font-size:10px;
+}
+
+#footer-wrapper {
+	position:static;
+	
+}
+
+
+#fullwidth_slider_2 {
+	margin-bottom:20px;	
+}
+
+#footer-wrapper .page-section.yellow li {
+	margin-right:20px;
+	font-size:11px;
+	padding-left:40px;
+}
+
+
+#jetmenu-1 > li > a {
+	font-size:20px;
+	padding: 0px 8px;
+}
+
+#jetmenu-2 > li > a {
+	font-size:10px;
+	padding: 0px 10px;
+}
+
+.jetmenu ul.dropdown li{
+	font-size:11px;
+}
+
+
+.jetmenu li > .megamenu a {
+	font-size: 16px;	
+}
+
+
+.tsc_social { margin: 0 5px}
+
+
+
+.footer .copyright {line-height:30px; font-size:11px}
+
+.options p {
+	font-size:12px;
+}	
+
+#features-photos img {
+	margin-bottom:14px;
+	}
+
+
+.img-title {
+    font-size: 30px;
+}
+
+.img-title span {
+    font-size: 35px;
+}
+
+.your-boat-btn {
+	font-size:11px;
+}
+
+
+
+.sidebar .img-title span {
+    font-size:inherit;
+}
+
+
+.sidebar .img-title {
+	font-size:25px;
+	line-height:25px;
+}
+
+.sidebar .img-title.title2 {
+	font-size:40px;
+	line-height:40px;
+	top:80px;
+}
+
+
+.your-boat {
+	padding:8px;
+}
+
+.your-boat-btn {
+	font-size:10px;
+	text-transform:none;
+}
+
+.your-list a {
+	font-size:10px;
+}
+
+
+}
+
+/***********************************************
+Mobile (portrait 300px)
+***********************************************/
+@media only screen and (max-width:767px) {
+
+
+
+.options .grid_1                                         { width:54px; margin:0 5px; float:left; display:inline; }
+
+h2 {
+	font-size: 20px;
+}
+
+h3, .fullwidth-slider .es-slides h3 {
+	font-size: 18px!important;
+}
+
+#accordion .ui-accordion .ui-accordion-header {
+	font-size:13px;
+}
+
+#logo {
+	margin:0 auto;
+	width:222px;
+}
+
+#header-wrapper {
+	background-image:none;
+	height:60px;
+	margin-bottom:0px;
+}
+
+#header-wrapper .grid {
+	margin-top:0;
+}
+
+#nav-wrapper .grid {
+	margin-top:0!important;
+}
+
+a.btn, .btn, button {
+    font-size: 13px;
+    line-height: 30px;
+    margin: 0 5px 5px 0;
+    padding: 1px 10px 0;
+    text-decoration: none;
+    transition: all 0.1s linear 0s;
+}
+
+
+/*.footer { text-align:center;}*/
+.footer-links.right-align {
+	float: none;
+}
+
+.footer .footer-links li:first-child a, .footer .footer-links li:first-child span {
+	padding-left:0;
+}
+.footer p {
+	font-size:11px;
+	margin-bottom:0px;
+}
+
+.footer-links li a, .footer-links li span {
+	font-size:11px;
+}
+
+.footer .social-nav {
+	margin-top:-40px;
+	margin-bottom:-40px;
+}
+	
+#footer-wrapper {
+	position:static;
+	
+}
+
+#fullwidth_slider_2 {
+	margin-bottom:20px;	
+}
+
+#jetmenu-1 > li > a {
+	font-size:10px;
+	padding: 0px 23px;
+	line-height:30px;
+	
+
+}
+
+#jetmenu-2 {display:none;}
+#jetmenu-1 {position:relative; top:-30px; z-index:1000;}
+#jetmenu-2 > li > a {
+	text-align:right;
+}
+
+#jetmenu-1 > li.showhide .icon em {
+	background-color:#fff;
+}
+
+
+.jetmenu li {
+	text-align:left;
+}
+
+.jetmenu ul.dropdown li{
+	font-size:11px;
+	text-align:left;
+}
+
+.jetmenu ul.dropdown li a {
+	background-color:#222222;
+	padding:2px 24px;
+}
+
+
+
+#nav-wrapper {
+	/*padding-bottom:20px;*/
+	}
+
+#header-wrapper .social-nav {
+	position:relative;
+	margin-top:-25px;
+	margin-bottom:-25px;
+	}	
+	
+#nav-wrapper {
+	background-color:#000;
+	/*position:relative;
+	top:-75px;	*/
+	z-index:1;
+	margin-top:0px;
+}
+
+#slider-wrapper {
+	padding-top:-80px;
+	
+}
+
+#features-photos img {
+	margin-bottom:10px;
+	}
+
+#footer-wrapper .page-section.yellow li {
+    display: block;
+    float: none;
+}
+
+.img-title {
+    font-size: 25px;
+}
+
+.img-title span {
+    font-size: 35px;
+}
+
+
+tr:nth-of-type(odd) { 
+		background: none; 
+	}
+	
+.specs td, .specs th { 
+		text-align:left;
+	}
+	
+.option .grid_4 {
+	margin-top:0;
+}
+		
+}
+
+
+/***********************************************
+Mobile (landscape0 420px)
+***********************************************/
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	
+
+#logo {
+	margin:0 auto;
+	width:222px;
+}
+
+
+
+
+
+}
+
+
+
+
+@media 
+	only screen and (max-width: 767px),
+	(min-device-width: 768px) and (max-device-width: 1024px)  {
+	
+		
+		
+	}
+
+

@@ -1,0 +1,25 @@
+.page {
+	font-size: 130%;
+}
+.form-group {
+    margin-bottom: 7px;
+}
+
+p.form-control-static {
+	border-bottom: 1px solid black;
+	min-height: 15px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-bottom: 0;
+}
+
+label {
+	margin-bottom: 0px;
+	
+}
+
+@media print {
+    .page {
+		font-size: 130%;
+	}
+}
