@@ -1,5 +1,5 @@
-<?php 
-	if (isset($_GET['search'])) {	
+<?php
+	if (isset($_GET['search'])) {
 		if ($search == 'all') {
 			switch ($role_type) {
 				case 'DEALER':
@@ -30,7 +30,7 @@
 						$orders = get_orders_searchall($dplus_custs, $keyword, $showonpage, $this_page, $approved, $boatsonly, false);
 					} else {
 						$orders = get_orders_searchall($dplus_custs, $keyword, $showonpage, $this_page, $approved, $boatsonly, false);
-						
+
 					}
 					break;
 			}
@@ -98,7 +98,7 @@
 						$orders = get_orders_search($dplus_custs, $search, $keyword, $showonpage, $this_page, $approved, $boatsonly, false);
 					} else {
 						$orders = get_orders_search($dplus_custs, $search, $keyword, $showonpage, $this_page, $approved, $boatsonly, false);
-						
+
 					}
 					break;
 			}
@@ -133,10 +133,8 @@
 					$orders = get_orders($dplus_custs, $showonpage, $this_page, $approved, $boatsonly, false);
 				} else {
 					$orders = get_orders($dplus_custs, $showonpage, $this_page, $approved, $boatsonly, false);
-					
 				}
 				break;
-
 		}
 	}
 

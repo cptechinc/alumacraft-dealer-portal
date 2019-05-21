@@ -1,4 +1,4 @@
-<?php  	 
+<?php
 	$search = '';
 	$keyword = '';
 	if (isset($_GET['show-sold-unreg'])) {
@@ -18,9 +18,9 @@
 	}
 	//set_group_concat_limit();
 	if (isset($_GET['search'])) {
-		$search = urldecode($_GET['search']); 
+		$search = urldecode($_GET['search']);
 		$keyword = urldecode($_GET['q']);
-		
+
 		if ($search == 'all') {
 			$matchingboats = get_itemnbrs_by_options($keyword, false);
 			if (strlen($matchingboats) < 1) {$matchingboats = "''";}
@@ -36,7 +36,7 @@
 						$num_of_results = get_cust_boat_inventory_allsearch_count($dealerid, $keyword, $matchingboats, $reg, false);
 						$heading = " Searching for All boats that have specs that match '".$keyword."' at ".$dealername . " (".$dealerid.")";
 					} else {
-						$dplus_custs = get_reps_dplus_custids_list_alt($userid, false);	
+						$dplus_custs = get_reps_dplus_custids_list_alt($userid, false);
 						$num_of_results =  get_reps_boat_inventory_allsearch_count($dplus_custs, $keyword, $matchingboats, $reg, false);
 						$heading = " Searching for All boats that have specs that match '".$keyword."' at ".$repname . "'s dealers";
 					}
@@ -61,11 +61,11 @@
 			$datesarray = explode("|", $keyword);
 			$datefrom = $datesarray[0];
 			$datethrough = $datesarray[1];
-			
+
 			//FOR DISPLAY
 			$date_from = date("m/d/Y", strtotime($datefrom));
 			$date_through = date("m/d/Y", strtotime($datethrough));
-			
+
 			switch ($role_type) {
 				case 'DEALER':
 					//$dealerid, $dealername comes from the role-type-logic script
@@ -78,8 +78,8 @@
 						$num_of_results = get_cust_boat_inventory_datesearch_count($dealerid, $datefrom, $datethrough, $reg, false);
 						$heading = " Searching for All boats that have an Invoice Date between ".$date_from." and ".$date_through." at ".$dealername . " (".$dealerid.")";
 					} else {
-						$dplus_custs = get_reps_dplus_custids_list_alt($userid, false);	
-						
+						$dplus_custs = get_reps_dplus_custids_list_alt($userid, false);
+
 						$num_of_results = get_reps_boat_inventory_datesearch_count($dplus_custs, $datefrom, $datethrough, $reg, false);
 						$heading = " Searching for All boats that havean Invoice Date between ".$date_from." and ".$date_through." at ".$repname . "'s dealers";
 					}
@@ -95,13 +95,12 @@
 						$heading = " Searching for All boats that have an Invoice Date between ".$date_from." and ".$date_through." at ".$repname . "'s dealers";
 					} else {
 						$dplus_custs = get_dplus_custids_list_alt(false);
-						echo get_boat_inventory_datesearch_count($dplus_custs, $datefrom, $datethrough, $reg, true);
 						$num_of_results = get_boat_inventory_datesearch_count($dplus_custs, $datefrom, $datethrough, $reg, false);
 						$heading = " Searching for All boats that have an Invoice Date between ".$date_from." and ".$date_through;
 					}
 					break;
 			}
-			
+
 		} else {
 			switch ($role_type) {
 				case 'DEALER':
@@ -143,13 +142,13 @@
 		switch ($role_type) {
 			case 'DEALER':
 				//$dealerid, $dealername comes from the role-type-logic script
-				$num_of_results = get_cust_boat_inventory_count($dealerid, $reg, false); 
+				$num_of_results = get_cust_boat_inventory_count($dealerid, $reg, false);
 				$heading = " showing results for " . $dealername . " (".$dealerid.")";
 				break;
 			case 'SREP':
 				if (isset($_GET['location'])) {
 					//$dealerid, $dealername comes from the role-type-logic script
-					$num_of_results = get_cust_boat_inventory_count($dealerid, $reg, false); 
+					$num_of_results = get_cust_boat_inventory_count($dealerid, $reg, false);
 					$heading = " showing results for " . $dealername . " (".$dealerid.")";
 				} else {
 					$dplus_custs = get_reps_dplus_custids_list_alt($userid, false);
@@ -160,7 +159,7 @@
 			case 'SADMIN':
 				if (isset($_GET['location'])) {
 						//$dealerid, $dealername comes from the role-type-logic script
-						$num_of_results = get_cust_boat_inventory_count($dealerid, $reg, false); 
+						$num_of_results = get_cust_boat_inventory_count($dealerid, $reg, false);
 						$heading = " showing results for " . $dealername . " (".$dealerid.")";
 					} elseif (isset($_GET['rep'])) {
 						$dplus_custs = get_reps_dplus_custids_list_alt($repid, false);
@@ -174,8 +173,8 @@
 				break;
 
 		}
-	
+
 	}
-	$total_pages = ceil($num_of_results / $showonpage); 
+	$total_pages = ceil($num_of_results / $showonpage);
 
 ?>

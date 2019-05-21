@@ -1,5 +1,5 @@
-<?php 
-	if (isset($_GET['search'])) {	
+<?php
+	if (isset($_GET['search'])) {
 		if ($search == 'all') {
 			switch ($role_type) {
 				case 'DEALER':
@@ -11,7 +11,7 @@
 							$boats = get_boat_inventory_allsearch($dplus_custs, $showonpage, $this_page, $keyword, $matchingboats, $reg, false);
 						}
 					} else {
-						$boats = get_cust_boat_inventory_allsearch($dealerid, $showonpage, $this_page, $keyword, $matchingboats, $reg, false);	
+						$boats = get_cust_boat_inventory_allsearch($dealerid, $showonpage, $this_page, $keyword, $matchingboats, $reg, false);
 					}
 					break;
 				case 'SREP':
@@ -29,11 +29,11 @@
 					} elseif($_GET['rep']) {
 						$boats = get_boat_inventory_allsearch($dplus_custs, $showonpage, $this_page, $keyword, $matchingboats, $reg, false);
 					} else {
-						if ($overrideinventory) {
+						if ($overrideinventory) {							
 							$boats = get_boat_inventory_allsearch_override($showonpage, $this_page, $keyword, $matchingboats, $reg, false);
 						} else {
 							$boats = get_boat_inventory_allsearch($dplus_custs, $showonpage, $this_page, $keyword, $matchingboats, $reg, false);
-						}	
+						}
 					}
 					break;
 			}
@@ -87,7 +87,7 @@
 					} else {
 						$boats = get_cust_boat_inventory_search($dealerid, $showonpage, $this_page, $search, $keyword, $reg, false);
 					}
-					
+
 					break;
 				case 'SREP':
 					if (isset($_GET['location'])) {
@@ -148,7 +148,7 @@
 					} else {
 						$boats = get_boat_inventory($dplus_custs, $showonpage, $this_page, $reg, false);
 					}
-					
+
 				}
 				break;
 
