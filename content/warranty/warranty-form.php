@@ -1,7 +1,7 @@
 <?php $boat = get_boat_info(urldecode($_GET['register']), false); ?>
 <?php $invoicedate = date("m/d/Y", strtotime($boat['InvoiceDate']));  ?>
 <div>
-    <form id="warranty-form" action="redir/redir.php" novalidate method="post">	
+    <form id="warranty-form" action="redir/redir.php" novalidate method="post">
         <input type="hidden" name="boat-serial" id="boat-serial" value="<?php echo $boat['SerialNbr']; ?>">
         <input type="hidden" name="invoice-date" value="<?php echo $boat['InvoiceDate']; ?>">
         <input type="hidden" name="order-nbr" value="<?php echo $boat['OrderNbr']; ?>">
@@ -13,8 +13,8 @@
         	<div class="grid_6 grid">
 				<p>Serial Number: <b><?php echo $boat['SerialNbr']; ?></b> </p>
 				<p>Boat Description: <b><?php echo $boat['ItemDesc1']; ?></b> </p>
-				<p>ItemID: <b><?php echo $boat['ItemNbr']; ?></b></p> 
-				<p>Customer: <b><?php echo $name; ?></b></p> 
+				<p>ItemID: <b><?php echo $boat['ItemNbr']; ?></b></p>
+				<p>Customer: <b><?php echo $name; ?></b></p>
 				<p>Invoice #:  <b><?php echo $boat['OrderNbr']; ?> - <?php echo $invoicedate; ?></b></p>
 			</div>
        		<div class="grid_6 grid">
@@ -24,56 +24,56 @@
 				<?php endforeach; ?>
 			</div>
         </div>
-        
+
         <div class="row">
         	<div class="grid_12 grid">
-            	<hr>   
+            	<hr>
                 <div id="before-form-hidden"></div>
                 <div class="form-error hidden"> <h2></h2> </div>
-                
+
                 <div class="form-success hidden"> <h2></h2> </div>
-                
+
                 <div class="form-response">
                 	<h3><a href="<?php echo $url; ?>#inventory" class="aluma-btn">Back to Inventory</a></h3>
                 </div>
-        
-                <?php if (intval(get_boat_year($boat['ItemNbr'])) < $newest_register_year) : ?>
+
+                <?php if ($location_id == $alumacraftlocationid) : ?>
                     <br>
                     <h2>Sold, but unregistered?</h2>
-                    
+
                     	<p> <input type="checkbox" name="sold-unreg" value="Y">Sold and Unregistered</p>
-                   
-                    
+
+
                 <?php endif; ?>
                 <br>
             </div>
         </div>
-        
+
         <div class="row">
-        
+
         	<div class="grid_4 grid">
                 <h3>Contact for Warranty</h3>
                 <p> <label>First Name<span class="red">*</span></label><br> <input type="text" class="required" name="firstname" id="firstname"> </p>
                 <p> <label>Middle Name</label><br> <input type="text" class="" name="middlename" id="middlename"> </p>
-                <p> <label>Last Name<span class="red">*</span></label><br> <input type="text" class="required" name="lastname" id="lastname"> </p> 
+                <p> <label>Last Name<span class="red">*</span></label><br> <input type="text" class="required" name="lastname" id="lastname"> </p>
                 <p> <label>Email<span class="red">*</span></label><br> <input type="text" class="required" name="email" id="email"> </p>
                 <p><div id="phone-error" class="error-msg hidden"></div></p>
-                <p> <label>Phone<span class="red">*</span></label><br> <input type="text" class="required" name="phone" id="phone"> </p> 
+                <p> <label>Phone<span class="red">*</span></label><br> <input type="text" class="required" name="phone" id="phone"> </p>
             </div>
-            
+
             <div class="grid_4 grid">
                 <h3>Address for Warranty</h3>
                 <p> <label>Address<span class="red">*</span></label><br> <input type="text" class="required two-hundred" name="address"> </p>
                 <p> <label>Address 2 </label><br> <input type="text" class="two-hundred" name="address2"> </p>
                 <p><div id="zip-error" class="error-msg hidden"></div></p>
-                <p> 
-                    <label>Zip/Postal Code (will populate city/state)<span class="red">*</span></label><br> 
-                    <input type="text" class="required zip" name="zip" id="zip" onkeyup="findcitystate(this.value, 'us', 1)"> 
+                <p>
+                    <label>Zip/Postal Code (will populate city/state)<span class="red">*</span></label><br>
+                    <input type="text" class="required zip" name="zip" id="zip" onkeyup="findcitystate(this.value, 'us', 1)">
                 </p>
                 <p> <label>City<span class="red">*</span></label><br> <input type="text" class="required" name="city"> </p>
-                <p> 
+                <p>
                    <input type="hidden" id="country" name="country">
-                    <label>State<span class="red">*</span></label><br> 
+                    <label>State<span class="red">*</span></label><br>
                     <select class="required" name="state" id="state-select">
                         <option value="">Choose State</option>
                         <?php $states = get_states('USA', false); ?>
@@ -82,7 +82,7 @@
                             <option value="<?php echo $state['abbreviation']; ?>"><?php echo $state['name'].' - '.$state['abbreviation']; ?></option>
                         <?php endforeach; ?>
                         </optgroup>
-                        
+
                         <?php $provinces = get_states('Canada', false); ?>
                         <optgroup label="Canada">
                         <?php foreach ($provinces->fetchAll() as $province) : ?>
@@ -91,7 +91,7 @@
                             </option>
                         <?php endforeach; ?>
                         </optgroup>
-                        
+
                         <?php $countries = get_countries('North America'); ?>
                         <optgroup label="North America">
                         	<?php foreach ($countries->fetchAll() as $country) : ?>
@@ -100,7 +100,7 @@
 								</option>
 							<?php endforeach; ?>
 						</optgroup>
-                       
+
                         <?php $countries = get_countries('Europe'); ?>
                         <optgroup label="Europe">
                         	<?php foreach ($countries->fetchAll() as $country) : ?>
@@ -109,7 +109,7 @@
 								</option>
 							<?php endforeach; ?>
 						</optgroup>
-                       
+
                        <?php $countries = get_countries('South America'); ?>
                         <optgroup label="South America">
                         	<?php foreach ($countries->fetchAll() as $country) : ?>
@@ -118,7 +118,7 @@
 								</option>
 							<?php endforeach; ?>
 						</optgroup>
-                       
+
                        <?php $countries = get_countries('Oceania'); ?>
                         <optgroup label="Oceania">
                         	<?php foreach ($countries->fetchAll() as $country) : ?>
@@ -127,7 +127,7 @@
 								</option>
 							<?php endforeach; ?>
 						</optgroup>
-                      
+
                       <?php $countries = get_countries('Asia'); ?>
 						<optgroup label="Asia">
 							<?php foreach ($countries->fetchAll() as $country) : ?>
@@ -136,8 +136,8 @@
 								</option>
 							<?php endforeach; ?>
 						</optgroup>
-                       
-                      
+
+
                        <?php $countries = get_countries('Africa'); ?>
                         <optgroup label="Africa">
                         	<?php foreach ($countries->fetchAll() as $country) : ?>
@@ -146,31 +146,31 @@
 								</option>
 							<?php endforeach; ?>
 						</optgroup>
-                       
-                        
+
+
                     </select>
-                </p>    
+                </p>
             </div>
-            
+
             <div class="grid_4 grid">
                 <h3>Extra Boat Information</h3>
                 <p><div id="date-error" class="error-msg hidden"></div></p>
                 <p> <label>Date of Sale </label><br> <input type="text" class="required" id="saledate"> &nbsp; </p>
-                <input type="hidden" name="saledate" value="" id="saledate-hidden"> 
-                
+                <input type="hidden" name="saledate" value="" id="saledate-hidden">
+
                 <p><div id="del-date-error" class="error-msg hidden"></div></p>
                 <p> <label>Date of Delivery </label><br> <input type="text" class="required" id="deliverdate"> &nbsp; </p>
-                <input type="hidden" name="delivery-date" value="" id="deliverdate-hidden"> 
-                
+                <input type="hidden" name="delivery-date" value="" id="deliverdate-hidden">
+
                 <div class="motor-info">
                     <h3>Motor Information</h3>
                     <div id="motor-error" class="error-msg hidden"></div>
                     <p>
-                        <label>Serial Number</label><br> 
-                        <input type="text" class="" name="motor-serial-number" id="motor-serial"> 
+                        <label>Serial Number</label><br>
+                        <input type="text" class="" name="motor-serial-number" id="motor-serial">
                     </p>
                     <p>
-                        <label>Horsepower</label><br> 
+                        <label>Horsepower</label><br>
                         <select name="motor-hp" id="motor-hp">
                             <option value="0.0">0.0</option>
                             <?php $horsepowers = get_horsepowers(false); ?>
@@ -190,26 +190,26 @@
                         </select>
                     </p>
                     <p><label>Desc</label><br> <input type="text" class="" name="motor-desc" > </p>
-  
-              			
-                   			<input type="checkbox"  name="with-motor" value="N">Purchased without motor 
-                   
-                    	
-        
+
+
+                   			<input type="checkbox"  name="with-motor" value="N">Purchased without motor
+
+
+
                 </div>
-                
+
             </div>
-           
-          
-               
-           
+
+
+
+
         </div>
         <div class="row">
         	<div class="grid_4">
         		 <input type="submit" value="Submit">
         	</div>
         </div>
-        
+
     </form>
 </div>
 
@@ -219,21 +219,21 @@
 
 		jQuery('#motor-hp').select2({
     	// Initialisation here
-		}).data('select2').listeners['*'].push(function(name, target) { 
+		}).data('select2').listeners['*'].push(function(name, target) {
 			if(name == 'focus') {
 				jQuery(this.$element).select2("open");
 			}
 		});
-		$motorselect.on("select2:close", function (e) { 
+		$motorselect.on("select2:close", function (e) {
 			jQuery('#model-year').openSelect();
 
-		
+
 		});*/
 	});
 	var regex = new RegExp("^[a-zA-Z0-9]{4,10}$");
 	var regexnumber = new RegExp('^\\d+$');
-	
-	
+
+
 	jQuery('#phone').change(function() {
 		console.log(jQuery('#phone').val());
 		if (regexnumber.test(jQuery('#phone').val())) {
@@ -245,26 +245,26 @@
 			jQuery('#phone-error').focus();
 		}
 	});
-	
+
 	jQuery('#state-select').change(function() {
 		var label = jQuery('#state-select :selected').parent().attr('label');
 		$('#country').val(label);
 
 	})
-	
+
 	jQuery('#motor-serial').change(function() {
 		if (regex.test(jQuery('#motor-serial').val())) {
 			jQuery('#motor-error').text('');
 			jQuery('#motor-error').addClass('hidden');
 		} else { // Show errors
-			
+
 			jQuery('#motor-error').text('Please remove all spaces and/or special characters');
 			jQuery('#motor-error').removeClass('hidden');
 			jQuery('#motor-serial').focus();
 		}
 	});
-	
-	
+
+
 	jQuery('input[name="sold-unreg"]').change(function() {
 		if (jQuery(this).attr('checked')) {
 			jQuery('.form-column').addClass('hidden');
@@ -272,7 +272,7 @@
 			jQuery('.form-column').removeClass('hidden');
 		}
 	});
-	
+
 	jQuery('#saledate').change(function() {
 		var date = jQuery(this).val();
 		if (validdate(date)) {
@@ -285,7 +285,7 @@
 			jQuery('#date-error').removeClass('hidden');
 		}
 	});
-	
+
 	jQuery('#deliverdate').change(function() {
 		var date = jQuery(this).val();
 		if (validdate(date)) {
@@ -298,7 +298,7 @@
 			jQuery('#del-date-error').removeClass('hidden');
 		}
 	});
-	
+
 	jQuery('input[name="with-motor"]').change(function() {
 		if (jQuery(this).attr('checked')) {
 			jQuery('.motor-info').addClass('hidden');
@@ -306,38 +306,38 @@
 			jQuery('.motor-info').removeClass('hidden');
 		}
 	});
-	
+
 	jQuery('#warranty-form').submit(function(e) {
 		e.preventDefault();
 		var errors_exist = false;
 		var missinginputs = checkinputs('#warranty-form');
 		if (jQuery('input[name="sold-unreg"]').prop( "checked" )) {
-			
+
 		} else {
 			jQuery('.form-error').html('');
 			if (missinginputs.length > 0) {
 				errors_exist = true;
-				
+
 				jQuery("<h2></h2>").text('The following have errors : ').appendTo('.form-error');
-				
+
 				for (var i = 0; i < missinginputs.length; i++) {
 					jQuery('<p></p>').html(missinginputs[i]).appendTo('.form-error');
 				}
 			}
-			
+
 			if (!validdate(jQuery('#saledate').val())) {
 				errors_exist = true;
 				jQuery('<p></p>').html('Sale Date is in an invalid format').appendTo('.form-error');
 			}
 		}
-		
+
 		if (errors_exist) {
 			jQuery('.form-error').removeClass('hidden');
 			jQuery('#before-form-hidden').offset().top;
 			jQuery('html, body').animate({
 				scrollTop: jQuery("#before-form-hidden").offset().top
 			}, 2000);
-			
+
 		} else {
 			postform('#warranty-form', function() {
 				wait(2000, function() {
@@ -346,7 +346,7 @@
 			})
 		}
 	});
-	
+
 	/*jQuery('#motor-serial').change(function() {
 		var serial = jQuery(this).val();
 		if (jQuery('#from-aluma').attr('checked')) {
@@ -355,7 +355,7 @@
 			jQuery('.form-error').addClass('hidden');
 		}
 	});*/
-	
+
 	jQuery('#model-year').change(function() {
 		var year = parseInt(jQuery(this).val());
 		if (year > 1700 && year < 2100) {
@@ -364,22 +364,22 @@
 			jQuery('<p></p>').html('Check your motor year').appendTo('.form-error');
 			jQuery('.form-error').removeClass('hidden');
 		}
-		
+
 	});
-	
+
 	jQuery('#motor-hp').change(function() {
 		var horsepower = jQuery(this).val();
 		if (!isNaN(horsepower)) {
-			
+
 		} else {
 			jQuery('<p></p>').html('Horse Power is not numeric').appendTo('.form-error');
 			jQuery('.form-error').removeClass('hidden');
 		}
 	});
-	
-	
-	
-	
+
+
+
+
 	function checkinputs(form) {
 		var missinginputs = [];
 		jQuery('#warranty-form .required').each(function() {
@@ -390,7 +390,7 @@
         });
 		return missinginputs;
 	}
-	
+
 	function findcitystate(zip, country, tried) {
 		if (zip.length > 4) {
 			jQuery('#zip-error').text('');
@@ -422,25 +422,25 @@
 						//jQuery('#zip').focus();
 					  }
 				  }
-			  }); 
+			  });
 		} else {
 			//jQuery('#zip-error').text("We could not find a city/state for the zipcode " + zip);
 			//jQuery('#zip-error').removeClass('hidden');
 			//jQuery('#zip').focus();
 		}
 	}
-	
-	
-	
-	
+
+
+
+
 	function validate_motorserial(serial) {
 		jQuery.ajax({
 		  type: "GET",
 		  url: "ajax/xml/check-serial-exists.php",
 		  dataType: "xml",
-		  success: function(xml) {  
+		  success: function(xml) {
 		  	var response = jQuery(xml).find('response');
-			var status = response.find('status').text(); 
+			var status = response.find('status').text();
 			if (status === 'false') {
 				jQuery('.form-error h2').text('The serial number doesn\'t match anything at Alumacraft ');
 				jQuery('.form-error').removeClass('hidden');
@@ -453,9 +453,9 @@
 			  alert('The check serial XML file ran into an error');
     	  }
 	  });
-		
+
 	}
-	
+
 	function check_if_registered() {
 		var serialnumber = jQuery('#boat-serial').val();
 		var itemnbr = jQuery('#itemnbr').val();
@@ -464,9 +464,9 @@
 		  type: "GET",
 		  url: "ajax/xml/was-boat-registered.php?serialnbr="+serialnumber+"&itemnbr="+itemnbr,
 		  dataType: "xml",
-		  success: function(xml) {  
+		  success: function(xml) {
 		  	var response = jQuery(xml).find('response');
-			var status = response.find('status').text(); 
+			var status = response.find('status').text();
 			if (status === 'false') {
 				jQuery('<h2></h2>').html('This Boat wasn\'t registered ').appendTo('.form-error');
 				jQuery('.form-error').removeClass('hidden');
@@ -475,14 +475,14 @@
 					text: '<h2>Boat Was Not Registered</h2>',
 					theme: 'relax', // or 'relax'
 					type: 'error',
-					timeout: 4000, 
+					timeout: 4000,
 					animation: {
 						open: {height: 'toggle'}, // jQuery animate function property object
 						close: {height: 'toggle'}, // jQuery animate function property object
 						easing: 'swing', // easing
 						speed: 500 // opening & closing animation speed
 					}
-				}); 
+				});
 			} else {
 				jQuery('.form-success h2').text('');
 				jQuery('<h2></h2>').text('Boat Was Registered').appendTo('.form-success');
@@ -492,27 +492,27 @@
 				jQuery('html, body').animate({
 					scrollTop: jQuery(".form-success").offset().top
 				}, 2000);
-				
+
 				var n = noty({
 					text: '<h2>Boat Was Registered</h2>',
 					theme: 'relax', // or 'relax'
 					type: 'success',
-					timeout: 4000, 
+					timeout: 4000,
 					animation: {
 						open: {height: 'toggle'}, // jQuery animate function property object
 						close: {height: 'toggle'}, // jQuery animate function property object
 						easing: 'swing', // easing
 						speed: 500 // opening & closing animation speed
 					}
-				}); 
+				});
 			}
 		  },
 		  error: function() {
 			  alert('Checking if boat got registered ran into an issue. Please go to inventory and validate.');
     	  }
-			  
+
 	  });
-			
+
 	}
-		
+
 </script>
