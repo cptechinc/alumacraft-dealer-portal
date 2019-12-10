@@ -51,11 +51,11 @@
                 <?php $vieworderlink = "http://alumacraft.com/Boat-Builder.php?action=print&pricing=cost&build_id=".$order['OehdUserCode2'].'&'/*.$rustyaddon */; ?>
                 <?php
 					$prodfinish = $requestrelease = '';
-					$wipcomplete = get_wip_complete_date($order['OehdNbr'], $order['InitItemNbr'], false);
-					$sql = get_wip_complete_date($order['OehdNbr'], $order['InitItemNbr'], true);
+					$wipcomplete = get_wip_complete_date($order['OehdNbr'], $order['itemid'], false);
+					$sql = get_wip_complete_date($order['OehdNbr'], $order['itemid'], true);
 
 					if ($wipcomplete < 1) {
-						if (is_in_inv_lot($order['OehdNbr'], $order['InitItemNbr'], false)) {
+						if (is_in_inv_lot($order['OehdNbr'], $order['itemid'], false)) {
 							$prodfinish = 'INVENTORY';
 						} else {
 							$prodfinish = '';
@@ -69,6 +69,7 @@
 					} elseif ($order['OehdReleaseNbr'] == '') {
 						$requestrelease = '';
 					}
+
 					$ackdatestamp = get_order_acknowledge_date($order['OehdNbr']);
 
 					if ($ackdatestamp != '') {
@@ -77,6 +78,10 @@
 						$ackdate = '';
 					}
 
+					if (get_partnumber_productionlocation($order['itemid']) != 'MN' && $requestrelease != '') {
+						$requestrelase = '';
+					 	$prodfinish = '';
+					}
 				?>
                 <?php if ($boatsonly) : ?>
                     <tr>
@@ -89,13 +94,8 @@
                         <td><?php echo $orderdate; ?></td>
                         <td><?php echo $ackdate; ?></td>
                         <?php //if (is_user_alumacraft_admin($userid)) : ?>
-							<?php if ($requestrelease != '') : ?>
-								<td><?php echo $prodfinish ?></td>
-								<td><?php echo $requestrelease; ?></td>
-							<?php else : ?>
-								<td></td>
-								<td></td>
-							<?php endif; ?>
+							<td><?php echo $prodfinish ?></td>
+							<td><?php echo $requestrelease; ?></td>
 
 						<?php //endif; ?>
 
