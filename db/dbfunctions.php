@@ -154,7 +154,13 @@
 		global $db;
 		$search = '%'.str_replace(' ', '%', $keyword).'%';
 		if ($page > 1) { $start_point = ($page * $limit) - $limit; } else if ($page == 1) { $start_point = 0; } else { $start_point = 0; }
-		$sql = "SELECT * FROM (SELECT * FROM boat_inventory WHERE CustId IN ($custlist) AND Registered IN ($registered)) t WHERE UCASE(CONCAT(SerialNbr, ' ', ItemNbr, ' ', ItemDesc1, ' ', OrderNbr, ' ', DATE_FORMAT(STR_TO_DATE(InvoiceDate,'%Y%m%d'), '%m/%d/%Y'))) LIKE UCASE('$search') OR ItemNbr IN ($itemlist) LIMIT ".$start_point.",".$limit;
+
+		if ($custlist) {
+			$sql = "SELECT * FROM (SELECT * FROM boat_inventory WHERE CustId IN ($custlist) AND Registered IN ($registered)) t WHERE UCASE(CONCAT(SerialNbr, ' ', ItemNbr, ' ', ItemDesc1, ' ', OrderNbr, ' ', DATE_FORMAT(STR_TO_DATE(InvoiceDate,'%Y%m%d'), '%m/%d/%Y'))) LIKE UCASE('$search') OR ItemNbr IN ($itemlist) LIMIT ".$start_point.",".$limit;
+		} else {
+			$sql = "SELECT * FROM (SELECT * FROM boat_inventory WHERE Registered IN ($registered)) t WHERE UCASE(CONCAT(SerialNbr, ' ', ItemNbr, ' ', ItemDesc1, ' ', OrderNbr, ' ', DATE_FORMAT(STR_TO_DATE(InvoiceDate,'%Y%m%d'), '%m/%d/%Y'))) LIKE UCASE('$search') OR ItemNbr IN ($itemlist) LIMIT ".$start_point.",".$limit;
+		}
+
 		if ($debug) {
 			return $sql;
 		} else {
@@ -181,7 +187,12 @@
 	function get_boat_inventory_allsearch_count($custlist, $keyword, $itemlist, $registered, $debug) {
 		global $db; $count = '';
 		$search = '%'.str_replace(' ', '%', $keyword).'%';
-		$sql = "SELECT COUNT(*) AS count FROM (SELECT * FROM boat_inventory WHERE CustId IN ($custlist) AND Registered IN ($registered)) t WHERE UCASE(CONCAT(SerialNbr, ' ', ItemNbr, ' ', ItemDesc1, ' ', OrderNbr, ' ', DATE_FORMAT(STR_TO_DATE(InvoiceDate,'%Y%m%d'), '%m/%d/%Y'))) LIKE UCASE('$search') OR ItemNbr IN ($itemlist)";
+		if ($custlist) {
+			$sql = "SELECT COUNT(*) AS count FROM (SELECT * FROM boat_inventory WHERE CustId IN ($custlist) AND Registered IN ($registered)) t WHERE UCASE(CONCAT(SerialNbr, ' ', ItemNbr, ' ', ItemDesc1, ' ', OrderNbr, ' ', DATE_FORMAT(STR_TO_DATE(InvoiceDate,'%Y%m%d'), '%m/%d/%Y'))) LIKE UCASE('$search') OR ItemNbr IN ($itemlist)";
+		} else {
+			$sql = "SELECT COUNT(*) AS count FROM (SELECT * FROM boat_inventory WHERE Registered IN ($registered)) t WHERE UCASE(CONCAT(SerialNbr, ' ', ItemNbr, ' ', ItemDesc1, ' ', OrderNbr, ' ', DATE_FORMAT(STR_TO_DATE(InvoiceDate,'%Y%m%d'), '%m/%d/%Y'))) LIKE UCASE('$search') OR ItemNbr IN ($itemlist)";
+		}
+
 		if ($debug) {
 			return $sql;
 		} else {

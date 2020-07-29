@@ -23,7 +23,7 @@
 			<div class="row">
 				<div class="grid_5">
 					<ul class="footer-links">
-						<li><span>© 1946 - 2017 Alumacraft Boat Co</span></li>
+						<li><span>© 1946 - 2020 Alumacraft Boat Co</span></li>
 						<!--<li><span>Ph: 877-930-9222</span></li>-->
 					</ul>
 				</div>
@@ -121,14 +121,14 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<script type="text/javascript">
 		jQuery(document).ready(function() {
 
 
 		}); //ready
-	</script> 	
-	
+	</script>
+
 	<script type="text/javascript">
 		  var _gaq = _gaq || [];
 		  _gaq.push(['_setAccount', 'UA-76627962-1']);
@@ -136,38 +136,17 @@
 		  _gaq.push(['_trackPageview']);
 
 
-		//_gaq.push(['_setCustomVar',1,'user_id','4189',1]);  
+		//_gaq.push(['_setCustomVar',1,'user_id','4189',1]);
 
 		  (function() {
 			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		  })();
-    
-    </script>
-    
 
-	<script type="text/javascript">
-		adroll_adv_id = "5V72JSICDFGIBOB6N42XAD";
-		adroll_pix_id = "NUD3AOZMRZEVRPA3GSM3C2";
-		/* OPTIONAL: provide email to improve user identification */
-		/* adroll_email = "username@example.com"; */
-		(function () {
-			var _onload = function(){
-				if (document.readyState && !/loaded|complete/.test(document.readyState)){setTimeout(_onload, 10);return}
-				if (!window.__adroll_loaded){__adroll_loaded=true;setTimeout(_onload, 50);return}
-				var scr = document.createElement("script");
-				var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
-				scr.setAttribute('async', 'true');
-				scr.type = "text/javascript";
-				scr.src = host + "/j/roundtrip.js";
-				((document.getElementsByTagName('head') || [null])[0] ||
-					document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
-			};
-			if (window.addEventListener) {window.addEventListener('load', _onload, false);}
-			else {window.attachEvent('onload', _onload)}
-		}());
-	</script>
+    </script>
+
+
 
 
 	<noscript>

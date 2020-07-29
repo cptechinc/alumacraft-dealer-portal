@@ -8,7 +8,7 @@
         	<h3 style="color:#000;">Welcome, <?php echo $login_name; ?></h3>
            <div class="row">
            	<div class="grid_4"><h5>Select a Dealer or Rep To Narrow Search:</h5></div>
-           		<?php 
+           		<?php
 					switch($role_type) {
 						case 'DEALER':
 							if (array_key_exists($role, $dealerroles)) {
@@ -18,7 +18,7 @@
 								$locations = "'$location_id'";
 								$dealers = get_dealers_by_dealerid($locations, false);
 							}
-							
+
 							echo '<div class="grid_4">';
 							include 'content/forms/dealer-form.php';
 							echo '</div>';
@@ -26,7 +26,7 @@
 						case 'SREP':
 							if ($issubrep) {
 								$dealers = get_dealers_by_dealerid($subreplocations[$userid], false);
-							
+
 							} else {
 								$dealers = get_reps_dealers($userid);
 							}
@@ -48,7 +48,7 @@
 				 ?>
 
            </div>
-			
+
             <div class="clear"></div>
             <div>
                 <input type="hidden" name="action" id="bulk_print_download_action" value="print_batch">
@@ -80,8 +80,8 @@
                 	<div class="clearFloat"></div>
 					<div id="dealer_quotes" class="transparentBackground blueLinks ui-tabs-panel ui-corner-bottom ui-widget-content" style="display: none;"></div>
                     <div id="orders" class="transparentBackground blueLinks ui-tabs-panel ui-corner-bottom ui-widget-content" style="display: none;"></div>
-                    <div id="pending" class="transparentBackground blueLinks ui-tabs-panel ui-corner-bottom ui-widget-content" style="display: none;">  
-                      
+                    <div id="pending" class="transparentBackground blueLinks ui-tabs-panel ui-corner-bottom ui-widget-content" style="display: none;">
+
                         <?php if (does_user_have_access($userid, $permissions['view-orders'])) : ?>
                             <?php include 'content/orders/pending.php'; ?>
                         <?php else : ?>
@@ -89,14 +89,14 @@
                         <?php endif; ?>
                     </div>
                     <div id="approved" class="blueLinks ui-tabs-panel ui-corner-bottom ui-widget-content" style="display: none;">
-                    
+
                 		<?php if (does_user_have_access($userid, $permissions['view-orders'])) : ?>
 							<?php include 'content/orders/approved.php'; ?>
                         <?php else : ?>
                             You don't have access to this function.
                         <?php endif; ?>
                     </div>
-                    <div id="inventory" class="blueLinks ui-tabs-panel ui-corner-bottom ui-widget-content" style="display: none;">		
+                    <div id="inventory" class="blueLinks ui-tabs-panel ui-corner-bottom ui-widget-content" style="display: none;">
                         <?php if (does_user_have_access($userid, $permissions['view-inventory'])) : ?>
                             <?php include 'content/inventory/unregistered-boats.php'; ?>
                         <?php else : ?>
@@ -119,24 +119,24 @@
                 </div>
                 <div class="page-section bottom-space" style="height: 100px;"></div>
                 </div>
-                
+
             </div>
             <div class="row"><div class="grid_3"></div><div class="grid_3"></div><div class="grid_3"></div><div class="grid_3"></div></div>
             <div id="inventory-search-modal" style="display:none;">
             	<?php include 'content/inventory/inventory-search-form.php'; ?> <a href="#" rel="modal:close">Close</a> or press ESC
             </div>
-            
+
             <div id="orders-search-modal" style="display:none;">
             	<?php include 'content/orders/order-search-form.php'; ?> <a href="#" rel="modal:close">Close</a> or press ESC
             </div>
             <div id="documents-modal" style="display:none;">
-            	
+
             </div>
             <div id="order-approve-modal" style="display:none;"></div>
             <div class="blocker" id="loading"><div id="spinner"><img src="assets/images/loader.gif"></div></div>
-            
+
         </div>
-        
+
     </div>
 </div>
 

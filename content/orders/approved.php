@@ -78,10 +78,10 @@
 						$ackdate = '';
 					}
 
-					if (get_partnumber_productionlocation($order['itemid']) != 'MN' && $requestrelease != '') {
-						$requestrelase = '';
-						$prodfinish = '';
-					}
+					// if (get_partnumber_productionlocation($order['itemid']) != 'MN' && $requestrelease != '') {
+					// 	$requestrelase = '';
+					// 	$prodfinish = '';
+					// }
 				?>
 				<?php if ($boatsonly) : ?>
 					<tr>

@@ -73,10 +73,12 @@
 						$num_of_results = get_boat_inventory_allsearch_count($dplus_custs, $keyword, $matchingboats, $reg, false);
 						$heading = " Searching for All boats that have specs that match '".$keyword."' at ".$repname . "'s dealers";
 					} else {
+						// SKIP customer validation
+						$dplus_custs = '';
+
 						if ($overrideinventory) {
 							$num_of_results = get_boat_inventory_allsearch_count_override($keyword, $matchingboats, $reg, false);
 						} else {
-							echo get_boat_inventory_allsearch_count($dplus_custs, $keyword, $matchingboats, $reg, true);
 							$num_of_results = get_boat_inventory_allsearch_count($dplus_custs, $keyword, $matchingboats, $reg, false);
 						}
 						$heading = " Searching for All boats that have specs that match '".$keyword."'";
