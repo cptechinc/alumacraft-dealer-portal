@@ -133,7 +133,7 @@
 			<?php endforeach; unset($boats); ?>
 		<?php else : ?>
 			<tr>
-				<td colspan="9">NO Orders Found</td>
+				<td colspan="11">NO Orders Found</td>
 			</tr>
 		<?php endif; ?>
 	</tbody>

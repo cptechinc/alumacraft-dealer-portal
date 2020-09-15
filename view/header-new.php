@@ -34,7 +34,7 @@
 	<link rel="stylesheet" type="text/css" href="http://alumacraft.com/css/settings.css?v=1" media="screen">
     <link rel="stylesheet" type="text/css" href="http://alumacraft.com/css/extralayers.css?v=1" media="all">
 
- 	<link href="http://alumacraft_app.alumacraft.com/css/admin-LAYOUT-2017.css?v=1" rel="stylesheet" type="text/css">
+ 	<link href="http://alumacraftapp.alumacraft.com/css/admin-LAYOUT-2017.css?v=1" rel="stylesheet" type="text/css">
 
 	<script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
 	<script type="text/javascript" src="http://alumacraft.com/scripts/jquery-2.0.0.min.js"></script>
@@ -190,14 +190,14 @@
 
 
 
-	<script src="http://alumacraft_app.alumacraft.com/Scripts/jquery.validate.min.js"></script>
+	<script src="http://alumacraftapp.alumacraft.com/Scripts/jquery.validate.min.js"></script>
 	<script type="text/javascript">jQuery.noConflict();</script>
-	<script src="http://alumacraft_app.alumacraft.com/Scripts/public_2017.js?v=3" type="text/javascript"></script>
-    <script src="http://alumacraft_app.alumacraft.com/Scripts/imageUpload.js?v=1" type="text/javascript"></script>
-	<script src="http://alumacraft_app.alumacraft.com/Scripts/general_2017.js?v=4"></script>
+	<script src="http://alumacraftapp.alumacraft.com/Scripts/public_2017.js?v=3" type="text/javascript"></script>
+    <script src="http://alumacraftapp.alumacraft.com/Scripts/imageUpload.js?v=1" type="text/javascript"></script>
+	<script src="http://alumacraftapp.alumacraft.com/Scripts/general_2017.js?v=4"></script>
 
 	<!-- <script src="http://alumacraft.com/scripts/boat-builder-2018.js?v=17"></script> -->
-	<script src="http://alumacraft_app.alumacraft.com/Scripts/jquery.formatCurrency-1.4.0.min.js"></script>
+	<script src="http://alumacraftapp.alumacraft.com/Scripts/jquery.formatCurrency-1.4.0.min.js"></script>
 	<!-- <script src="http://alumacraft.com/scripts/boat-builder.2017.js.php?id=119" type="text/javascript"></script> -->
 	<script>
 	jQuery( function() {
