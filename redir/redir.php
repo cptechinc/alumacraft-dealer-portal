@@ -1,14 +1,14 @@
 <?php
-	
+
 	session_start();
 	$A = session_id();
-	include 'init.php'; 
+	include 'init.php';
 	if (isset($_POST['action'])) {
 		$action = $_POST['action'];
 	} else {
 		$action = $_GET['action'];
 	}
-	
+
 	switch ($action) {
 		case 'login':
 			$email = $_POST['email'];
@@ -20,7 +20,7 @@
 				$_SESSION['loc'] = 'index.php';
 				$_SESSION['login'] = true;
 				$LO = "LOGIN SUCCESSFUL";
-				if (isset($_SESSION['go-to'])) { 
+				if (isset($_SESSION['go-to'])) {
 					$_SESSION['loc'] = $_SESSION['go-to'] . "#".$_SESSION['hash'];
 				}
 			} else {
@@ -41,9 +41,9 @@
 			if ($custid == 'all-dealers') {
 				$_SESSION['loc'] = '../index.php';
 			} else {
-				$_SESSION['loc'] = '../index.php?dealer='.urlencode($custid).'#inventory';
+				$_SESSION['loc'] = '../index.php?dealer='.urlencode($custid);
 			}
-			
+
 			header('Location: '.$_SESSION['loc']);
 			exit;
 			break;
@@ -58,13 +58,13 @@
 				$date_through = $_POST['date-through'];
 				$q = $date_from . "|" . $date_through;
 			}
-			
+
 			if ($subset == 'inventory') {
 				$page = 'inventory';
 			} elseif ($subset == 'order-hist') {
 				$page = 'registered-boats';
 			}
-			
+
 			if ($custid != 'all-dealers' && strlen($custid) > 0) {
 				$_SESSION['loc'] = '../'.$page.'.php?location='.urlencode($custid).'&search='.$search_type.'&q='.urlencode($q);
 			} elseif($rep != 'all-reps' && strlen($rep) > 0) {
@@ -73,7 +73,7 @@
 				$_SESSION['loc'] = '../'.$page.'.php?search='.$search_type.'&q='.urlencode($q);
 			}
 
-			
+
 			header('Location: '.$_SESSION['loc']); exit;
 			break;
 		case 'search-orders':
@@ -87,13 +87,13 @@
 				$date_through = $_POST['date-through'];
 				$q = $date_from . "|" . $date_through;
 			}
-			
+
 			if ($subset == 'pending-approval') {
 				$page = 'pending-approval';
 			} elseif ($subset == 'approved') {
 				$page = 'approved';
 			}
-			
+
 			if ($custid != 'all-dealers' && strlen($custid) > 0) {
 				$_SESSION['loc'] = '../'.$page.'.php?location='.urlencode($custid).'&search='.$search_type.'&q='.urlencode($q);
 			} elseif($rep != 'all-reps' && strlen($rep) > 0) {
@@ -102,7 +102,7 @@
 				$_SESSION['loc'] = '../'.$page.'.php?search='.$search_type.'&q='.urlencode($q);
 			}
 
-			
+
 			header('Location: '.$_SESSION['loc']); exit;
 			break;
 		case 'clearsearch':
@@ -114,8 +114,8 @@
 			} elseif ($subset == 'order-hist') {
 				$page = 'registered-boats';
 			} else if ($subset == 'pending-approval')  {
-				 $page = 'pending-approval'; 
-			} else if ($subset == 'approved') { 
+				 $page = 'pending-approval';
+			} else if ($subset == 'approved') {
 				$page = 'approved';
 			}
 			$page = 'index';
@@ -143,7 +143,7 @@
 			} else {
 				$reg = "show-sold-unreg=". $show_unreg;
 			}
-			
+
 			if ($custid != 'all-dealers' && strlen($custid) > 0) {
 				$_SESSION['loc'] = '../'.$page.'.php?location='.urlencode($custid)."&".$reg.'#'.$subset;
 			} elseif($rep != 'all-reps' && strlen($rep) > 0) {
@@ -157,7 +157,7 @@
 			$soldunreg = false;
 			$withmotor = 'Y';
 			$custid = strtoupper($_POST['custid']);
-			$firstname = strtoupper($_POST['firstname']); $middlename = strtoupper($_POST['middlename']); 
+			$firstname = strtoupper($_POST['firstname']); $middlename = strtoupper($_POST['middlename']);
 			$lastname = strtoupper($_POST['lastname']);
 			$email = strtoupper($_POST['email']); $phone = $_POST['phone'];
 			$adr1 = strtoupper($_POST['address']); $adr2 = strtoupper($_POST['address2']);
@@ -167,10 +167,10 @@
 			$serial = strtoupper($_POST['boat-serial']);
 			$invoicedate = $_POST['invoice-date'];
 			$invoicenbr = $_POST['order-nbr'];
-			$itemid = $_POST['itemid']; 
+			$itemid = $_POST['itemid'];
 			$country = $_POST['country'];
 			$motorserial = strtoupper($_POST['motor-serial-number']); $motorhp = $_POST['motor-hp']; $motoryear = $_POST['model-year']; $motordesc = strtoupper($_POST['motor-desc']);
-			
+
 			if (sizeof($_POST['with-motor']) > 0 ) { $withmotor = 'N'; $_SESSION['with-motor'] = 'N'; }
 
 			if ($deliverdate == '') {
@@ -182,44 +182,44 @@
 			if (sizeof($_POST['sold-unreg']) > 0 ) { $soldunreg = true; }
 			if ($soldunreg) { $firstname = "Sold, but Unregistered"; }
 			$date = intval(date("Ymd")); $time = intval(date("gis"));
-			
+
 			if ($soldunreg) {
 				$_SESSION['sql'] = update_boat_registry($serial, 'S', false);
 			}  else {
-				$_SESSION['sql'] = update_boat_registry($serial, 'Y', false); 
+				$_SESSION['sql'] = update_boat_registry($serial, 'Y', false);
 			}
-			
+
 			$recnbr = get_next_warrant_rec();
 			$motoryear = intval($motoryear);
-			
+
 			$_SESSION['sql'] .= register_warranty($date, $time, $recnbr, $serial, $itemid, $invoicenbr, $invoicedate, $withmotor, $firstname, $middlename, $lastname, $adr1, $adr2, $city, $state, $zip, $email, $phone, $datesold, $motorserial, $motorhp, $motoryear, $motordesc);
-					
+
 			$boat = get_boat_info($serial, false);
-			$ordn = $boat['OrderNbr'];	
+			$ordn = $boat['OrderNbr'];
 			$salesrep = $boat['SalespersonId'];
-	
-			
+
+
 			$_SESSION['sql'] .= "<br>" . register_into_warrantyperm($date, $time, $serial, $itemid, $invoicenbr, $invoicedate, $withmotor, $firstname, $middlename, $lastname, $adr1, $adr2, $city, $state, $zip, $email, $phone, $datesold, $motorserial, $motorhp, $motoryear, $motordesc, $custid, $salesrep , $deliverdate, false);
 			if ($country != 'USA' && $country != 'Canada') {
 				$reg = getregistrationinfo($serial, $itemid, false);
 				$_SESSION['sql'] .= "<br>" .insertcountry($reg['WarmSeq'], $country);
-				
+
 			}
-			
+
 			$fields = array();
 			$fields['action'] = 'register-warranty';
 			$fields['sessionid'] = session_id();
 			$fields['boat-serial'] = $serial;
 			$fields['custid'] = $custid;
 			$fields['itemid'] = $itemid;
-			
+
 			//$userid = get_userid(session_id());
-			
+
 			send_server_request($alumadplusip."/reg/redir/remote-redir.php", $fields);
 			$_SESSION['sql2'] .= "<br>". log_registration($serial, $userid);
-			
+
 			if (validate_email($email)) {
-				
+
 				$rustypn = get_item_from_basepn($itemid, false);
 				$registration = array();
 				$registration['accessToken'] = 'abcd1234';
@@ -239,7 +239,7 @@
 				$registration['opt_in'] = 'true';
 				$registration['dealer_name'] = get_dealer_name_from_dplus($custid);
 				$registration['amount'] = get_gift_amount($rustypn, false);
-				
+
 				if ($userid == '4189' || $registration['email'] == 'lhecker@alumacraft.com'|| $registration['email'] == 'bbaron@alumacraft.com') {
 					if (strlen($rustypn) < 1) {
 						$error = 'Y';
@@ -262,32 +262,32 @@
 							}
 						} else {$error = 'N'; }
 					}
-					
-					
-					
+
+
+
 					log_apfco_send($registration['boat_id'], $itemid, $userid, $error, $errormessage);
 				}
-				
-				
-				
+
+
+
 			} else {
 				// FAIL WRITE THAT EMAIL DOESN'T MATCH
 			}
-			
-			
-			
-			
+
+
+
+
 			if ($_SESSION['logintype'] == 'dealer') {
 				$_SESSION['loc'] = 'inventory.php'.urlencode($custid).'#inventory';
 			} else {
-				$_SESSION['loc'] = 'inventory.php#inventory';	
+				$_SESSION['loc'] = 'inventory.php#inventory';
 			}
 			break;
 		case 'edit-warranty':
 			$soldunreg = false;
 			$withmotor = 'Y';
 			$custid = strtoupper($_POST['custid']);
-			$firstname = strtoupper($_POST['firstname']); $middlename = strtoupper($_POST['middlename']); 
+			$firstname = strtoupper($_POST['firstname']); $middlename = strtoupper($_POST['middlename']);
 			$lastname = strtoupper($_POST['lastname']);
 			$email = strtoupper($_POST['email']); $phone = $_POST['phone'];
 			$adr1 = strtoupper($_POST['address']); $adr2 = strtoupper($_POST['address2']);
@@ -297,99 +297,99 @@
 			$serial = strtoupper($_POST['boat-serial']);
 			$invoicedate = $_POST['invoice-date'];
 			$invoicenbr = $_POST['order-nbr'];
-			$itemid = $_POST['itemid']; 
+			$itemid = $_POST['itemid'];
 			$motorserial = strtoupper($_POST['motor-serial-number']); $motorhp = $_POST['motor-hp']; $motoryear = $_POST['model-year']; $motordesc = strtoupper($_POST['motor-desc']);
-			
+
 			if ($deliverdate == '') {
 				$deliverdate = date('Ymd');
 			}
 			if ($datesold == '') {
 				$datesold = date('Ymd');
 			}
-			
+
 			if (sizeof($_POST['with-motor']) > 0 ) { $withmotor = 'N'; $_SESSION['with-motor'] = 'N'; }
-			
+
 			if (sizeof($_POST['sold-unreg']) > 0 ) { $soldunreg = true; }
-			
-			
+
+
 			if ($_POST['sold-unreg'] == 'Y') { $soldunreg = true; }
-			
+
 			if ($_POST['unregister'] == 'Y') { $unreg = true; }
-			
+
 			if ($soldunreg) { $firstname = "Sold, but Unregistered"; }
 			if ($unreg) {
 				$soldunreg = false;
 				$firstname = 'Unregstered';
-				
+
 			}
 			$date = intval(date("Ymd")); $time = intval(date("gis"));
-			
+
 			if ($soldunreg) {update_boat_registry($serial, 'S', false);} elseif ($unreg) {update_boat_registry($serial, 'N', false);} else {update_boat_registry($serial, 'Y', false); }
 			$recnbr = get_next_warrant_rec();
 			$motoryear = intval($motoryear);
-			
+
 			$warrec = get_warranty_register_recnbr($serial, $itemid, false);
 			if ($warrec != '') {
 				remove_warranty_register($warrec);
 			}
-			
+
 			$_SESSION['sql'] = register_warranty($date, $time, $recnbr, $serial, $itemid, $invoicenbr, $invoicedate, $withmotor, $firstname, $middlename, $lastname, $adr1, $adr2, $city, $state, $zip, $email, $phone, $datesold, $motorserial, $motorhp, $motoryear, $motordesc);
-					
+
 			$boat = get_boat_info($serial, false);
-			
-			$ordn = $boat['OrderNbr'];	
+
+			$ordn = $boat['OrderNbr'];
 			$salesrep = $boat['SalespersonId'];
-			
+
 			$_SESSION['sql'] .= "<br>" . register_into_warrantyperm($date, $time, $serial, $itemid, $invoicenbr, $invoicedate, $withmotor, $firstname, $middlename, $lastname, $adr1, $adr2, $city, $state, $zip, $email, $phone, $datesold, $motorserial, $motorhp, $motoryear, $motordesc, $custid, $salesrep , $deliverdate, false);
-			
+
 			$fields = array();
-			
+
 			$fields['action'] = 'register-warranty';
 			$fields['sessionid'] = session_id();
 			$fields['boat-serial'] = $serial;
 			$fields['custid'] = $custid;
 			$fields['itemid'] = $itemid;
-			
+
 			//$userid = get_userid(session_id());
-			
+
 			send_server_request($alumadplusip."/reg/redir/remote-redir.php", $fields);
 			$_SESSION['sql'] .= "<br>". log_registration($serial, $userid);
-			
+
 			if ($_SESSION['logintype'] == 'dealer') {
 				$_SESSION['loc'] = 'inventory.php'.urlencode($custid).'#inventory';
 			} else {
-				$_SESSION['loc'] = 'inventory.php#inventory';	
+				$_SESSION['loc'] = 'inventory.php#inventory';
 			}
 			break;
 		case 'reregister':
 			$fields = array();
 			//$userid = get_userid(session_id());
-			
+
 			$serial = urldecode($_GET['serial']);
 			$custid = get_boat_custid($serial, false);
 			$itemid = get_boat_itemid($serial, false);
-			
+
 			$fields['action'] = 'register-warranty';
 			$fields['sessionid'] = session_id();
 			$fields['boat-serial'] = $serial;
 			$fields['custid'] = $custid;
 			$fields['itemid'] = $itemid;
-			
+
 			send_server_request($alumadplusip."/reg/redir/remote-redir.php?action=force-register&sessionid=".session_id()."&serial=".$serial."&custid=".$custid."&itemid=".$itemid, $fields);
 			//$_SESSION['sql'] = "<br>". log_registration($serial, $userid);
 			$_SESSION['sql'] = "<br>". "?action=force-register&sessionid=".session_id()."&serial=".$serial."&custid=".$custid."&itemid=".$itemid;
-			$_SESSION['loc'] = 'index.php';	
-			$_SESSION['loc'] = "warranty-page.php?register=$serial&itemnbr=$itemid";	
+			$_SESSION['loc'] = 'index.php';
+			$_SESSION['loc'] = "warranty-page.php?register=$serial&itemnbr=$itemid";
 			break;
 		case 'update-register':
 			$date = intval(date("Ymd")); $time = intval(date("gis"));
 			$fields = array();
 			//$userid = get_userid(session_id());
-			
+
 			$serial = urldecode($_GET['serial']);
 			$custid = get_boat_custid($serial, false);
 			$itemid = get_boat_itemid($serial, false);
-			
+
 			$fields['action'] = 'register-warranty';
 			$fields['sessionid'] = session_id();
 			$fields['boat-serial'] = $serial;
@@ -401,11 +401,11 @@
 				remove_warranty_register($warrec);
 			}
 			register_warranty($date, $time, $recnbr, $serial, $itemid, $reg['WarmSordNbr'], $reg['WarmInvcDate'], $reg['RegisterMotor'], $reg['WarmOwnFname'], $reg['WarmOwnMname'], $reg['WarmOwnLname'], $reg['WarmOwnAdr1'], $reg['WarmOwnAdr2'], $reg['WarmOwnCity'], $reg['WarmOwnStat'], $reg['WarmOwnZip'], $reg['WarmEmail'], $reg['WarmPhone1'], $reg['WarmSaleDate'], $reg['WarmEngSerNbr'], $reg['WarmEngHorse'], $reg['WarmEngModelYear'], $reg['WarmEngDesc']);
-			
+
 			send_server_request($alumadplusip."/reg/redir/remote-redir.php?action=force-register&sessionid=".session_id()."&serial=".$serial."&custid=".$custid."&itemid=".$itemid, $fields);
 			//$_SESSION['sql'] = "<br>". log_registration($serial, $userid);
 			$_SESSION['sql'] = "<br>". "?action=force-register&sessionid=".session_id()."&serial=".$serial."&custid=".$custid."&itemid=".$itemid;
-			$_SESSION['loc'] = 'index.php';	
+			$_SESSION['loc'] = 'index.php';
 			break;
 		case 'load-orders':
 			$LO = "DBNAME=" . $DB . "\nREPORDRHED\nTYPE=O";
@@ -426,7 +426,7 @@
 				$_SESSION['doc'] .= "<br>"."http://".$alumadplusip."/orderfiles/".$doc['pathname'];
 			}
 			$_SESSION['loc'] = "index.php";
-			
+
 			break;
 		case 'approve-order':
 			$fields = array();
@@ -435,7 +435,7 @@
 			} else {
 				$ordn = $_GET['ordn'];
 			}
-			
+
 			$fields['action'] = 'approve-order';
 			$fields['sessionid'] = session_id();
 			$fields['ordn'] = str_pad($ordn, 10, "0", STR_PAD_LEFT);
@@ -462,7 +462,7 @@
 			$_SESSION['email'] = $email.",paul@cptechinc.com";
 			$_SESSION['from-email'] = ",paul@cptechinc.com";
 			//$email = 'paul@cptechinc.com';
-			
+
 			//email_declined_approval("paul@cptechinc.com", "orders@alumacraft.com", $message.$userid, $ordn, $login_name);
 			$fields = array();
 			$fields['action'] = 'email-decline-approval';
@@ -474,7 +474,7 @@
 			$url = $alumadplusip."/reg/redir/remote-redir.php";
 			send_server_request($url, $fields);
 			log_approve_order($ordn, $userid, $repid, 'N', $message);
-			
+
 			break;
 		case 'cancel-approval':
 			$fields = array();
@@ -489,7 +489,7 @@
 			$url = $alumadplusip."/reg/redir/remote-redir.php";
 			send_server_request($url, $fields);
 			log_approve_order($ordn, $userid, $repid, 'N', $message);
-			
+
 			break;
 		case 'get-email-approval-cancellation':
 			$message = $_GET['reason'];
@@ -503,7 +503,7 @@
 			//$email = 'paul@cptechinc.com';
 			email_declined_approval("paul@cptechinc.com", "orders@alumacraft.com", $message.$userid, $ordn, $login_name);
 			log_approve_order($ordn, $userid, $repid, 'N', $message);
-			
+
 			break;
 		case 'logout':
 			session_regenerate_id(true);
@@ -519,9 +519,9 @@
 			$LO = "DBNAME=".$DB."\nLISTBOATS\nCUSTID=".$custid;
 			break;
 	}
-	
+
 
 	header('Location: ../'.$_SESSION['loc']);
-	
+
  	exit;
 ?>

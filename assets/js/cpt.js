@@ -1,49 +1,55 @@
 $(function() {
-	
-	jQuery(".page-section").on("click", ".paginate-link", function(e) { 
+
+	jQuery(".page-section").on("click", ".paginate-link", function(e) {
 		e.preventDefault();
 		var href = jQuery(this).attr('href');
-		console.log(href);
 		var column = jQuery(this).data('subset');
 		loadpage(column, href);
-	
+
 	} );
-	
-	jQuery(".page-section").on("click", ".open-mod", function(event) { 
+
+	jQuery(".page-section").on("click", ".open-mod", function(event) {
 		var subset = jQuery(this).data('subset');
 		jQuery('input[name="subset"]').val(subset);
-	
+
 	} );
-	
-	jQuery(".page-section").on("click", ".open-mod", function(event) { 
+
+	jQuery(".page-section").on("click", "#list_build_tab_headers .ui-tabs-anchor", function(event) {
+		var subset = jQuery(this).attr('href');
+		subset = subset.replace('#', '');
+		jQuery('form#rep-form').find('input[name=subset]').val(subset);
+		jQuery('form#dealer-form').find('input[name=subset]').val(subset);
+	});
+
+	jQuery(".page-section").on("click", ".open-mod", function(event) {
 		event.preventDefault();
 		console.log(jQuery(this).attr('href'));
 	});
-	
-	jQuery(".page-section").on("click", "#dealer-quotes-link", function(event) { 
+
+	jQuery(".page-section").on("click", "#dealer-quotes-link", function(event) {
 		var addon = jQuery(this).data('addon');
 		window.location='http://alumacraft.com/Boat-Builder.php?action=list'+addon+'#dealer_quotes';
 	});
-	
-	jQuery(".page-section").on("click", ".get-document", function(event) { 
+
+	jQuery(".page-section").on("click", ".get-document", function(event) {
 		event.preventDefault();
 		var ordn = jQuery(this).data('ordn');
 		send_for_documents(ordn);
 	});
-	
-	jQuery("body").on("click", ".so-ack", function(event) { 
+
+	jQuery("body").on("click", ".so-ack", function(event) {
 		//event.preventDefault();
 		var ordn = jQuery(this).data('ordn');
 		var docname = jQuery(this).data('docname');
 		log_acknowledgement_view(ordn, docname);
 	});
-	
-	jQuery(".page-section").on("click", ".approve-order", function(event) { 
+
+	jQuery(".page-section").on("click", ".approve-order", function(event) {
 		event.preventDefault();
 		var ordn = jQuery(this).data('ordn');
 		var roletype = jQuery(this).data('role');
 		if (roletype !=='DEALER') {
-			
+
 			//jQuery.get("/reg/ajax/load/non-dealer-approve-order.php?ordn="+ordn, function(html) {
 			jQuery.get("/reg/ajax/load/order-approve.php?ordn="+ordn, function(html) {
 				jQuery('#order-approve-modal').html(html);
@@ -58,8 +64,8 @@ $(function() {
 			});
 		}
 	});
-	
-	
+
+
 	jQuery('#inventory-search').submit(function(e) {
 		e.preventDefault();
 		var form = '#inventory-search';
@@ -72,11 +78,11 @@ $(function() {
 			jQuery( "#"+column ).load( json.href+"#load-"+column, function() {
 				jQuery.modal.close();
 			});
-			
-		});	
+
+		});
 	});
-	
-	
+
+
 	jQuery('#orders-search-form').submit(function(e) {
 		e.preventDefault();
 		var form = '#orders-search-form';
@@ -89,10 +95,10 @@ $(function() {
 			jQuery( "#"+column ).load( json.href+"#load-"+column, function() {
 				jQuery.modal.close();
 			});
-			
-		});	
+
+		});
 	});
-	
+
 	jQuery('#boats-only-form').submit(function(e) {
 		e.preventDefault();
 		var form = '#boats-only-form';
@@ -105,11 +111,11 @@ $(function() {
 			jQuery( "#"+column ).load( json.href+"#load-"+column, function() {
 				jQuery.modal.close();
 			});
-			
-		});	
+
+		});
 	});
-	
-	jQuery(".page-section").on("submit", "#show-unregistered-boats-form", function(e) { 
+
+	jQuery(".page-section").on("submit", "#show-unregistered-boats-form", function(e) {
 		e.preventDefault();
 		var form = '#show-unregistered-boats-form';
 		console.log('posting ' + form + ' form');
@@ -121,13 +127,13 @@ $(function() {
 			jQuery( "#"+column ).load( json.href+"#load-"+column, function() {
 				jQuery.modal.close();
 			});
-			
-		});	
-	
+
+		});
+
 	} );
-	
-	
-	jQuery("body").on("submit", "#approve-order-form", function(e) { 
+
+
+	jQuery("body").on("submit", "#approve-order-form", function(e) {
 		e.preventDefault();
 		var form = '#approve-order-form';
 		var action = jQuery(form).attr('action');
@@ -135,24 +141,24 @@ $(function() {
 		var answer = jQuery('#approve-order').val();
 		if (answer.toUpperCase() === "YES") {
 			jQuery(form + " .action").val('approve-order');
-			
+
 				postform(form, function() {
 					var n = noty({
 					text: 'Your approval of order #' + ordn + " has been sent",
 					theme: 'relax', // or 'relax'
 					type: 'success',
-					timeout: 4000, 
+					timeout: 4000,
 					animation: {
 						open: {height: 'toggle'}, // jQuery animate function property object
 						close: {height: 'toggle'}, // jQuery animate function property object
 						easing: 'swing', // easing
 						speed: 500 // opening & closing animation speed
 					}
-					
+
 				});
 				jQuery.modal.close();
 			});
-			
+
 		} else if (answer.toUpperCase() === "NO") {
 			if (jQuery('#not-approved-reason .reason').val().length < 1) {
 				jQuery(form + " .action").val('cancel-approval');
@@ -163,34 +169,34 @@ $(function() {
 						text: '<h2>Your sales rep has been emailed</h2>',
 						theme: 'relax', // or 'relax'
 						type: 'success',
-						timeout: 4000, 
+						timeout: 4000,
 						animation: {
 							open: {height: 'toggle'}, // jQuery animate function property object
 							close: {height: 'toggle'}, // jQuery animate function property object
 							easing: 'swing', // easing
 							speed: 500 // opening & closing animation speed
 						}
-					}); 
+					});
 				});
 				jQuery.modal.close();
 			}
 		}
-		
+
 	} );
-	
-	jQuery("body").on("submit", "#admin-approve-order-form", function(e) { 
+
+	jQuery("body").on("submit", "#admin-approve-order-form", function(e) {
 		e.preventDefault();
 		var form = "#"+jQuery(this).attr('id');
 		var ordn = jQuery(form +" input[name='ordn']").val();
 		var answer = jQuery('#approve-order').val();
 		if (answer.toUpperCase() === "YES") {
-			
+
 			postform(form, function() {
 				noty({
 					text: 'Your approval of order #' + ordn + " has been sent",
 					theme: 'relax', // or 'relax'
 					type: 'success',
-					timeout: 4000, 
+					timeout: 4000,
 					animation: {
 						open: {height: 'toggle'}, // jQuery animate function property object
 						close: {height: 'toggle'}, // jQuery animate function property object
@@ -198,44 +204,44 @@ $(function() {
 						speed: 500 // opening & closing animation speed
 					}
 				});
-				jQuery.modal.close(); 
+				jQuery.modal.close();
 			});
-			
+
 		} else if (answer.toUpperCase() === "NO") {
 			noty({
 					text: 'You have declined to approve order #' + ordn,
 					theme: 'relax', // or 'relax'
 					type: 'warning',
-					timeout: 4000, 
+					timeout: 4000,
 					animation: {
 						open: {height: 'toggle'}, // jQuery animate function property object
 						close: {height: 'toggle'}, // jQuery animate function property object
 						easing: 'swing', // easing
 						speed: 500 // opening & closing animation speed
 					}
-				}); 
+				});
 		}
 	} );
-	
-	jQuery("body").on("change", ".unhide-approve-form", function(e) { 
+
+	jQuery("body").on("change", ".unhide-approve-form", function(e) {
 		e.preventDefault();
 		var ready = false;
 		var form = '#approve-order-form';
 		if (jQuery('#viewed-web-order').is(':checked')) {
 			ready = true;
 		} else {
-			ready = false;	
+			ready = false;
 		}
-		
+
 		if (jQuery('#viewed-ack').is(':checked')) {
 			ready = true;
 		} else {
-			ready = false;	
+			ready = false;
 		}
-		
-		
+
+
 		if (ready) {
-			jQuery(form).removeClass('hidden');	
+			jQuery(form).removeClass('hidden');
 		}
 	} );
 
@@ -246,7 +252,7 @@ $(function() {
 		buttonImageOnly: true,
 		buttonText: "Select date"
 	});
-	
+
 	jQuery( "#saledate" ).datepicker({
 		dateFormat: "mm/dd/yy",
 		showOn: "button",
@@ -256,7 +262,7 @@ $(function() {
 		//altField: "#saledate-hidden",
       	//altFormat: "yymmdd"
 	});
-	
+
 	jQuery( "#deliverdate" ).datepicker({
 		dateFormat: "mm/dd/yy",
 		showOn: "button",
@@ -266,7 +272,7 @@ $(function() {
 		//altField: "#saledate-hidden",
       	//altFormat: "yymmdd"
 	});
-	
+
 	jQuery( "#date-from" ).datepicker({
 		dateFormat: "mm/dd/yy",
 		showOn: "button",
@@ -276,7 +282,7 @@ $(function() {
 		altField: "#date-from-actual",
       	altFormat: "yymmdd"
 	});
-	
+
 	jQuery( "#date-through" ).datepicker({
 		dateFormat: "mm/dd/yy",
 		showOn: "button",
@@ -286,36 +292,36 @@ $(function() {
 		altField: "#date-through-actual",
       	altFormat: "yymmdd"
 	});
-	
+
 	jQuery( ".search-dates" ).change(function() {
 		var date = moment(jQuery(this).val(), "MM-DD-YYYY");
 		var id = jQuery(this).attr('id');
 		jQuery("#"+id+"-actual").val(moment(date).format("YYYYMMDD"));
 	});
-	
+
 	jQuery('#search_type').change(function(){
 		jQuery('#ui-datepicker-div').css('z-index', 999999);
 		if (jQuery(this).val() === 'InvoiceDate' || jQuery(this).val() === 'OehdArrvDate' || jQuery(this).val() === 'OehdOrdrDate') {
-			jQuery('#date-from').parent().parent().removeClass('hidden');	
-			jQuery('#date-through').parent().parent().removeClass('hidden');	
+			jQuery('#date-from').parent().parent().removeClass('hidden');
+			jQuery('#date-through').parent().parent().removeClass('hidden');
 			jQuery('#key-search').parent().parent().addClass('hidden');
 		} else {
-			jQuery('#date-from').parent().parent().addClass('hidden');	
-			jQuery('#date-through').parent().parent().addClass('hidden');	
+			jQuery('#date-from').parent().parent().addClass('hidden');
+			jQuery('#date-through').parent().parent().addClass('hidden');
 			jQuery('#key-search').parent().parent().removeClass('hidden');
-		
+
 		}
 	});
-	
+
 	jQuery('.load-ajax').click(function(event) {
 		event.preventDefault();
 		jQuery.get(this.href, function(html) {
 			jQuery(html).appendTo('body').modal();
 		});
 	});
-	
-	
-		
+
+
+
 });
 function validdate(datestring) {
     // First check for the pattern
@@ -348,7 +354,7 @@ function postform(form, callback) {
 	console.log('posting ' + form + ' form');
 	var action = jQuery(form).attr('action');
 	console.log(action);
-	jQuery.post( action, jQuery( form ).serialize() ).done(callback());	
+	jQuery.post( action, jQuery( form ).serialize() ).done(callback());
 }
 function wait(time, callback) {
 	var timeoutID = window.setTimeout(callback, time);
@@ -425,4 +431,3 @@ function log_acknowledgement_view(ordn, docname) {
         });
     }
 }(jQuery));
-
