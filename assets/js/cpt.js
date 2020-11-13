@@ -99,7 +99,7 @@ $(function() {
 		});
 	});
 
-	jQuery('#boats-only-form').submit(function(e) {
+	jQuery("body").on("submit",'#boats-only-form', function(e) {
 		e.preventDefault();
 		var form = '#boats-only-form';
 		console.log('posting ' + form + ' form');

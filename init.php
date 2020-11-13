@@ -85,5 +85,6 @@
 		case 'SADMIN':
 			break;
 	}
+	echo $role_type;
 
 $overrideinventory = false;
