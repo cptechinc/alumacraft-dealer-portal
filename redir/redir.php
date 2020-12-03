@@ -459,15 +459,16 @@
 			$alumarep = get_repid_from_dplus($repid);
 			$email = get_rep_email($alumarep);
 			$loginemail = get_login_email($userid);
-			$_SESSION['email'] = $email.",paul@cptechinc.com";
-			$_SESSION['from-email'] = ",paul@cptechinc.com";
-			//$email = 'paul@cptechinc.com';
 
-			//email_declined_approval("paul@cptechinc.com", "orders@alumacraft.com", $message.$userid, $ordn, $login_name);
+			$rep2 = get_order_cust_salesrep2($ordn);
+			$alumarep2 = get_repid_from_dplus($rep2);
+			$rep2email = get_rep_email($alumarep2);
+
 			$fields = array();
 			$fields['action'] = 'email-decline-approval';
 			$fields['ordn'] = $ordn;
 			$fields['email'] = $email;
+			$fields['repemail'] = $rep2email;
 			$fields['message'] = $message;
 			$fields['login-name'] = $login_name;
 			$fields['sessionid'] = session_id();
@@ -477,12 +478,21 @@
 
 			break;
 		case 'cancel-approval':
+			$ordn = $_POST['ordn'];
+			$repid = get_order_salesrep($ordn, false);
+			$alumarep = get_repid_from_dplus($repid);
+			$email = get_rep_email($alumarep);
+			$loginemail = get_login_email($userid);
+
+			$rep2 = get_order_cust_salesrep2($ordn);
+			$alumarep2 = get_repid_from_dplus($rep2);
+			$rep2email = get_rep_email($alumarep2);
 			$fields = array();
 			$fields['action'] = 'email-decline-approval';
 			$fields['ordn'] = $_POST['ordn'];
-			$repid = get_order_salesrep($fields['ordn'], false);
-			$alumarep = get_repid_from_dplus($repid);
+
 			$fields['email'] = get_rep_email($alumarep);
+			$fields['repemail'] = $rep2email;
 			$fields['message'] = $_POST['reason'];
 			$fields['login-name'] = $login_name;
 			$fields['sessionid'] = session_id();

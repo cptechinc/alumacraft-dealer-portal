@@ -757,6 +757,18 @@
 		}
 	}
 
+	function get_order_cust_salesrep2($ordn, $debug = false) {
+		global $db;
+		$sql = "SELECT AR_CUST_MAST.ArspSalePer2 FROM AR_CUST_MAST JOIN ac_ecomm.SO_HEADER on AR_CUST_MAST.ArcuCustId = SO_HEADER.ArcuCustId WHERE OehdNbr = '$ordn'";
+
+		if ($debug) {
+			return $sql;
+		} else {
+			$results = $db->query($sql);
+			return $results->fetchColumn();
+		}
+	}
+
 	// function get_wip_complete_date($ordn, $itemid, $debug) {
 	// 	global $db;
 	// 	$sql = "SELECT WIP_HEADER.WiphCmpltdDate FROM SO_HEADER JOIN SO_DETAIL ON SO_HEADER.OehdNbr = SO_DETAIL.OehdNbr JOIN WIP_HEADER ON SO_DETAIL.InitItemNbr = WIP_HEADER.InitItemNbr WHERE SO_HEADER.OehdNbr = '$ordn' AND SO_DETAIL.InitItemNbr = '$itemid' LIMIT 1";
