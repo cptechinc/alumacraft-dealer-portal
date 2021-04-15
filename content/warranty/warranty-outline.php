@@ -34,6 +34,5 @@
         Nothing to Register
     <?php endif; ?>
 <?php else : ?>
-	<?php echo $userid; ?> You don't have access to register boats.
+  You don't have access to register boats.
 <?php endif; ?>
-
