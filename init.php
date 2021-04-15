@@ -31,9 +31,10 @@
 
 	$login_name = '';
 	$role_type = '';
+
 	if (isset($_SESSION['login']) || $_SESSION['login'] == false) {
 		if ($_SESSION['login'] == true) {
-			$userid = get_userid(session_id);
+			//$userid = get_userid(session_id);
 			$userid = $_SESSION['userID'];
 			$login_name = get_login_name($userid);
 			$role = get_role($userid);
@@ -85,6 +86,5 @@
 		case 'SADMIN':
 			break;
 	}
-	echo $role_type;
 
 $overrideinventory = false;
