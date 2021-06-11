@@ -1,5 +1,5 @@
-<?php 
-	if (isset($_GET['search'])) {	
+<?php
+	if (isset($_GET['search'])) {
 		if ($search == 'all') {
 			switch ($role_type) {
 				case 'DEALER':
@@ -21,7 +21,7 @@
 						//$dealerid comes from the role-type-logic script
 						$boats = get_cust_boat_inventory_allsearch($dealerid, $showonpage, $this_page, $keyword, $matchingboats, $reg, false);
 						$sql = get_cust_boat_inventory_allsearch($dealerid, $showonpage, $this_page, $keyword, $matchingboats, $reg, true);
-						
+
 					} elseif($_GET['rep']) {
 						$boats = get_reps_boat_inventory_allsearch($dplus_custs, $showonpage, $this_page, $keyword, $matchingboats, $reg, false);
 					} else {
@@ -113,7 +113,8 @@
 					$boats = get_reps_boat_inventory($dplus_custs, $showonpage, $this_page, $reg, false);
 				} else {
 					$boats = get_boat_inventory($dplus_custs, $showonpage, $this_page, $reg, false);
-					$sql = get_boat_inventory($dplus_custs, $showonpage, $this_page, $reg, false);
+					$sql = get_boat_inventory($dplus_custs, $showonpage, $this_page, $reg, true);
+					echo $sql;
 				}
 				break;
 
