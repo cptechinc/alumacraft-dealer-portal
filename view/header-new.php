@@ -192,6 +192,7 @@
 
 	<script src="http://alumacraftapp.alumacraft.com/Scripts/jquery.validate.min.js"></script>
 	<script type="text/javascript">jQuery.noConflict();</script>
+	<script type="text/javascript" src="https://wsqa.aimbase.com/Scripts/awa.js" id="AimbaseAnalytics" data-clientid="TI1480"></script>
 	<script src="http://alumacraftapp.alumacraft.com/Scripts/public_2017.js?v=3" type="text/javascript"></script>
     <script src="http://alumacraftapp.alumacraft.com/Scripts/imageUpload.js?v=1" type="text/javascript"></script>
 	<script src="http://alumacraftapp.alumacraft.com/Scripts/general_2017.js?v=4"></script>
@@ -247,15 +248,16 @@
 	</div>
 	<div id="header-wrapper">
 		<div class="row">
-			<div class="grid_4">
-				<div id="logo">
-					<a href="http://alumacraft.com/Alumacraft-Boats.php"><img src="http://alumacraft.com/images/logo.jpg" alt="Alumacraft logo" class="max-img"></a>
-				</div>
-			</div>
+
 		</div>
 		<div class="navigation">
 			<div class="row">
-				<div class="grid_12">
+				<div class="grid_4">
+					<div id="logo">
+						<a href="http://alumacraft.com/Alumacraft-Boats.php"><img src="http://alumacraft.com/images/logo.jpg" alt="Alumacraft logo" class="max-img"></a>
+					</div>
+				</div>
+				<div class="grid_7">
 					<ul id="jetmenu-1" class="jetmenu">
 						<li class="showhide" style="display: none;"><span class="title"></span><span class="icon"><em></em><em></em><em></em><em></em></span></li>
 						<li class="fix-sub" style=""><a href="#">MENU <span>☰</span></a>
