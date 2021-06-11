@@ -52,7 +52,6 @@
 				<?php
 					$prodfinish = $requestrelease = '';
 					$wipcomplete = get_wip_complete_date($order['OehdNbr'], $order['itemid'], false);
-					$sql = get_wip_complete_date($order['OehdNbr'], $order['itemid'], true);
 
 					if ($wipcomplete < 1) {
 						if (is_in_inv_lot($order['OehdNbr'], $order['itemid'], false)) {
