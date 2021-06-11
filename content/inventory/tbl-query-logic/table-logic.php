@@ -29,7 +29,7 @@
 					} elseif($_GET['rep']) {
 						$boats = get_boat_inventory_allsearch($dplus_custs, $showonpage, $this_page, $keyword, $matchingboats, $reg, false);
 					} else {
-						if ($overrideinventory) {							
+						if ($overrideinventory) {
 							$boats = get_boat_inventory_allsearch_override($showonpage, $this_page, $keyword, $matchingboats, $reg, false);
 						} else {
 							$boats = get_boat_inventory_allsearch($dplus_custs, $showonpage, $this_page, $keyword, $matchingboats, $reg, false);
@@ -148,7 +148,6 @@
 					} else {
 						$boats = get_boat_inventory($dplus_custs, $showonpage, $this_page, $reg, false);
 					}
-
 				}
 				break;
 
