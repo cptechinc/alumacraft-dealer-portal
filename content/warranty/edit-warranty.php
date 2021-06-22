@@ -1,6 +1,14 @@
 <?php $boat = get_boat_info(urldecode($_GET['edit']), false); ?>
 <?php $invoicedate = date("m/d/Y", strtotime($boat['InvoiceDate'])); ?>
 <?php $registration = getregistrationinfo($_GET['edit'], $_GET['itemnbr'], false); ?>
+
+<?php
+	if (hasWarrantyRecord($_GET['edit'], $_GET['itemnbr']) === false) {
+		copyWarrantyRegisterIntoWarranty($_GET['edit'], $_GET['itemnbr']);
+		$registration = getregistrationinfo($_GET['edit'], $_GET['itemnbr'], false);
+	}
+?>
+
 <div>
     <form id="warranty-form" action="redir/redir.php" method="post" novalidate>
         <input type="hidden" name="boat-serial" id="boat-serial" value="<?php echo $boat['SerialNbr']; ?>">

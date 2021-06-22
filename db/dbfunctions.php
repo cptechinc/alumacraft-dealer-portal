@@ -908,7 +908,7 @@
 		}
 	}
 
-	function getregistrationinfo($serial, $itemnbr, $debug) {
+	function getregistrationinfo($serial, $itemnbr, $debug = false) {
 		global $db;
 		$sql = "SELECT * FROM WARRANTY WHERE SermSerNbr = '$serial' AND InitItemNbr = '$itemnbr' ORDER BY WarmEntryDate DESC, WarmSeq DESC LIMIT 1";
 		if ($debug) {
@@ -929,6 +929,54 @@
 			return $results->fetchColumn();
 		}
 	}
+
+	function getWarrantyRegisterRecord($serial, $itemid, $debug = false) {
+		global $db;
+		$params = array(':serialnbr' => $serial, ':itemid' => $itemid);
+		$sql = "SELECT * FROM warranty_register WHERE SerialNbr = :serialnbr AND ItemNbr = :itemid";
+		$query = $db->prepare($sql);
+
+		if ($debug) {
+			return str_replace(array_keys($params), array_values($params), $sql);
+		} else {
+			$query->execute($params);
+			return $query->fetch(PDO::FETCH_ASSOC);
+		}
+	}
+
+	function hasWarrantyRecord($serial, $itemid) {
+		global $db;
+		$params = array(':serialnbr' => $serial, ':itemid' => $itemid);
+		$sql = "SELECT COUNT(*) FROM WARRANTY WHERE SermSerNbr = :serialnbr AND InitItemNbr = :itemid";
+		$query = $db->prepare($sql);
+
+		if ($debug) {
+			return str_replace(array_keys($params), array_values($params), $sql);
+		} else {
+			$query->execute($params);
+			return intval($query->fetchColumn()) > 0;
+		}
+	}
+
+	function copyWarrantyRegisterIntoWarranty($serial, $itemid, $debug = false) {
+		$r = getWarrantyRegisterRecord($serial, $itemid, false);
+		$boat = get_boat_info($serial, false);
+		$custid = $boat['CustId'];
+		$salesrep = $boat['SalespersonId'];
+
+		$warranty = array(
+			'InitItemNbr' => $r['ItemNbr'], 'SermSerNbr' => $r['SerialNbr'], 'WarmSaleDate' => $r['InvoiceDate'],
+			'WarmOwnFname' => $r['FirstName'], 'WarmOwnMname' => $r['MiddleName'], 'WarmOwnLname' => $r['LastName'],
+			'WarmOwnAdr1' => $r['Adr1'], 'WarmOwnAdr2' => $r['Adr2'], 'WarmOwnCity' => $r['City'], 'WarmOwnStat' => $r['State'], 'WarmOwnZip' => $r['Zip'],
+			'WarmSordNbr' => $r['InvoiceNbr'], 'WarmInvcDate' => $r['InvoiceDate'], 'WarmCustId' => $custid, 'WarmSpId' => $salesrep, 'WarmEntryDate' => $r['Date'],
+			'WarmEngSerNbr' => $r['EngSerialNbr'], 'WarmEngHorse' => $r['EngHorsePower'], 'WarmEngModelYear' => $r['EngModelYear'], 'WarmEngDesc' => $r['EngDesc'],
+			'WarmPhone1' => $r['Phone'], 'WarmEmail' => $r['Email'], 'DateUpdtd' => $r['Date'], 'TimeUpdtd' => $r['Time'], 'WarmDelvDate' => 0, 'RegisterMotor' => $r['RegisterMotor']
+		);
+
+		return registerWarrantyMaster($warranty, $debug);
+	}
+
+
 
 	function remove_warranty_register($warrec) {
 		global $db;
@@ -1057,9 +1105,11 @@
 		return $sql;
 	}
 
-	function register_into_warrantyperm($date, $time, $serial, $itemid, $invoicenbr, $invoicedate, $registermotor, $firstname, $middlename, $lastname, $adr1, $adr2, $city, $state, $zip, $email, $phone, $datesold, $engsn, $enghp, $engyr, $engdesc, $custid, $salespersonid, $deliverdate, $debug) {
+	function register_into_warrantyperm($date, $time, $serial, $itemid, $invoicenbr, $invoicedate, $registermotor, $firstname, $middlename, $lastname, $adr1, $adr2, $city, $state, $zip, $email, $phone, $datesold, $engsn, $enghp, $engyr, $engdesc, $custid, $salespersonid, $deliverdate, $debug = false) {
 		global $db;
+
 		$sql = "INSERT INTO WARRANTY (InitItemNbr, SermSerNbr, WarmSaleDate, WarmOwnFname, WarmOwnMname, WarmOwnLname, WarmOwnAdr1, WarmOwnAdr2, WarmOwnCity, WarmOwnStat, WarmOwnZip, WarmSordNbr, WarmInvcDate, WarmCustId, WarmSpId, WarmEntryDate, WarmEngSerNbr, WarmEngHorse, WarmEngModelYear, WarmEngDesc, WarmPhone1, WarmEmail, DateUpdtd, TimeUpdtd, WarmDelvDate, RegisterMotor) VALUES ('$itemid', '$serial', $datesold, '$firstname', '$middlename', '$lastname', '$adr1', '$adr2', '$city', '$state', '$zip', '$invoicenbr', $invoicedate, '$custid', '$salespersonid', $date, '$engsn', $enghp, $engyr, '$engdesc', '$phone', '$email', $date, $time, $deliverdate, '$registermotor')";
+
 		if ($debug) {
 
 		} else {
@@ -1068,6 +1118,29 @@
 
 		return $sql;
 
+	}
+
+	function registerWarrantyMaster($r, $debug = false) {
+		global $db;
+
+		$sql = "INSERT INTO WARRANTY (InitItemNbr, SermSerNbr, WarmSaleDate, WarmOwnFname, WarmOwnMname, WarmOwnLname, WarmOwnAdr1, WarmOwnAdr2, WarmOwnCity, WarmOwnStat, WarmOwnZip, WarmSordNbr, WarmInvcDate, WarmCustId, WarmSpId, WarmEntryDate, WarmEngSerNbr, WarmEngHorse, WarmEngModelYear, WarmEngDesc, WarmPhone1, WarmEmail, DateUpdtd, TimeUpdtd, WarmDelvDate, RegisterMotor) VALUES (:itemid, :serial, :datesold, :firstname, :middlename, :lastname, :adr1, :adr2, :city, :state, :zip, :invnbr, :invdate, :custid, :salesrep, :entrydate, :engsn, :enghp, :engyr, :engdesc, :phone, :email, :date, :time, :deliverdate, :registermotor)";
+
+		$params = array(
+			':itemid'    => $r['InitItemNbr'],   ':serial'     => $r['SermSerNbr'],   ':datesold' => $r['WarmSaleDate'],
+			':firstname' => $r['WarmOwnFname'],  ':middlename' => $r['WarmOwnMname'], ':lastname' => $r['WarmOwnLname'],
+			':adr1'      => $r['WarmOwnAdr1'],   ':adr2'       => $r['WarmOwnAdr2'],  ':city'     => $r['WarmOwnCity'],      ':state'    => $r['WarmOwnStat'], ':zip'         => $r['WarmOwnZip'],
+			':invnbr'    => $r['WarmSordNbr'],   ':invdate'    => $r['WarmInvcDate'], ':custid'   => $r['WarmCustId'],       ':salesrep' => $r['WarmSpId'],    ':entrydate'   => $r['WarmEntryDate'],
+			':engsn'     => $r['WarmEngSerNbr'], ':enghp'      => $r['WarmEngHorse'], ':engyr'    => $r['WarmEngModelYear'], ':engdesc'  => $r['WarmEngDesc'],
+			':phone'     => $r['WarmPhone1'],    ':email'      => $r['WarmEmail'],    ':date'     => $r['DateUpdtd'],        ':time'     => $r['TimeUpdtd'],   ':deliverdate' => $r['WarmDelvDate'], ':registermotor' => $r['RegisterMotor']
+		);
+
+		$query = $db->prepare($sql);
+
+		if ($debug) {
+			return str_replace(array_keys($params), array_values($params), $sql);
+		} else {
+			return $query->execute($params);
+		}
 	}
 
 	function log_warranty($itemnbr, $serial, $recnbr, $datesold, $firstname, $middlename, $lastname, $addr1, $addr2, $addr3, $city, $state, $zip, $ordn, $invoicedate, $custid, $salesperson, $date, $engine_serial, $eng_hp, $eng_year, $eng_desc, $phone, $phone2, $email, $dateupdated, $time) {
