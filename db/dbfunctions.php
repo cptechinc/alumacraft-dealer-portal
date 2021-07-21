@@ -430,8 +430,8 @@
 		$search = '%'.str_replace(' ', '%', $keyword).'%';
 		if ($page > 1) { $start_point = ($page * $limit) - $limit; } else if ($page == 1) { $start_point = 0; } else { $start_point = 0; }
 		//if ($boatsonly) {
-			$sql = "SELECT OedtDesc AS descr, InitItemNbr AS itemid, SO_HEADER.* FROM SO_HEADER JOIN SO_DETAIL ON SO_DETAIL.OehdNbr = SO_HEADER.OehdNbr JOIN boat_master ON SO_DETAIL.InitItemNbr = ItemNbr WHERE ArcuCustId IN ($custlist) AND OehdUserCode3 = '$approved' AND CONCAT(SO_DETAIL.OehdNbr, ' ', OedtDesc, ' ', InitItemNbr, ' ', ArcuCustId, ' ', ArstShipId, ' ', OehdStLastName, ' ', OehdStZipCode, ' ', OehdCustPo, ' ', OehdOrdrDate, ' ', OehdArrvDate, ' ', OehdUserCode2) LIKE '$search' LIMIT ".$start_point.",".$limit;
-		//} else {
+			$sql = "SELECT OedtDesc AS descr, InitItemNbr AS itemid, SO_HEADER.* FROM SO_HEADER JOIN SO_DETAIL ON SO_DETAIL.OehdNbr = SO_HEADER.OehdNbr JOIN boat_master ON SO_DETAIL.InitItemNbr = ItemNbr WHERE ArcuCustId IN ($custlist) AND OehdUserCode3 = '$approved' AND CONCAT(SO_DETAIL.OehdNbr, ' ', OedtDesc, ' ', InitItemNbr, ' ', ArcuCustId, ' ', ArstShipId, ' ', OehdStLastName, ' ', OehdStZipCode, ' ', OehdCustPo, ' ', OehdOrdrDate, ' ', OehdArrvDate, ' ', OehdUserCode2) LIKE '$search' LIMIT $start_point,$limit";
+		// } else {
 			//$sql = "SELECT OedtDesc AS descr, InitItemNbr AS itemid, SO_HEADER.* FROM SO_HEADER JOIN SO_DETAIL ON SO_DETAIL.OehdNbr = SO_HEADER.OehdNbr WHERE ArcuCustId IN ($custlist) AND OehdUserCode3 = '$approved' AND CONCAT(SO_DETAIL.OehdNbr, ' ', OedtDesc, ' ', InitItemNbr, ' ', ArcuCustId, ' ', ArstShipId, ' ', OehdStLastName, ' ', OehdStZipCode, ' ', OehdCustPo, ' ', OehdOrdrDate, ' ', OehdArrvDate, ' ', OehdUserCode2) LIKE '$search' LIMIT ".$start_point.",".$limit;
 		//}
 
@@ -631,7 +631,11 @@
 		$search = '%'.str_replace(' ', '%', $keyword).'%';
 		if ($page > 1) { $start_point = ($page * $limit) - $limit; } else if ($page == 1) { $start_point = 0; } else { $start_point = 0; }
 		if ($boatsonly) {
-			$sql = "SELECT OedtDesc AS descr, InitItemNbr AS itemid, SO_HEADER.* FROM SO_HEADER JOIN SO_DETAIL ON SO_DETAIL.OehdNbr = SO_HEADER.OehdNbr JOIN boat_master ON SO_DETAIL.InitItemNbr = ItemNbr WHERE ArcuCustId = '$custid' AND OehdUserCode3 = '$approved' AND InitItemNbr IN ($matchingboats) AND CONCAT(SO_DETAIL.OehdNbr, ' ', OedtDesc, ' ', InitItemNbr, ' ', ArcuCustId, ' ', ArstShipId, ' ', OehdStLastName, ' ', OehdStZipCode, ' ', OehdCustPo, ' ', OehdOrdrDate, ' ', OehdArrvDate) LIKE '$search' LIMIT ".$start_point.",".$limit;
+			if ($matchingboats != "''") {
+				$sql = "SELECT OedtDesc AS descr, InitItemNbr AS itemid, SO_HEADER.* FROM SO_HEADER JOIN SO_DETAIL ON SO_DETAIL.OehdNbr = SO_HEADER.OehdNbr JOIN boat_master ON SO_DETAIL.InitItemNbr = ItemNbr WHERE ArcuCustId = '$custid' AND OehdUserCode3 = '$approved' AND InitItemNbr IN ($matchingboats) AND CONCAT(SO_DETAIL.OehdNbr, ' ', OedtDesc, ' ', InitItemNbr, ' ', ArcuCustId, ' ', ArstShipId, ' ', OehdStLastName, ' ', OehdStZipCode, ' ', OehdCustPo, ' ', OehdOrdrDate, ' ', OehdArrvDate) LIKE '$search' LIMIT ".$start_point.",".$limit;
+			} else {
+				$sql = "SELECT OedtDesc AS descr, InitItemNbr AS itemid, SO_HEADER.* FROM SO_HEADER JOIN SO_DETAIL ON SO_DETAIL.OehdNbr = SO_HEADER.OehdNbr JOIN boat_master ON SO_DETAIL.InitItemNbr = ItemNbr WHERE ArcuCustId = '$custid' AND OehdUserCode3 = '$approved' AND CONCAT(SO_DETAIL.OehdNbr, ' ', OedtDesc, ' ', InitItemNbr, ' ', ArcuCustId, ' ', ArstShipId, ' ', OehdStLastName, ' ', OehdStZipCode, ' ', OehdCustPo, ' ', OehdOrdrDate, ' ', OehdArrvDate) LIKE '$search' LIMIT ".$start_point.",".$limit;
+			}
 		} else {
 			$sql = "SELECT OedtDesc AS descr, InitItemNbr AS itemid, SO_HEADER.* FROM SO_HEADER JOIN SO_DETAIL ON SO_DETAIL.OehdNbr = SO_HEADER.OehdNbr WHERE ArcuCustId = '$custid' AND OehdUserCode3 = '$approved' AND CONCAT(SO_DETAIL.OehdNbr, ' ', OedtDesc, ' ', InitItemNbr, ' ', ArcuCustId, ' ', ArstShipId, ' ', OehdStLastName, ' ', OehdStZipCode, ' ', OehdCustPo, ' ', OehdOrdrDate, ' ', OehdArrvDate) LIKE '$search' LIMIT ".$start_point.",".$limit;
 		}
@@ -645,11 +649,17 @@
 		}
 	}
 
-	function get_cust_orders_searchall_count($custid, $keyword, $matchingboats, $approved, $boatsonly, $debug) {
+	function get_cust_orders_searchall_count($custid, $keyword, $matchingboats, $approved, $boatsonly, $debug = false) {
 		global $db;
 		$search = '%'.str_replace(' ', '%', $keyword).'%';
+
 		if ($boatsonly) {
-			$sql = "SELECT COUNT(*) as count FROM SO_HEADER JOIN SO_DETAIL ON SO_DETAIL.OehdNbr = SO_HEADER.OehdNbr WHERE ArcuCustId = '$custid' AND OehdUserCode3 = '$approved' AND InitItemNbr IN ($matchingboats) AND CONCAT(SO_DETAIL.OehdNbr, ' ', OedtDesc, ' ', InitItemNbr, ' ', ArcuCustId, ' ', ArstShipId, ' ', OehdStLastName, ' ', OehdStZipCode, ' ', OehdCustPo, ' ', OehdOrdrDate, ' ', OehdArrvDate) LIKE '$search' ";
+			if ($matchingboats != "''") {
+				$sql = "SELECT COUNT(*) as count FROM SO_HEADER JOIN SO_DETAIL ON SO_DETAIL.OehdNbr = SO_HEADER.OehdNbr WHERE ArcuCustId = '$custid' AND OehdUserCode3 = '$approved' AND InitItemNbr IN ($matchingboats) AND CONCAT(SO_DETAIL.OehdNbr, ' ', OedtDesc, ' ', InitItemNbr, ' ', ArcuCustId, ' ', ArstShipId, ' ', OehdStLastName, ' ', OehdStZipCode, ' ', OehdCustPo, ' ', OehdOrdrDate, ' ', OehdArrvDate) LIKE '$search' ";
+			} else {
+				$sql = "SELECT COUNT(*) as count FROM SO_HEADER JOIN SO_DETAIL ON SO_DETAIL.OehdNbr = SO_HEADER.OehdNbr WHERE ArcuCustId = '$custid' AND OehdUserCode3 = '$approved' AND CONCAT(SO_DETAIL.OehdNbr, ' ', OedtDesc, ' ', InitItemNbr, ' ', ArcuCustId, ' ', ArstShipId, ' ', OehdStLastName, ' ', OehdStZipCode, ' ', OehdCustPo, ' ', OehdOrdrDate, ' ', OehdArrvDate) LIKE '$search' ";
+			}
+
 		} else {
 			$sql = "SELECT COUNT(*) as count FROM SO_HEADER JOIN SO_DETAIL ON SO_DETAIL.OehdNbr = SO_HEADER.OehdNbr WHERE ArcuCustId = '$custid' AND OehdUserCode3 = '$approved' AND CONCAT(SO_DETAIL.OehdNbr, ' ', OedtDesc, ' ', InitItemNbr, ' ', ArcuCustId, ' ', ArstShipId, ' ', OehdStLastName, ' ', OehdStZipCode, ' ', OehdCustPo, ' ', OehdOrdrDate, ' ', OehdArrvDate) LIKE '$search' ";
 		}
@@ -662,7 +672,6 @@
 				$count = $result['count'];
 			}
 			return $count;
-
 		}
 	}
 
@@ -678,15 +687,28 @@
 		}
 	}
 
-	function get_order_acknowledge_date($ordn) {
+	function get_order_boat_itemid($ordn, $debug = false) {
 		global $db;
-		$sql = "SELECT date FROM approved_log WHERE ordn = '$ordn' ORDER BY DATE DESC LIMIT 1";
+		$sql = "SELECT InitItemNbr FROM ac_ecomm.SO_DETAIL WHERE OehdNbr = '$ordn' AND InitItemNbr IN (SELECT ItemNbr FROM boat_master) LIMIT 1";
 		if ($debug) {
 			return $sql;
 		} else {
 			$results = $db->query($sql);
 			return $results->fetchColumn();
+		}
+	}
 
+	function get_order_acknowledge_date($ordn, $debug = false) {
+		global $db;
+
+		$orderno = substr($ordn, 0, 6);
+
+		$sql = "SELECT date FROM approved_log WHERE ordn LIKE '%$orderno%' ORDER BY DATE DESC LIMIT 1";
+		if ($debug) {
+			return $sql;
+		} else {
+			$results = $db->query($sql);
+			return $results->fetchColumn();
 		}
 	}
 
@@ -795,7 +817,7 @@
 
 	function is_in_inv_lot($ordn, $itemid, $debug) {
 		global $db;
-		$sql = "SELECT COUNT(*) FROM INV_INV_LOT JOIN SERIAL_MAST ON INV_INV_LOT.InltLotSer = SERIAL_MAST.SermSerNbr  WHERE INV_INV_LOT.InltOnHand = 1 AND INV_INV_LOT.InitItemNbr = '$itemid' AND SermAcAllocOrdr = '$ordn'";
+		$sql = "SELECT COUNT(*) FROM INV_INV_LOT JOIN SERIAL_MAST ON left(INV_INV_LOT.InltLotSer, 6) = left(SERIAL_MAST.SermSerNbr, 6)  WHERE INV_INV_LOT.InltOnHand = 1 AND INV_INV_LOT.InitItemNbr = '$itemid' AND SermAcAllocOrdr = left('$ordn', 6)";
 		if ($debug) {
 			return $sql;
 		} else {
