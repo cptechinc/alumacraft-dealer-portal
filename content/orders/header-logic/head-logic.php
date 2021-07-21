@@ -47,14 +47,16 @@
 		$keyword = strval(urldecode($_GET['q']));
 
 		if ($search == 'all') {
+
 			$matchingboats = get_itemnbrs_by_options($keyword, false);
+
 			if (strlen($matchingboats) < 1) {$matchingboats = "''";}
 			switch ($role_type) { //ALL SEARCH
 				case 'DEALER':
 					//$dealerid, $dealername comes from the role-type-logic script
 					if (array_key_exists($role, $dealerroles)) {
 						if (isset($_GET['location'])) {
-							$num_of_results = get_cust_orders_searchall_count($dealerid, $keyword, $approved, $boatsonly, false);
+							$num_of_results = get_cust_orders_searchall_count($dealerid, $keyword, $matchingboats, $approved, $boatsonly, false);
 							$heading = " Searching for All $orderdesc orders that have specs that match '".$keyword."' at ".$dealername . " (".$dealerid.")";
 						} else {
 							$num_of_results = get_orders_searchall_count($dplus_custs, $keyword, $approved, $boatsonly, false);
@@ -68,7 +70,7 @@
 				case 'SREP':
 					if (isset($_GET['location'])) {
 						//$dealerid, $dealername comes from the role-type-logic script
-						$num_of_results = get_cust_orders_searchall_count($dealerid, $keyword, $approved, $boatsonly, false);
+						$num_of_results = get_cust_orders_searchall_count($dealerid, $keyword, $matchingboats, $approved, $boatsonly, false);
 						$heading = " Searching for All $orderdesc orders that have specs that match '".$keyword."' at ".$dealername . " (".$dealerid.")";
 					} else {
 						$num_of_results = get_orders_searchall_count($dplus_custs, $keyword, $approved, $boatsonly, false);
@@ -79,7 +81,9 @@
 				case 'SADMIN':
 					if (isset($_GET['location'])) {
 						//$dealerid, $dealername comes from the role-type-logic script
-						$num_of_results = get_cust_orders_searchall_count($dealerid, $keyword, $approved, $boatsonly, false);
+
+						$num_of_results = get_cust_orders_searchall_count($dealerid, $keyword, $matchingboats, $approved, $boatsonly, false);
+						// echo get_cust_orders_searchall_count($dealerid, $keyword, $approved, $boatsonly, true);
 						$heading = " Searching for All $orderdesc orders that have specs that match '".$keyword."' at ".$dealername . " (".$dealerid.")";
 					} elseif (isset($_GET['rep'])) {
 						$num_of_results = get_orders_searchall_count($dplus_custs, $keyword, $approved, $boatsonly, false);
