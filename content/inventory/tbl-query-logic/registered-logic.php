@@ -1,5 +1,5 @@
-<?php 
-	if (isset($_GET['search'])) {			
+<?php
+	if (isset($_GET['search'])) {
 		if ($search == 'all') {
 			switch ($role_type) {
 				case 'DEALER':
