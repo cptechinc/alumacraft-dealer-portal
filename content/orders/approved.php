@@ -63,7 +63,7 @@
 						$prodfinish = date("m/d/Y", strtotime($wipcomplete));
 					}
 
-					if ($order['OehdReleaseNbr'] != '' && $prodfinish != '') {
+					if ($order['OehdReleaseNbr'] != '') {
 						$requestrelease = $order['OehdReleaseNbr'] . ' <b>Date:</b> ' . date("m/d/Y", strtotime($order['OehdRqstDate']));
 					} elseif ($order['OehdReleaseNbr'] == '') {
 						$requestrelease = '';
@@ -113,15 +113,8 @@
 						<td><?php echo $order['OehdUserCode1']; ?></td>
 						<td><?php echo $orderdate; ?></td>
 						<td><?php echo $ackdate; ?></td>
-						<?php //if (is_user_alumacraft_admin($userid)) : ?>
-							<?php if ($requestrelease != '') : ?>
-								<td><?php echo $prodfinish ?></td>
-								<td><?php echo $requestrelease; ?></td>
-							<?php else : ?>
-								<td></td>
-								<td></td>
-							<?php endif; ?>
-						<?php //endif; ?>
+						<td><?php echo $prodfinish ?></td>
+						<td><?php echo $requestrelease; ?></td>
 						<td>
 							<a href="<?php echo $vieworderlink; ?>" target="_blank">View Order</a>
 							<?php if (1==2): ?><a href="ajax/load/orders/order-modal.php?ordn=<?php echo $order['OehdNbr']; ?>" rel="modal:open">View Order</a><?php endif; ?> |
