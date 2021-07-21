@@ -1,6 +1,6 @@
 <?php
-
 	if (isset($_GET['search'])) {
+
 		if ($search == 'all') {
 			switch ($role_type) {
 				case 'DEALER':
@@ -26,7 +26,9 @@
 				case 'SADMIN':
 					if (isset($_GET['location'])) {
 						//$dealerid comes from the role-type-logic script
-						$orders = get_cust_orders_searchall($dealerid, $keyword, $showonpage, $this_page, $approved, $boatsonly, false);
+						$orders = get_cust_orders_searchall($dealerid, $keyword, $matchingboats, $showonpage, $this_page, $approved, $boatsonly, false);
+					//	echo get_cust_orders_searchall($dealerid, $keyword, $matchingboats, $showonpage, $this_page, $approved, $boatsonly, true);
+						// echo get_cust_orders_searchall($dealerid, $keyword, $showonpage, $this_page, $approved, $boatsonly, true);
 					} elseif($_GET['rep']) {
 						$orders = get_orders_searchall($dplus_custs, $keyword, $showonpage, $this_page, $approved, $boatsonly, false);
 					} else {
@@ -93,6 +95,7 @@
 					if (isset($_GET['location'])) {
 						//$dealerid comes from the role-type-logic script
 						$orders = get_orders_search($dealerid, $search, $keyword, $showonpage, $this_page, $approved, $boatsonly, false);
+
 						break;
 					} elseif($_GET['rep']) {
 						$orders = get_orders_search($dplus_custs, $search, $keyword, $showonpage, $this_page, $approved, $boatsonly, false);
@@ -139,6 +142,5 @@
 				break;
 		}
 	}
-
 
 ?>
