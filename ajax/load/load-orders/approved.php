@@ -55,9 +55,10 @@
 				<?php $vieworderlink = "http://alumacraft.com/Boat-Builder.php?action=print&pricing=cost&build_id=".$order['OehdUserCode2'].'&'/*.$rustyaddon */; ?>
 				<?php
 					$prodfinish = $requestrelease = '';
+					// $order['itemid'] = get_order_boat_itemid($order['OehdNbr']);
 					$wipcomplete = get_wip_complete_date($order['OehdNbr'], $order['itemid'], false);
 					$sql = get_wip_complete_date($order['OehdNbr'], $order['itemid'], true);
-
+					$sql = is_in_inv_lot($order['OehdNbr'], $order['itemid'], true);
 					if ($wipcomplete < 1) {
 						if (is_in_inv_lot($order['OehdNbr'], $order['itemid'], false)) {
 							$prodfinish = 'INVENTORY';
@@ -68,7 +69,7 @@
 						$prodfinish = date("m/d/Y", strtotime($wipcomplete));
 					}
 
-					if ($order['OehdReleaseNbr'] != '' && $prodfinish != '') {
+					if ($order['OehdReleaseNbr'] != '') {
 						$requestrelease = $order['OehdReleaseNbr'] . ' <b>Date:</b> ' . date("m/d/Y", strtotime($order['OehdRqstDate']));
 					} elseif ($order['OehdReleaseNbr'] == '') {
 						//$prodfinish = '';
@@ -100,7 +101,7 @@
 						<td><?php echo $orderdate; ?></td>
 						<td><?php echo $ackdate; ?></td>
 						<?php //if (is_user_alumacraft_admin($userid)) : ?>
-							<td><?php echo $prodfinish ?></td>
+							<td><?php echo $prodfinish; ?></td>
 							<td><?php echo $requestrelease; ?></td>
 						<?php //endif; ?>
 						<td>
