@@ -8,22 +8,22 @@
 	<meta name="description" content="">
 	<title></title>
 
-	<link rel="shortcut icon" href="http://alumacraft.com/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="http://alumacraft.com/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="https://alumacraft.com/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="https://alumacraft.com/favicon.ico" type="image/x-icon">
 
 
     <!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="http://alumacraft.com/css/base.css?v=1">
-    <link rel="stylesheet" type="text/css" href="http://alumacraft.com/css/style.css?v=2" media="all">
-    <link rel="stylesheet" type="text/css" href="http://alumacraft.com/css/stylesheet.css?v=1" media="all">
-    <link rel="stylesheet" type="text/css" href="http://alumacraft.com/css/jetmenu.css?v=1">
-	<link rel="stylesheet" type="text/css" href="http://alumacraft.com/css/amazium.css?v=1">
-	<link rel="stylesheet" type="text/css" href="http://alumacraft.com/css/layout-new.css?v=1">
-	<link rel="stylesheet" type="text/css" href="http://alumacraft.com/css/everslider.css?v=1">
-	<link rel="stylesheet" type="text/css" href="http://alumacraft.com/css/everslider-custom.css?v=1">
+	<link rel="stylesheet" type="text/css" href="https://alumacraft.com/css/base.css?v=1">
+    <link rel="stylesheet" type="text/css" href="https://alumacraft.com/css/style.css?v=2" media="all">
+    <link rel="stylesheet" type="text/css" href="https://alumacraft.com/css/stylesheet.css?v=1" media="all">
+    <link rel="stylesheet" type="text/css" href="https://alumacraft.com/css/jetmenu.css?v=1">
+	<link rel="stylesheet" type="text/css" href="https://alumacraft.com/css/amazium.css?v=1">
+	<link rel="stylesheet" type="text/css" href="https://alumacraft.com/css/layout-new.css?v=1">
+	<link rel="stylesheet" type="text/css" href="https://alumacraft.com/css/everslider.css?v=1">
+	<link rel="stylesheet" type="text/css" href="https://alumacraft.com/css/everslider-custom.css?v=1">
 
 
-	<link rel="stylesheet" type="text/css" href="http://alumacraft.com/css/jquery-ui.css?v=1">
+	<link rel="stylesheet" type="text/css" href="https://alumacraft.com/css/jquery-ui.css?v=1">
 
         <link rel="stylesheet" type="text/css" href="assets/css/jquery.modal.css?v=1">
         <link rel="stylesheet" type="text/css" href="assets/css/select2.min.css?v=1">
@@ -31,20 +31,20 @@
 
 
 		<!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
-	<link rel="stylesheet" type="text/css" href="http://alumacraft.com/css/settings.css?v=1" media="screen">
-    <link rel="stylesheet" type="text/css" href="http://alumacraft.com/css/extralayers.css?v=1" media="all">
+	<link rel="stylesheet" type="text/css" href="https://alumacraft.com/css/settings.css?v=1" media="screen">
+    <link rel="stylesheet" type="text/css" href="https://alumacraft.com/css/extralayers.css?v=1" media="all">
 
- 	<link href="http://alumacraftapp.alumacraft.com/css/admin-LAYOUT-2017.css?v=1" rel="stylesheet" type="text/css">
+ 	<link href="https://alumacraftapp.alumacraft.com/css/admin-LAYOUT-2017.css?v=1" rel="stylesheet" type="text/css">
 
-	<script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
-	<script type="text/javascript" src="http://alumacraft.com/scripts/jquery-2.0.0.min.js"></script>
-	<script src="http://alumacraft.com/scripts/jquery-ui.js?v=1"></script>
-	<script src="http://alumacraft.com/scripts/modernizr.custom.js"></script>
-	<script src="http://alumacraft.com/scripts/jquery.magnific-popup.js"></script>
+	<script type="text/javascript" async="" src="https://www.google-analytics.com/ga.js"></script>
+	<script type="text/javascript" src="https://alumacraft.com/scripts/jquery-2.0.0.min.js"></script>
+	<script src="https://alumacraft.com/scripts/jquery-ui.js?v=1"></script>
+	<script src="https://alumacraft.com/scripts/modernizr.custom.js"></script>
+	<script src="https://alumacraft.com/scripts/jquery.magnific-popup.js"></script>
 
 	<!-- SLIDER REVOLUTION 4.x scripts  -->
-	<script type="text/javascript" src="http://alumacraft.com/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-	<script type="text/javascript" src="http://alumacraft.com/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+	<script type="text/javascript" src="https://alumacraft.com/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+	<script type="text/javascript" src="https://alumacraft.com/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 
     <script type="text/javascript">
         /mobi/i.test(navigator.userAgent) && !location.hash && setTimeout(function () {
@@ -55,13 +55,13 @@
 
 	<!-- JavaScript -->
 	<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>-->
-	<script type="text/javascript" src="http://alumacraft.com/scripts/jquery.easing.1.3.js"></script>
-	<script type="text/javascript" src="http://alumacraft.com/scripts/jquery.mousewheel.js"></script>
-	<script type="text/javascript" src="http://alumacraft.com/scripts/jquery.everslider.js"></script>
+	<script type="text/javascript" src="https://alumacraft.com/scripts/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="https://alumacraft.com/scripts/jquery.mousewheel.js"></script>
+	<script type="text/javascript" src="https://alumacraft.com/scripts/jquery.everslider.js"></script>
 
-    <script type="text/javascript" src="http://alumacraft.com/scripts/jetmenu.js"></script>
+    <script type="text/javascript" src="https://alumacraft.com/scripts/jetmenu.js"></script>
 
-    <script type="text/javascript" src="http://alumacraft.com/scripts/classie.js"></script>
+    <script type="text/javascript" src="https://alumacraft.com/scripts/classie.js"></script>
 
     <script type="text/javascript" src="assets/js/jquery.modal.min.js"></script>
         <script type="text/javascript" src="assets/js/select2.full.min.js"></script>
@@ -170,7 +170,7 @@
 
 
 	<script type="text/javascript">
-		var domain = "http://reg.alumacraft.com/";
+		var domain = "https://reg.alumacraft.com/";
 		var is_map = "";
 		var is_new = "1";
 		var is_nap = 0;
@@ -190,16 +190,16 @@
 
 
 
-	<script src="http://alumacraftapp.alumacraft.com/Scripts/jquery.validate.min.js"></script>
+	<script src="https://alumacraftapp.alumacraft.com/Scripts/jquery.validate.min.js"></script>
 	<script type="text/javascript">jQuery.noConflict();</script>
 	<script type="text/javascript" src="https://wsqa.aimbase.com/Scripts/awa.js" id="AimbaseAnalytics" data-clientid="TI1480"></script>
-	<script src="http://alumacraftapp.alumacraft.com/Scripts/public_2017.js?v=3" type="text/javascript"></script>
-    <script src="http://alumacraftapp.alumacraft.com/Scripts/imageUpload.js?v=1" type="text/javascript"></script>
-	<script src="http://alumacraftapp.alumacraft.com/Scripts/general_2017.js?v=4"></script>
+	<script src="https://alumacraftapp.alumacraft.com/Scripts/public_2017.js?v=3" type="text/javascript"></script>
+    <script src="https://alumacraftapp.alumacraft.com/Scripts/imageUpload.js?v=1" type="text/javascript"></script>
+	<script src="https://alumacraftapp.alumacraft.com/Scripts/general_2017.js?v=4"></script>
 
-	<!-- <script src="http://alumacraft.com/scripts/boat-builder-2018.js?v=17"></script> -->
-	<script src="http://alumacraftapp.alumacraft.com/Scripts/jquery.formatCurrency-1.4.0.min.js"></script>
-	<!-- <script src="http://alumacraft.com/scripts/boat-builder.2017.js.php?id=119" type="text/javascript"></script> -->
+	<!-- <script src="https://alumacraft.com/scripts/boat-builder-2018.js?v=17"></script> -->
+	<script src="https://alumacraftapp.alumacraft.com/Scripts/jquery.formatCurrency-1.4.0.min.js"></script>
+	<!-- <script src="https://alumacraft.com/scripts/boat-builder.2017.js.php?id=119" type="text/javascript"></script> -->
 	<script>
 	jQuery( function() {
 
@@ -216,8 +216,8 @@
 	</script>
 
 
-	<!--[if IE]><script src = 'http://alumacraft.com/scripts/ie.js'></script><![endif]-->
-	<!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="http://alumacraft.com/css/ie.css" /><![endif]-->
+	<!--[if IE]><script src = 'https://alumacraft.com/scripts/ie.js'></script><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="https://alumacraft.com/css/ie.css" /><![endif]-->
 
 
     <!--[if lt IE 9]>
@@ -254,7 +254,7 @@
 			<div class="row">
 				<div class="grid_4">
 					<div id="logo">
-						<a href="http://alumacraft.com/Alumacraft-Boats.php"><img src="http://alumacraft.com/images/logo.jpg" alt="Alumacraft logo" class="max-img"></a>
+						<a href="https://alumacraft.com/Alumacraft-Boats.php"><img src="https://alumacraft.com/images/logo.jpg" alt="Alumacraft logo" class="max-img"></a>
 					</div>
 				</div>
 				<div class="grid_7">
@@ -263,35 +263,35 @@
 						<li class="fix-sub" style=""><a href="#">MENU <span>☰</span></a>
 							<div class="megamenu full-width" style="">
 								<div class="row">
-									<div class="col1-1-5"><a href="http://alumacraft.com/About-Alumacraft.php?content=best_catch"><i class="icon-alumacash"></i>Best Catch Promo</a></div>
-									<div class="col1-1-5"><a href="http://alumacraft.com/About-Alumacraft.php?content=nap"><i class="icon-nap-models"></i>BOAT SPECIALS</a></div>
-									<div class="col1-1-5"><a href="http://alumacraft.com/About-Alumacraft.php?content=boats&amp;model_year=2018"><i class="icon-models"></i>BOAT MODELS</a></div>
-									<div class="col1-1-5"><a href="http://alumacraft.com/About-Alumacraft.php?content=military"><i class="icon-military"></i>military DISCOUNTS</a></div>
+									<div class="col1-1-5"><a href="https://alumacraft.com/About-Alumacraft.php?content=best_catch"><i class="icon-alumacash"></i>Best Catch Promo</a></div>
+									<div class="col1-1-5"><a href="https://alumacraft.com/About-Alumacraft.php?content=nap"><i class="icon-nap-models"></i>BOAT SPECIALS</a></div>
+									<div class="col1-1-5"><a href="https://alumacraft.com/About-Alumacraft.php?content=boats&amp;model_year=2018"><i class="icon-models"></i>BOAT MODELS</a></div>
+									<div class="col1-1-5"><a href="https://alumacraft.com/About-Alumacraft.php?content=military"><i class="icon-military"></i>military DISCOUNTS</a></div>
 								</div>
 								<div class="row">
-									<div class="col1-1-5"><a href="http://alumacraft.com/About-Alumacraft.php?content=boats&amp;model_year=2018"><i class="icon-build-a-boat"></i>build YOUR boat</a></div>
-									<div class="col1-1-5"><a href="http://alumacraft.com/Alumacraft-Boat-Dealer-Locator.php?dealer_locator=1"><i class="icon-find-a-dealer"></i>find a dealer</a></div>
+									<div class="col1-1-5"><a href="https://alumacraft.com/About-Alumacraft.php?content=boats&amp;model_year=2018"><i class="icon-build-a-boat"></i>build YOUR boat</a></div>
+									<div class="col1-1-5"><a href="https://alumacraft.com/Alumacraft-Boat-Dealer-Locator.php?dealer_locator=1"><i class="icon-find-a-dealer"></i>find a dealer</a></div>
 									<!--<div class="col1-1-5"><a href="#"><i class="icon-compare"></i>compare models</a></div>-->
-									<div class="col1-1-5"><a href="http://alumacraft.com/About-Alumacraft.php?content=brochure_request"><i class="icon-request-a-brochure"></i>request a brochure</a></div>
-									<div class="col1-1-5"><a href="http://www.alumacraft-gear.com" target="_blank"><i class="icon-alumacraft-gear"></i>alumacraft gear</a></div>
+									<div class="col1-1-5"><a href="https://alumacraft.com/About-Alumacraft.php?content=brochure_request"><i class="icon-request-a-brochure"></i>request a brochure</a></div>
+									<div class="col1-1-5"><a href="https://www.alumacraft-gear.com" target="_blank"><i class="icon-alumacraft-gear"></i>alumacraft gear</a></div>
 								</div>
 								<div class="row">
-									<div class="col1-1-5"><a href="http://alumacraft.com/About-Alumacraft.php?content=careers"><i class="icon-alumacraft-careers"></i>career OPPORTUNITIES</a></div>
-									<div class="col1-1-5"><a href="http://alumacraft.com/About-Alumacraft.php?content=about_us"><i class="icon-about"></i>ABOUT ALUMACRAFT</a></div>
-									<div class="col1-1-5"><a href="http://alumacraft.com/About-Alumacraft.php?content=social"><i class="icon-alumalife"></i>ALUMA-LIFE</a></div>
-									<div class="col1-1-5"><a href="http://alumacraft.com/About-Alumacraft.php?content=contact_us"><i class="icon-contact"></i>CONTACT</a></div>
+									<div class="col1-1-5"><a href="https://alumacraft.com/About-Alumacraft.php?content=careers"><i class="icon-alumacraft-careers"></i>career OPPORTUNITIES</a></div>
+									<div class="col1-1-5"><a href="https://alumacraft.com/About-Alumacraft.php?content=about_us"><i class="icon-about"></i>ABOUT ALUMACRAFT</a></div>
+									<div class="col1-1-5"><a href="https://alumacraft.com/About-Alumacraft.php?content=social"><i class="icon-alumalife"></i>ALUMA-LIFE</a></div>
+									<div class="col1-1-5"><a href="https://alumacraft.com/About-Alumacraft.php?content=contact_us"><i class="icon-contact"></i>CONTACT</a></div>
 								</div>
 							</div>
 						</li>
 						<li class="social-nav-wrapper" style="">
 							<div class="social-nav">
-								<a href="http://alumacraft.com/admin/Logout.php" class="loggedin" title="Dealer Portal"></a>
+								<a href="https://alumacraft.com/admin/Logout.php" class="loggedin" title="Dealer Portal"></a>
 								<a href="https://www.facebook.com/alumacraft" class="fb" target="_blank"></a>
 								<a href="https://www.youtube.com/user/alumacraftboatco" class="yt" target="_blank"></a>
-								<a href="http://instagram.com/alumacraftboats" class="instagram" target="_blank"></a>
-								<!--<a href="http://alumacraft.com/admin/Logout.php" ><img src="http://alumacraft.com/images/icons/unLock.png" style="height:17px;"/></a>--></div>
+								<a href="https://instagram.com/alumacraftboats" class="instagram" target="_blank"></a>
+								<!--<a href="https://alumacraft.com/admin/Logout.php" ><img src="https://alumacraft.com/images/icons/unLock.png" style="height:17px;"/></a>--></div>
 						</li>
-						<!-- <li><a href="http://alumacraft.com/admin/Logout.php"><img src="http://alumacraft.com/images/icons/unLock.png" style="height:17px;"/></a></li>-->
+						<!-- <li><a href="https://alumacraft.com/admin/Logout.php"><img src="https://alumacraft.com/images/icons/unLock.png" style="height:17px;"/></a></li>-->
 					</ul>
 				</div>
 			</div>
