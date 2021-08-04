@@ -1,4 +1,7 @@
-<?php if ($_SERVER['REMOTE_ADDR'] == '70.99.180.218') {header('location: http://alumacraft.com/admin/Login.php'); exit; } ?>
+<?php if ($_SERVER['REMOTE_ADDR'] == '70.99.180.218') {
+	header('location: http://alumacraft.com/admin/Login.php'); exit;
+}
+?>
 <?php include 'init.php'; ?>
 
 <?php include 'view/login/header.php'; ?>
@@ -25,5 +28,5 @@
 
 
 
-	
+
 <?php include 'view/login/footer.php'; ?>
