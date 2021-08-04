@@ -7,7 +7,7 @@
 	<?php echo session_id();?>
 		<div class="content-wrapper">
 		<div class="wrap"> <?php echo $_SESSION['sql']."<br>"; ?>
-			<?php echo $userid; ?>
+			<?php echo explode('-', 'serlver'); ?>
 		</div>
 	</div>
 </div>
