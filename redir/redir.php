@@ -519,7 +519,7 @@
 			session_regenerate_id(true);
 			$_SESSION['login'] = false;
 			$_SESSION['sent-login'] = false;
-			//header('location: http://alumacraft.com/admin/Logout.php');
+			//header('location: https://www.alumacraft.com/admin/Logout.php');
 			//exit;
 			$_SESSION['loc'] = 'index.php?#inventory';
 			break;

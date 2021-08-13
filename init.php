@@ -47,7 +47,7 @@
 			//$hexeduserid = hexvalue($userid, false);
 			//$rustyaddon = "session=".urlencode($hexedsession)."&userid=".urlencode($hexeduserid);
 			/*if (!isset($_SESSION['sent-login']) || $_SESSION['sent-login'] == false) {
-				send_server_request("location: http://alumacraft.com/?session=".urlencode($hexedsession)."&userid=".urlencode($hexeduserid), '');
+				send_server_request("location: https://www.alumacraft.com/?session=".urlencode($hexedsession)."&userid=".urlencode($hexeduserid), '');
 				$_SESSION['sent-login'] = true;
 			}*/
 

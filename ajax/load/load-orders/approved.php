@@ -52,7 +52,7 @@
 			<?php foreach ($orders->fetchAll() as $order) : ?>
 				<?php $date = strtotime($order['OehdOrdrDate']); $orderdate = date("m/d/Y", $date); ?>
 				<?php $date = strtotime($order['OehdArrvDate']); $arrvdate = date("m/d/Y", $date);  ?>
-				<?php $vieworderlink = "http://alumacraft.com/Boat-Builder.php?action=print&pricing=cost&build_id=".$order['OehdUserCode2'].'&'/*.$rustyaddon */; ?>
+				<?php $vieworderlink = "https://www.alumacraft.com/Boat-Builder.php?action=print&pricing=cost&build_id=".$order['OehdUserCode2'].'&'/*.$rustyaddon */; ?>
 				<?php
 					$prodfinish = $requestrelease = '';
 					// $order['itemid'] = get_order_boat_itemid($order['OehdNbr']);

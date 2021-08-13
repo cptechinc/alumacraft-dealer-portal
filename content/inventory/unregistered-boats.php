@@ -17,13 +17,13 @@
 <table class="sortable_table tablesorter">
     <thead>
         <tr>
-            <th class="sortable_table_header">Serial Number</th> <th class="sortable_table_header">Item ID</th> 
+            <th class="sortable_table_header">Serial Number</th> <th class="sortable_table_header">Item ID</th>
             <th class="sortable_table_header">Boat</th> <th>Print</th> <th class="sortable_table_header" style="width:90px;">Sale Date</th>
             <th class="sortable_table_header" style="width:200px;">Register Boat</th>
         </tr>
     </thead>
-    <tbody>	
-    	<?php if ($num_of_results > 0) : ?> 
+    <tbody>
+    	<?php if ($num_of_results > 0) : ?>
 			<?php include 'content/inventory/tbl-query-logic/table-logic.php'; ?>
             <?php foreach ($boats->fetchAll() as $boat) : ?>
                 <?php $date = strtotime($boat['InvoiceDate']); ?>
@@ -38,20 +38,20 @@
 							<div class="submenu" style="display: none;">
 								<fieldset style="margin:0;">
 									<legend>Order Forms</legend>
-									<a class="submenu_link" target="_blank" href="http://alumacraft.com/Boat-Builder.php?action=print&amp;build_id=<?php echo $boat['OehdUserCode2']; ?>&amp;pricing=cost">Dealer Cost</a><br>
-									<a class="submenu_link" target="_blank" href="http://alumacraft.com/Boat-Builder.php?action=print&amp;build_id=<?php echo $boat['OehdUserCode2']; ?>&amp;pricing=msrp">MSRP</a><br>
+									<a class="submenu_link" target="_blank" href="https://www.alumacraft.com/Boat-Builder.php?action=print&amp;build_id=<?php echo $boat['OehdUserCode2']; ?>&amp;pricing=cost">Dealer Cost</a><br>
+									<a class="submenu_link" target="_blank" href="https://www.alumacraft.com/Boat-Builder.php?action=print&amp;build_id=<?php echo $boat['OehdUserCode2']; ?>&amp;pricing=msrp">MSRP</a><br>
 								</fieldset>
 								<fieldset style="margin:0;">
 								<legend>Retail Forms</legend>
-									<a class="submenu_link" target="_blank" href="http://alumacraft.com/Boat-Builder.php?action=print_consumer&amp;build_id=<?php echo $boat['OehdUserCode2']; ?>&amp;pricing=msrp&amp;format=pdf">MSRP</a><br>
+									<a class="submenu_link" target="_blank" href="https://www.alumacraft.com/Boat-Builder.php?action=print_consumer&amp;build_id=<?php echo $boat['OehdUserCode2']; ?>&amp;pricing=msrp&amp;format=pdf">MSRP</a><br>
 								</fieldset>
 								<fieldset style="margin:0;">
 									<legend>Window Stickers</legend>
-									<a class="submenu_link" target="_blank" href="http://alumacraft.com/Boat-Builder.php?action=window_sticker&amp;build_id=<?php echo $boat['OehdUserCode2']; ?>&amp;pricing=msrp">MSRP</a><br>
-									<a class="submenu_link" target="_blank" href="http://alumacraft.com/Boat-Builder.php?action=window_sticker&amp;build_id=<?php echo $boat['OehdUserCode2']; ?>&amp;pricing=none">No Price</a><br>
+									<a class="submenu_link" target="_blank" href="https://www.alumacraft.com/Boat-Builder.php?action=window_sticker&amp;build_id=<?php echo $boat['OehdUserCode2']; ?>&amp;pricing=msrp">MSRP</a><br>
+									<a class="submenu_link" target="_blank" href="https://www.alumacraft.com/Boat-Builder.php?action=window_sticker&amp;build_id=<?php echo $boat['OehdUserCode2']; ?>&amp;pricing=none">No Price</a><br>
 								</fieldset>
 							</div>
-							<a href="http://alumacraft.com/Boat-Builder.php?action=edit&amp;build_id=<?php echo $boat['OehdUserCode2']; ?>" class="t_icon t_edit" title="edit">edit</a><a href="http://alumacraft.com/Boat-Builder.php?action=delete&amp;build_id=<?php echo $boat['OehdUserCode2']; ?>#internet_quotes" class="t_icon t_delete delete_build_confirm" title="delete">delete</a>
+							<a href="https://www.alumacraft.com/Boat-Builder.php?action=edit&amp;build_id=<?php echo $boat['OehdUserCode2']; ?>" class="t_icon t_edit" title="edit">edit</a><a href="https://www.alumacraft.com/Boat-Builder.php?action=delete&amp;build_id=<?php echo $boat['OehdUserCode2']; ?>#internet_quotes" class="t_icon t_delete delete_build_confirm" title="delete">delete</a>
 						</div>
                    		<?php endif; ?>
                     </td>

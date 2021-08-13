@@ -38,7 +38,7 @@
 				<?php if (does_user_have_access($userid, $permissions['view-registered']) || has_role($userid, "'28','37'", false) == true) : ?>
 					<p>
 						<a href="<?php echo 'warranty-card.php?view='.$_GET['edit'].'&itemnbr='.$_GET['itemnbr']; ?>" target="_blank">
-						<img src="http://alumacraft.com/images/icons/t_print.png" alt=""> View Printable Warranty Card
+						<img src="https://www.alumacraft.com/images/icons/t_print.png" alt=""> View Printable Warranty Card
 						</a>
 					</p>
     			<?php endif; ?>

@@ -5,5 +5,5 @@
     session_write_close();
     setcookie(session_name(),'',0,'/');
     session_regenerate_id(true);
-	header('Location: http://alumacraft.com/admin/Logout.php');
+	header('Location: https://www.alumacraft.com/admin/Logout.php');
 ?>

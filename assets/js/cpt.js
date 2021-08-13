@@ -28,7 +28,7 @@ $(function() {
 
 	jQuery(".page-section").on("click", "#dealer-quotes-link", function(event) {
 		var addon = jQuery(this).data('addon');
-		window.location='http://alumacraft.com/Boat-Builder.php?action=list'+addon+'#dealer_quotes';
+		window.location='https://www.alumacraft.com/Boat-Builder.php?action=list'+addon+'#dealer_quotes';
 	});
 
 	jQuery(".page-section").on("click", ".get-document", function(event) {

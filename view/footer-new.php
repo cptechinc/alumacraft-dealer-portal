@@ -30,9 +30,9 @@
 				<div class="grid_7">
 					<ul class="footer-links right-align">
 						<!--<li><a href="#">OWNERS</a></li>-->
-						<li><a href="https://alumacraft.com/About-Alumacraft.php?content=privacy_policy">PRIVACY POLICY</a></li>
-						<li><a href="https://alumacraft.com/About-Alumacraft.php?content=terms_conditions">TERMS AND CONDITIONS</a></li>
-						<!--<li><a href="https://alumacraft.com/admin/Logout.php"><img src="https://alumacraft.com/images/icons/unLock.png" style="height:17px;"/></a></li>-->
+						<li><a href="https://www.alumacraft.com/About-Alumacraft.php?content=privacy_policy">PRIVACY POLICY</a></li>
+						<li><a href="https://www.alumacraft.com/About-Alumacraft.php?content=terms_conditions">TERMS AND CONDITIONS</a></li>
+						<!--<li><a href="https://www.alumacraft.com/admin/Logout.php"><img src="https://www.alumacraft.com/images/icons/unLock.png" style="height:17px;"/></a></li>-->
 						<!--<li><a href="#">SITE MAP</a></li><li><a href="#">FAQs</a></li>-->
 					</ul>
 				</div>
@@ -53,40 +53,40 @@
 								<h3 style="margin-bottom:0px;">Product</h3>
 								<hr style="margin:0px;">
 								<ul>
-									<li><a href="https://alumacraft.com/admin/Inventory.php">Add New Boat</a></li>
-									<li><a href="https://alumacraft.com/Alumacraft-Boat-Search.php?action=list">List Boats</a></li>
-									<li><a href="https://alumacraft.com/admin/Builder-Option-Manager.php"> Option Utility </a></li>
-									<li><a href="https://alumacraft.com/admin/Builder-Standard-Manager.php"> Standards Utility </a></li>
+									<li><a href="https://www.alumacraft.com/admin/Inventory.php">Add New Boat</a></li>
+									<li><a href="https://www.alumacraft.com/Alumacraft-Boat-Search.php?action=list">List Boats</a></li>
+									<li><a href="https://www.alumacraft.com/admin/Builder-Option-Manager.php"> Option Utility </a></li>
+									<li><a href="https://www.alumacraft.com/admin/Builder-Standard-Manager.php"> Standards Utility </a></li>
 								</ul>
 							</td>
 							<td style="vertical-align:top;">
 								<h3 style="margin-bottom:0px;">Dealerships</h3>
 								<hr style="margin:0px;">
 								<ul>
-									<li><a href="https://alumacraft.com/admin/Location-Manager.php?location_id=786#users_tab">Manage Sales Force</a></li>
-									<li><a href="https://alumacraft.com/admin/Location-Manager.php"> Add New Dealership </a></li>
-									<li><a href="https://alumacraft.com/admin/Location-Manager.php"> Dealership Manager </a></li>
+									<li><a href="https://www.alumacraft.com/admin/Location-Manager.php?location_id=786#users_tab">Manage Sales Force</a></li>
+									<li><a href="https://www.alumacraft.com/admin/Location-Manager.php"> Add New Dealership </a></li>
+									<li><a href="https://www.alumacraft.com/admin/Location-Manager.php"> Dealership Manager </a></li>
 								</ul>
 								<h3 style="margin-bottom:0px;">Document Depot</h3>
 								<hr style="margin:0px;">
 								<ul>
-									<li><a href="https://alumacraft.com/Document_Depot/Document-Depot.php">Download Documents</a></li>
-									<li><a href="https://alumacraft.com/admin/Dealer-Sales-Tools.php">Boat Builder Printouts</a></li>
-									<li><a href="https://alumacraft.com/admin/Training-Tools.php">Website Training Videos</a></li>
+									<li><a href="https://www.alumacraft.com/Document_Depot/Document-Depot.php">Download Documents</a></li>
+									<li><a href="https://www.alumacraft.com/admin/Dealer-Sales-Tools.php">Boat Builder Printouts</a></li>
+									<li><a href="https://www.alumacraft.com/admin/Training-Tools.php">Website Training Videos</a></li>
 								</ul>
 							</td>
 							<td style="vertical-align:top;">
 								<h3 style="margin-bottom:0px;">Utilities</h3>
 								<hr style="margin:0px;">
 								<ul>
-									<li><a href="https://alumacraft.com/admin/File-Manager.php"> File Manager </a></li>
+									<li><a href="https://www.alumacraft.com/admin/File-Manager.php"> File Manager </a></li>
 								</ul>
 								<h3 style="margin-bottom:0px;">Leads</h3>
 								<hr style="margin:0px;">
 								<ul>
-									<li><a href="https://alumacraft.com/admin/Leads.php"> View Leads </a></li>
-									<li><a href="https://alumacraft.com/Lead-Stats.php"> Lead Stats </a></li>
-									<li><a href="https://alumacraft.com/admin/Location-Manager.php?action=access_level_check&amp;access_level=8"> Check Lead Users </a></li>
+									<li><a href="https://www.alumacraft.com/admin/Leads.php"> View Leads </a></li>
+									<li><a href="https://www.alumacraft.com/Lead-Stats.php"> Lead Stats </a></li>
+									<li><a href="https://www.alumacraft.com/admin/Location-Manager.php?action=access_level_check&amp;access_level=8"> Check Lead Users </a></li>
 								</ul>
 								<h3 style="margin-bottom:0px;">User Info</h3>
 								<hr style="margin:0px;">
@@ -111,13 +111,13 @@
 		<div class="page-section black">
 			<div class="row">
 				<div class="grid_3">
-					<h4 class="toolbar" style="margin-bottom:0;color:#f6f6f6;">ADMIN TOOLBAR<a href="#admin_toolbar_panel" class="admin_toolbar_toggle" style=""><img src="https://alumacraft.com/images/icons/gear.png" style="margin-left:13px;"></a></h4><span style="">Logged in as: <?php echo $login_name; ?></span></div>
+					<h4 class="toolbar" style="margin-bottom:0;color:#f6f6f6;">ADMIN TOOLBAR<a href="#admin_toolbar_panel" class="admin_toolbar_toggle" style=""><img src="https://www.alumacraft.com/images/icons/gear.png" style="margin-left:13px;"></a></h4><span style="">Logged in as: <?php echo $login_name; ?></span></div>
 				<div class="grid_1" style="text-align:center;">
-					<h4 style="margin-top:13px;color:#f6f6f6;"><a href="https://alumacraft.com/admin/Leads.php">Leads</a></h4></div>
+					<h4 style="margin-top:13px;color:#f6f6f6;"><a href="https://www.alumacraft.com/admin/Leads.php">Leads</a></h4></div>
 				<div class="grid_2" style="text-align:center;">
-					<h4 style="margin-top:13px;color:#f6f6f6;"><a href="https://alumacraft.com/admin/Location-Manager.php?location_id=786#users_tab">Salesforce</a></h4></div>
+					<h4 style="margin-top:13px;color:#f6f6f6;"><a href="https://www.alumacraft.com/admin/Location-Manager.php?location_id=786#users_tab">Salesforce</a></h4></div>
 				<div class="grid_3" style="text-align:center;">
-					<h4 style="margin-top:13px;color:#f6f6f6;"><a href="https://alumacraft.com/Boat-Builder.php?action=list">Quotes &amp; Orders</a></h4></div>
+					<h4 style="margin-top:13px;color:#f6f6f6;"><a href="https://www.alumacraft.com/Boat-Builder.php?action=list">Quotes &amp; Orders</a></h4></div>
 			</div>
 		</div>
 	</div>
