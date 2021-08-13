@@ -56,13 +56,13 @@
 				<div class="invisibleTabs ui-tabs ui-corner-all ui-widget ui-widget-content">
 					<ul class="tabs ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header" id="list_build_tab_headers" role="tablist">
 						<li role="tab" tabindex="0" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-selected="true" >
-							<a href="https://www.alumacraft.com/Boat-Builder.php?action=list#internet_quotes" onClick="window.location='https://www.alumacraft.com/Boat-Builder.php?action=list&<?php //echo $rustyaddon; ?>#internet_quotes'" role="presentation" tabindex="-1" class="ui-tabs-anchor">Internet Leads</a>
+							<a href="https://dealer.alumacraft.com/Boat-Builder.php?action=list#internet_quotes" onClick="window.location='https://dealer.alumacraft.com/Boat-Builder.php?action=list&<?php //echo $rustyaddon; ?>#internet_quotes'" role="presentation" tabindex="-1" class="ui-tabs-anchor">Internet Leads</a>
 						</li>
 						<li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="dealer_quotes" >
-							<a href="https://www.alumacraft.com/Boat-Builder.php?action=list&<?php //echo $rustyaddon; ?>#dealer_quotes" id="dealer-quotes-link2" data-addon="&<?php //echo $rustyaddon; ?>"  onClick="window.location='https://www.alumacraft.com/Boat-Builder.php?action=list&<?php //echo $rustyaddon; ?>#dealer_quotes'" >Dealer/Rep Quotes</a>
+							<a href="https://dealer.alumacraft.com/Boat-Builder.php?action=list&<?php //echo $rustyaddon; ?>#dealer_quotes" id="dealer-quotes-link2" data-addon="&<?php //echo $rustyaddon; ?>"  onClick="window.location='https://dealer.alumacraft.com/Boat-Builder.php?action=list&<?php //echo $rustyaddon; ?>#dealer_quotes'" >Dealer/Rep Quotes</a>
 						</li>
 						<li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="orders">
-							<a href="https://www.alumacraft.com/Boat-Builder.php?action=list&<?php //echo $rustyaddon; ?>#orders" onClick="window.location='https://www.alumacraft.com/Boat-Builder.php?action=list&<?php //echo $rustyaddon; ?>#orders'" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Pending Orders</a>
+							<a href="https://dealer.alumacraft.com/Boat-Builder.php?action=list&<?php //echo $rustyaddon; ?>#orders" onClick="window.location='https://dealer.alumacraft.com/Boat-Builder.php?action=list&<?php //echo $rustyaddon; ?>#orders'" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Pending Orders</a>
 						</li>
 						<li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="approved">
 							<a href="#pending" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-4">Pending Acknowledgement</a>

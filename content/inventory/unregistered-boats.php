@@ -38,20 +38,20 @@
 							<div class="submenu" style="display: none;">
 								<fieldset style="margin:0;">
 									<legend>Order Forms</legend>
-									<a class="submenu_link" target="_blank" href="https://www.alumacraft.com/Boat-Builder.php?action=print&amp;build_id=<?php echo $boat['OehdUserCode2']; ?>&amp;pricing=cost">Dealer Cost</a><br>
-									<a class="submenu_link" target="_blank" href="https://www.alumacraft.com/Boat-Builder.php?action=print&amp;build_id=<?php echo $boat['OehdUserCode2']; ?>&amp;pricing=msrp">MSRP</a><br>
+									<a class="submenu_link" target="_blank" href="https://dealer.alumacraft.com/Boat-Builder.php?action=print&amp;build_id=<?php echo $boat['OehdUserCode2']; ?>&amp;pricing=cost">Dealer Cost</a><br>
+									<a class="submenu_link" target="_blank" href="https://dealer.alumacraft.com/Boat-Builder.php?action=print&amp;build_id=<?php echo $boat['OehdUserCode2']; ?>&amp;pricing=msrp">MSRP</a><br>
 								</fieldset>
 								<fieldset style="margin:0;">
 								<legend>Retail Forms</legend>
-									<a class="submenu_link" target="_blank" href="https://www.alumacraft.com/Boat-Builder.php?action=print_consumer&amp;build_id=<?php echo $boat['OehdUserCode2']; ?>&amp;pricing=msrp&amp;format=pdf">MSRP</a><br>
+									<a class="submenu_link" target="_blank" href="https://dealer.alumacraft.com/Boat-Builder.php?action=print_consumer&amp;build_id=<?php echo $boat['OehdUserCode2']; ?>&amp;pricing=msrp&amp;format=pdf">MSRP</a><br>
 								</fieldset>
 								<fieldset style="margin:0;">
 									<legend>Window Stickers</legend>
-									<a class="submenu_link" target="_blank" href="https://www.alumacraft.com/Boat-Builder.php?action=window_sticker&amp;build_id=<?php echo $boat['OehdUserCode2']; ?>&amp;pricing=msrp">MSRP</a><br>
-									<a class="submenu_link" target="_blank" href="https://www.alumacraft.com/Boat-Builder.php?action=window_sticker&amp;build_id=<?php echo $boat['OehdUserCode2']; ?>&amp;pricing=none">No Price</a><br>
+									<a class="submenu_link" target="_blank" href="https://dealer.alumacraft.com/Boat-Builder.php?action=window_sticker&amp;build_id=<?php echo $boat['OehdUserCode2']; ?>&amp;pricing=msrp">MSRP</a><br>
+									<a class="submenu_link" target="_blank" href="https://dealer.alumacraft.com/Boat-Builder.php?action=window_sticker&amp;build_id=<?php echo $boat['OehdUserCode2']; ?>&amp;pricing=none">No Price</a><br>
 								</fieldset>
 							</div>
-							<a href="https://www.alumacraft.com/Boat-Builder.php?action=edit&amp;build_id=<?php echo $boat['OehdUserCode2']; ?>" class="t_icon t_edit" title="edit">edit</a><a href="https://www.alumacraft.com/Boat-Builder.php?action=delete&amp;build_id=<?php echo $boat['OehdUserCode2']; ?>#internet_quotes" class="t_icon t_delete delete_build_confirm" title="delete">delete</a>
+							<a href="https://dealer.alumacraft.com/Boat-Builder.php?action=edit&amp;build_id=<?php echo $boat['OehdUserCode2']; ?>" class="t_icon t_edit" title="edit">edit</a><a href="https://dealer.alumacraft.com/Boat-Builder.php?action=delete&amp;build_id=<?php echo $boat['OehdUserCode2']; ?>#internet_quotes" class="t_icon t_delete delete_build_confirm" title="delete">delete</a>
 						</div>
                    		<?php endif; ?>
                     </td>
