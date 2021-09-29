@@ -1450,6 +1450,13 @@
 		return $results->fetchColumn();
 	}
 
+	function get_rep_name($repid) {
+		global $dba;
+		$sql = "SELECT name FROM view_users WHERE user_id = '$repid' LIMIT 1";
+		$results = $dba->query($sql);
+		return $results->fetchColumn();
+	}
+
 	function get_reps() {
 		global $dba;
 		$sql = "SELECT * FROM view_users WHERE user_id IN (SELECT user_id FROM reps) ORDER BY name";

@@ -457,12 +457,12 @@
 			$ordn = $_POST['ordn'];
 			$repid = get_order_salesrep($ordn, false);
 			$alumarep = get_repid_from_dplus($repid);
-			$email = get_rep_email($alumarep);
+			$email = getBrpRepEmail($alumarep);
 			$loginemail = get_login_email($userid);
 
 			$rep2 = get_order_cust_salesrep2($ordn);
 			$alumarep2 = get_repid_from_dplus($rep2);
-			$rep2email = get_rep_email($alumarep2);
+			$rep2email = getBrpRepEmail($alumarep2);
 
 			$fields = array();
 			$fields['action'] = 'email-decline-approval';
@@ -481,17 +481,17 @@
 			$ordn = $_POST['ordn'];
 			$repid = get_order_salesrep($ordn, false);
 			$alumarep = get_repid_from_dplus($repid);
-			$email = get_rep_email($alumarep);
+			$email = getBrpRepEmail($alumarep);
 			$loginemail = get_login_email($userid);
 
 			$rep2 = get_order_cust_salesrep2($ordn);
 			$alumarep2 = get_repid_from_dplus($rep2);
-			$rep2email = get_rep_email($alumarep2);
+			$rep2email = getBrpRepEmail($alumarep2);
 			$fields = array();
 			$fields['action'] = 'email-decline-approval';
 			$fields['ordn'] = $_POST['ordn'];
 
-			$fields['email'] = get_rep_email($alumarep);
+			$fields['email'] = getBrpRepEmail($alumarep);
 			$fields['repemail'] = $rep2email;
 			$fields['message'] = $_POST['reason'];
 			$fields['login-name'] = $login_name;
@@ -506,7 +506,7 @@
 			$ordn = $_GET['ordn'];
 			$repid = get_order_salesrep($ordn, false);
 			$alumarep = get_repid_from_dplus($repid);
-			$email = get_rep_email($alumarep);
+			$email = getBrpRepEmail($alumarep);
 			$loginemail = get_login_email($userid);
 			$_SESSION['email'] = $email.",paul@cptechinc.com";
 			$_SESSION['from-email'] = ",paul@cptechinc.com";

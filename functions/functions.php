@@ -317,6 +317,14 @@
 		mail($to, $subject, $message, $headers);
 	}
 
+	function getBrpRepEmail($repid) {
+		$name = get_rep_name($repid);
+		$parts = explode(' ', $name);
+		$username = strtolower($parts[0]) . '.' . strtolower($parts[1]);
+		$email = "$username@brp.com";
+		return $email;
+	}
+
 
 
 

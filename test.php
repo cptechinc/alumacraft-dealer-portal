@@ -6,8 +6,8 @@
 <div class="page-section white">
 	<?php echo session_id();?>
 		<div class="content-wrapper">
-		<div class="wrap"> <?php echo $_SESSION['sql']."<br>"; ?>
-			<?php echo explode('-', 'serlver'); ?>
+		<div class="wrap"> <?php echo getBrpRepEmail('2943'); ?>
+
 		</div>
 	</div>
 </div>
