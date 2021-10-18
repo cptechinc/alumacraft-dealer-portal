@@ -1,4 +1,5 @@
 <?php
+	use atk4\dsql\Query_MySQL as Query;
 /* =============================================================
   	INVENTORY FUNCTIONS
  ============================================================ */
@@ -1697,4 +1698,20 @@
 			$results = $dba->query($sql);
 			return $results->fetchColumn();
 		}
+	}
+
+/* =============================================================
+	DSQL FUNCTIONS
+============================================================ */
+	function getQuery() {
+		global $dbData1;
+		return new Query(['connection' => $dbData1]);
+	}
+
+	function getSalesRepEmail($id) {
+		$q = getQuery();
+		$q->table('ar_saleper1');
+		$q->field('ArspEmailAddr');
+		$q->where('ArspSalePer1', $id);
+		return $q->getOne();
 	}

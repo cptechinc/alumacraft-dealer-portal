@@ -457,11 +457,11 @@
 			$ordn = $_POST['ordn'];
 			$repid = get_order_salesrep($ordn, false);
 			$alumarep = get_repid_from_dplus($repid);
-			$email = getBrpRepEmail($alumarep);
+			$email = getSalesRepEmail($alumarep);
 			$loginemail = get_login_email($userid);
 
 			$rep2 = get_order_cust_salesrep2($ordn);
-			$alumarep2 = get_repid_from_dplus($rep2);
+			$alumarep2 = getSalesRepEmail($rep2);
 			$rep2email = getBrpRepEmail($alumarep2);
 
 			$fields = array();
