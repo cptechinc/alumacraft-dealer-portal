@@ -1,9 +1,10 @@
 <?php
-
+	include 'vendor/autoload.php';
 	include 'config/config.php';
 	include 'db/db.php';
 	include 'db/dbfunctions.php';
 	include 'functions/functions.php';
+	
 	session_start();
 	if (isset($_GET['session'])) {
 		/* $login = load_login_session($_GET['session'], false);
