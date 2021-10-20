@@ -5,10 +5,7 @@
 <div class="page-section white">
 	<div class="row">
 		<div class="grid_12">
-			<p style="color:red; font-size: 20px;"> *
-				Please note that on Thursday, October 14th (5PM CDT) the server will be under maintenance. Acknowledgements &
-				Warranties will not be able to be updated
-			</p>
+			
 			<h3 style="color:#000;">Welcome, <?php echo $login_name; ?></h3>
 		   <div class="row">
 			<div class="grid_4"><h5>Select a Dealer or Rep To Narrow Search:</h5></div>
