@@ -49,7 +49,7 @@
                         <td><?php echo $orderdate; ?></td>
                         <td><?php echo $arrvdate; ?></td>
                         <td>
-                        	<a href="<?php echo $vieworderlink; ?>" target="_blank">View Order</a>
+                        	<?php if (1==2): ?><a href="<?php echo $vieworderlink; ?>" target="_blank">View Order</a><?php endif; ?>
                         	<?php if (1==2): ?><a href="ajax/load/orders/order-modal.php?ordn=<?php echo $order['OehdNbr']; ?>" rel="modal:open">View Order</a><?php endif; ?>|
                             <a href="#" data-ordn="<?php echo $order['OehdNbr']; ?>" class="get-document">View Acknowledgement</a>
                             <?php if (1==1) : ?>
@@ -67,7 +67,7 @@
                         <td><?php echo $orderdate; ?></td>
                         <td><?php echo $arrvdate; ?></td>
                         <td>
-                        	<a href="<?php echo $vieworderlink; ?>" target="_blank">View Order</a>
+                        	<?php if (1==2): ?><a href="<?php echo $vieworderlink; ?>" target="_blank">View Order</a><?php endif; ?>
                         	<?php if(1==2): ?><a href="ajax/load/orders/order-modal.php?ordn=<?php echo $order['OehdNbr']; ?>" rel="modal:open">View Order</a><?php endif; ?>
                             <a href="#" data-ordn="<?php echo $order['OehdNbr']; ?>" class="get-document">View Acknowledgement</a>
                             <?php // if ($role_type != "DEALER") ?>
