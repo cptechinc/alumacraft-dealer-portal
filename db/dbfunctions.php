@@ -1299,9 +1299,10 @@
 			return $sql;
 		} else {
 			$results = $db->query($sql);
-			return $results->fetchColumn;
+			return $results->fetchColumn();
 		}
 	}
+
 	function writesessionrecord($session, $externalsession, $userid, $externalrecnbr, $date) {
 		global $db;
 		$sql = "INSERT INTO sessions (sessionid, externalsessionid, externalrecord, userid, date) VALUES ('$session', '$externalsession', '$externalrecnbr', '$userid', '$date')";
@@ -1312,6 +1313,7 @@
 			return $sql;
 		}
 	}
+
 /* =============================================================
   	ORDERS FUNCTIONS
  ============================================================ */
@@ -1713,5 +1715,14 @@
 		$q->table('ar_saleper1');
 		$q->field('ArspEmailAddr');
 		$q->where('ArspSalePer1', $id);
+		return $q->getOne();
+	}
+
+	function getExternalSessionid($sessionid) {
+		global $db;
+		$q = new Query(['connection' => $db]);
+		$q->table('sessions');
+		$q->field('externalsessionid');
+		$q->where('sessionid', $sessionid);
 		return $q->getOne();
 	}

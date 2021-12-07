@@ -24,7 +24,9 @@
 				<div class="grid_5">
 					<ul class="footer-links">
 						<li><span>© 1946 - 2020 Alumacraft Boat Co</span></li>
-						<!--<li><span>Ph: 877-930-9222</span></li>-->
+						<?php if ($role_type === 'SADMIN') : ?>
+							<li><span><a href="<?= $urlOrderingSession; ?>">View Order Docs</a></span></li>
+						<?php endif; ?>
 					</ul>
 				</div>
 				<div class="grid_7">
