@@ -254,43 +254,16 @@
 			<div class="row">
 				<div class="grid_4">
 					<div id="logo">
-						<a href="https://www.alumacraft.com/Alumacraft-Boats.php"><img src="https://legacy.alumacraft.com/images/logo.jpg" alt="Alumacraft logo" class="max-img"></a>
+						<a href="https://www.alumacraft.com/Alumacraft-Boats.php">
+							<img src="https://legacy.alumacraft.com/images/logo.jpg" alt="Alumacraft logo" class="max-img">
+						</a>
 					</div>
 				</div>
 				<div class="grid_7">
 					<ul id="jetmenu-1" class="jetmenu">
 						<li class="showhide" style="display: none;"><span class="title"></span><span class="icon"><em></em><em></em><em></em><em></em></span></li>
-						<li class="fix-sub" style=""><a href="#">MENU <span>☰</span></a>
-							<div class="megamenu full-width" style="">
-								<div class="row">
-									<div class="col1-1-5"><a href="https://legacy.alumacraft.com/About-Alumacraft.php?content=best_catch"><i class="icon-alumacash"></i>Best Catch Promo</a></div>
-									<div class="col1-1-5"><a href="https://legacy.alumacraft.com/About-Alumacraft.php?content=nap"><i class="icon-nap-models"></i>BOAT SPECIALS</a></div>
-									<div class="col1-1-5"><a href="https://legacy.alumacraft.com/About-Alumacraft.php?content=boats&amp;model_year=2018"><i class="icon-models"></i>BOAT MODELS</a></div>
-									<div class="col1-1-5"><a href="https://legacy.alumacraft.com/About-Alumacraft.php?content=military"><i class="icon-military"></i>military DISCOUNTS</a></div>
-								</div>
-								<div class="row">
-									<div class="col1-1-5"><a href="https://legacy.alumacraft.com/About-Alumacraft.php?content=boats&amp;model_year=2018"><i class="icon-build-a-boat"></i>build YOUR boat</a></div>
-									<div class="col1-1-5"><a href="https://www.alumacraft.com/Alumacraft-Boat-Dealer-Locator.php?dealer_locator=1"><i class="icon-find-a-dealer"></i>find a dealer</a></div>
-									<!--<div class="col1-1-5"><a href="#"><i class="icon-compare"></i>compare models</a></div>-->
-									<div class="col1-1-5"><a href="https://legacy.alumacraft.com/About-Alumacraft.php?content=brochure_request"><i class="icon-request-a-brochure"></i>request a brochure</a></div>
-									<div class="col1-1-5"><a href="https://www.alumacraft-gear.com" target="_blank"><i class="icon-alumacraft-gear"></i>alumacraft gear</a></div>
-								</div>
-								<div class="row">
-									<div class="col1-1-5"><a href="https://legacy.alumacraft.com/About-Alumacraft.php?content=careers"><i class="icon-alumacraft-careers"></i>career OPPORTUNITIES</a></div>
-									<div class="col1-1-5"><a href="https://legacy.alumacraft.com/About-Alumacraft.php?content=about_us"><i class="icon-about"></i>ABOUT ALUMACRAFT</a></div>
-									<div class="col1-1-5"><a href="https://legacy.alumacraft.com/About-Alumacraft.php?content=social"><i class="icon-alumalife"></i>ALUMA-LIFE</a></div>
-									<div class="col1-1-5"><a href="https://legacy.alumacraft.com/About-Alumacraft.php?content=contact_us"><i class="icon-contact"></i>CONTACT</a></div>
-								</div>
-							</div>
-						</li>
-						<li class="social-nav-wrapper" style="">
-							<div class="social-nav">
-								<a href="https://dealer.alumacraft.com/Logout.php" class="loggedin" title="Dealer Portal"></a>
-								<a href="https://www.facebook.com/alumacraft" class="fb" target="_blank"></a>
-								<a href="https://www.youtube.com/user/alumacraftboatco" class="yt" target="_blank"></a>
-								<a href="https://instagram.com/alumacraftboats" class="instagram" target="_blank"></a>
-								<!--<a href="https://dealer.alumacraft.com/admin/Logout.php" ><img src="https://www.alumacraft.com/images/icons/unLock.png" style="height:17px;"/></a>--></div>
-						</li>
+
+
 						<!-- <li><a href="https://dealer.alumacraft.com/admin/Logout.php"><img src="https://www.alumacraft.com/images/icons/unLock.png" style="height:17px;"/></a></li>-->
 					</ul>
 				</div>
