@@ -1,3 +1,6 @@
+<?php
+	use Aluma\Datax\Warranty;
+?>
 <?php $boat = get_boat_info(urldecode($_GET['edit']), false); ?>
 <?php $invoicedate = date("m/d/Y", strtotime($boat['InvoiceDate'])); ?>
 <?php $registration = getregistrationinfo($_GET['edit'], $_GET['itemnbr'], false); ?>
@@ -25,6 +28,26 @@
 				<p>ItemID: <b><?php echo $boat['ItemNbr']; ?></b></p>
 				<p>Customer: <b><?php echo $name; ?></b></p>
 				<p>Invoice #:  <b><?php echo $boat['OrderNbr']; ?> - <?php echo $invoicedate; ?></b></p>
+				<p>
+					Original Warranty Date:
+					<b>
+						<?php $date = Warranty\Expiration\Library::getOriginalWarrantyDate($boat['SerialNbr'], $boat['ItemNbr']); ?>
+						<?= empty($date) === false ? date('m/d/Y', strtotime($date)) : ''; ?>
+					</b>
+				</p>
+				<p>
+					Last Register Date:
+					<b>
+						<?php $date = Warranty\Expiration\Library::getLastWarrantyDate($boat['SerialNbr'], $boat['ItemNbr']); ?>
+						<?= empty($date) === false ? date('m/d/Y', strtotime($date)) : ''; ?>
+					</b>
+				</p>
+				<p>
+					Warranty Expiration Date:
+					<b>
+						<?= Warranty\Expiration\Library::getWarrantyExpireDate($boat['SerialNbr'], $boat['ItemNbr']); ?>
+					</b>
+				</p>
 			</div>
        		<div class="grid_6 grid">
        			<?php $options = get_boat_optncodes($boat['ItemNbr'], false); ?>
