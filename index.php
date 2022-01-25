@@ -5,7 +5,7 @@
 <div class="page-section white">
 	<div class="row">
 		<div class="grid_12">
-			
+
 			<h3 style="color:#000;">Welcome, <?php echo $login_name; ?></h3>
 		   <div class="row">
 			<div class="grid_4"><h5>Select a Dealer or Rep To Narrow Search:</h5></div>
@@ -27,7 +27,6 @@
 						case 'SREP':
 							if ($issubrep) {
 								$dealers = get_dealers_by_dealerid($subreplocations[$userid], false);
-
 							} else {
 								$dealers = get_reps_dealers($userid);
 							}
