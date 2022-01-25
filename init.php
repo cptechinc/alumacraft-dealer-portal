@@ -5,6 +5,8 @@
 	include 'db/dbfunctions.php';
 	include 'functions/functions.php';
 
+	Aluma\Datax\Database::setPdo($dbData1);
+
 	session_start();
 	if (isset($_GET['session'])) {
 		/* $login = load_login_session($_GET['session'], false);
