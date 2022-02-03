@@ -1240,7 +1240,7 @@
 
 	function get_horsepowers($debug) {
 		global $db;
-		$sql = "SELECT * FROM horsepower;";
+		$sql = "SELECT * FROM horsepower ORDER BY horsepower ASC;";
 		if ($debug) {
 			return $sql;
 		} else {
