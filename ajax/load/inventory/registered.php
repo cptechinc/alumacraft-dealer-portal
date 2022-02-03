@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include 'init.php';
+	include '../../../init.php';
 	use Aluma\Datax\Warranty;
 
 	if (isset($_GET['show-sold-unreg'])) {
