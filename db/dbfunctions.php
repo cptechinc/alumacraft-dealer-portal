@@ -792,30 +792,6 @@
 		}
 	}
 
-	// function get_wip_complete_date($ordn, $itemid, $debug) {
-	// 	global $db;
-	// 	$sql = "SELECT WIP_HEADER.WiphCmpltdDate FROM SO_HEADER JOIN SO_DETAIL ON SO_HEADER.OehdNbr = SO_DETAIL.OehdNbr JOIN WIP_HEADER ON SO_DETAIL.InitItemNbr = WIP_HEADER.InitItemNbr WHERE SO_HEADER.OehdNbr = '$ordn' AND SO_DETAIL.InitItemNbr = '$itemid' LIMIT 1";
-	// 	if ($debug) {
-	// 		return $sql;
-	// 	} else {
-	// 		$results = $db->query($sql);
-	// 		return $results->fetchColumn();
-	// 	}
-	// }
-
-	function get_wip_complete_date($ordn, $itemid, $debug) {
-		global $db;
-		$ordn = rtrim($ordn, '00');
-		$sql = "SELECT WIP_HEADER.WiphCmpltdDate FROM WIP_HEADER WHERE OehdNbr = '$ordn' LIMIT 1";
-
-		if ($debug) {
-			return $sql;
-		} else {
-			$results = $db->query($sql);
-			return $results->fetchColumn();
-		}
-	}
-
 	function is_in_inv_lot($ordn, $itemid, $debug) {
 		global $db;
 		$sql = "SELECT COUNT(*) FROM INV_INV_LOT JOIN SERIAL_MAST ON left(INV_INV_LOT.InltLotSer, 6) = left(SERIAL_MAST.SermSerNbr, 6)  WHERE INV_INV_LOT.InltOnHand = 1 AND INV_INV_LOT.InitItemNbr = '$itemid' AND SermAcAllocOrdr = left('$ordn', 6)";
@@ -1725,4 +1701,27 @@
 		$q->field('externalsessionid');
 		$q->where('sessionid', $sessionid);
 		return $q->getOne();
+	}
+
+	function get_wip_complete_date2($ordn, $itemid, $debug = false) {
+		global $db;
+		$q = new Query(['connection' => $db]);
+		$q->table('WIP_HEADER');
+		$q->field('WiphCmpltdDate');
+		$q->where('OehdNbr', rtrim($ordn, '00'));
+		$q->where('InitItemNbr', $itemid);
+		return $q->getOne();
+	}
+
+	function get_wip_complete_date($ordn, $itemid, $debug = false) {
+		global $db;
+		$ordn = rtrim($ordn, '00');
+		$sql = "SELECT WIP_HEADER.WiphCmpltdDate FROM WIP_HEADER WHERE OehdNbr = '$ordn' AND InitItemNbr = '$itemid' LIMIT 1";
+
+		if ($debug) {
+			return $sql;
+		} else {
+			$results = $db->query($sql);
+			return $results->fetchColumn();
+		}
 	}

@@ -133,7 +133,6 @@
 				if (isset($_GET['location'])) {
 					//$dealerid comes from the role-type-logic script
 					$orders = get_cust_orders($dealerid, $showonpage, $this_page, $approved, $boatsonly, false);
-					//echo get_cust_orders($dealerid, $showonpage, $this_page, $approved, $boatsonly, true);
 				} elseif($_GET['rep']) {
 					$orders = get_orders($dplus_custs, $showonpage, $this_page, $approved, $boatsonly, false);
 				} else {
