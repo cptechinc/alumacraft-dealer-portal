@@ -25,7 +25,7 @@
 			<div class="row"> <div class="grid_12 grid"> <a href="<?php echo $url; ?>#inventory" class="aluma-btn">Back to Inventory</a> </div> </div>
 			<?php include 'content/warranty/edit-warranty.php'; ?>
     	<?php else : ?>
-    		<?php echo $userid; ?> You don't have access to edit registration.  <br>
+    		You don't have access to edit registration.  <br>
     		<?php if (does_user_have_access($userid, $permissions['view-registered'])) : ?>
 				<a href="<?php echo 'warranty-card.php?view='.$_GET['edit'].'&itemnbr='.$_GET['itemnbr']; ?>" target="_blank">View Card</a>
     		<?php endif; ?>
