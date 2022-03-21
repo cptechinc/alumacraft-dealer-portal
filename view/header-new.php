@@ -68,6 +68,7 @@
         <script type="text/javascript" src="assets/js/moment.js"></script>
         <script type="text/javascript" src="assets/js/cpt.js"></script>
         <script type="text/javascript" src="assets/js/noty.js"></script>
+        <script type="text/javascript" src="assets/js/uri.js"></script>
 
 		<script>
 		    window.dataLayer = window.dataLayer || [];

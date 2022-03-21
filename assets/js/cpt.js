@@ -74,7 +74,8 @@ $(function() {
 		var column = jQuery( "input[name='subset']" ).val();
 		console.log(action);
 		jQuery.post( action, jQuery( form ).serialize() ).done(function(json) {
-			console.log(json.href);
+			var uri = URI(json.href);
+			console.log(uri.toString());
 			jQuery( "#"+column ).load( json.href+"#load-"+column, function() {
 				jQuery.modal.close();
 			});

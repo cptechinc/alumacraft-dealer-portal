@@ -1,6 +1,9 @@
 <?php
 	session_start();
 	include '../../../init.php';
+	include '../../../logic/role-type-logic.php';
+	// include 'init.php';
+
 	use Aluma\Datax\Warranty;
 
 	if (isset($_GET['show-sold-unreg'])) {
