@@ -1452,7 +1452,7 @@
 
 	function get_reps_dealers($repid) {
 		global $dba;
-		$sql = "SELECT dealer_brands.location_id, view_locations.name, view_locations.city, dealer_brands.status FROM dealer_brands LEFT JOIN view_locations ON dealer_brands.location_id = view_locations.location_id WHERE dealer_brands.status > 0 AND view_locations.name != '' AND dealer_brands.rep_id = '$repid' ORDER BY view_locations.name";
+		$sql = "SELECT dealer_brands.location_id, view_locations.name, view_locations.city, dealer_brands.status FROM dealer_brands LEFT JOIN view_locations ON dealer_brands.location_id = view_locations.location_id WHERE dealer_brands.status > 0 AND view_locations.name != '' AND (dealer_brands.rep_id = '$repid' OR OR dealer_brands.rep_id1 = '$repid') ORDER BY view_locations.name";
 		$results = $dba->query($sql);
 		return $results;
 	}
@@ -1471,7 +1471,7 @@
 
 	function get_reps_dealers_ids($repid) {
 		global $dba;
-		$sql = "SELECT dealer_brands.location_id, view_locations.name, view_locations.city, dealer_brands.status FROM dealer_brands LEFT JOIN view_locations ON dealer_brands.location_id = view_locations.location_id WHERE dealer_brands.status > 0 AND view_locations.name != '' AND dealer_brands.rep_id = '$repid' ORDER BY view_locations.location_id";
+		$sql = "SELECT dealer_brands.location_id, view_locations.name, view_locations.city, dealer_brands.status FROM dealer_brands LEFT JOIN view_locations ON dealer_brands.location_id = view_locations.location_id WHERE dealer_brands.status > 0 AND view_locations.name != '' AND (dealer_brands.rep_id = '$repid' OR dealer_brands.rep_id1 = '$repid') ORDER BY view_locations.location_id";
 		$results = $dba->query($sql);
 		return $results;
 	}
