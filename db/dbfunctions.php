@@ -1450,9 +1450,12 @@
 		return $results;
 	}
 
-	function get_reps_dealers($repid) {
+	function get_reps_dealers($repid, $debug = false) {
 		global $dba;
-		$sql = "SELECT dealer_brands.location_id, view_locations.name, view_locations.city, dealer_brands.status FROM dealer_brands LEFT JOIN view_locations ON dealer_brands.location_id = view_locations.location_id WHERE dealer_brands.status > 0 AND view_locations.name != '' AND (dealer_brands.rep_id = '$repid' OR OR dealer_brands.rep_id1 = '$repid') ORDER BY view_locations.name";
+		$sql = "SELECT dealer_brands.location_id, view_locations.name, view_locations.city, dealer_brands.status FROM dealer_brands LEFT JOIN view_locations ON dealer_brands.location_id = view_locations.location_id WHERE dealer_brands.status > 0 AND view_locations.name != '' AND (dealer_brands.rep_id = '$repid' OR dealer_brands.rep_id1 = '$repid') ORDER BY view_locations.name";
+		if ($debug) {
+			return $sql;
+		}
 		$results = $dba->query($sql);
 		return $results;
 	}
@@ -1493,7 +1496,7 @@
 
 	function get_reps_dplus_custids_list_alt($repid, $debug) {
 		global $dba; $dealerlist = '';
-		$sql = "SELECT dealer_brands.mfg_dealer_number as dealer FROM view_locations JOIN dealer_brands ON view_locations.location_id = dealer_brands.location_id WHERE rep_id = '$repid'";
+		$sql = "SELECT dealer_brands.mfg_dealer_number as dealer FROM view_locations JOIN dealer_brands ON view_locations.location_id = dealer_brands.location_id WHERE (rep_id = '$repid' OR dealer_brands.rep_id1 = '$repid')";
 		if ($debug) {
 			return $sql;
 		} else {
