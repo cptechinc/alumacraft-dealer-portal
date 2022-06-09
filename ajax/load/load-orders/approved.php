@@ -102,8 +102,8 @@
 						<td><?php echo $orderdate; ?></td>
 						<td><?php echo $ackdate; ?></td>
 						<?php //if (is_user_alumacraft_admin($userid)) : ?>
-							<td><?php echo $prodfinish; ?></td>
-							<td><?php echo $requestrelease; ?></td>
+							<td><?php $prodfinish; ?></td>
+							<td><?php $requestrelease; ?></td>
 						<?php //endif; ?>
 						<td>
 							<a href="<?php echo $vieworderlink; ?>" target="_blank">View Order</a>
@@ -122,8 +122,8 @@
 						<td><?php echo $ackdate; ?></td>
 						<?php //if (is_user_alumacraft_admin($userid)) : ?>
 							<?php if ($requestrelease != '') : ?>
-								<td><?php echo $prodfinish ?></td>
-								<td><?php echo $requestrelease; ?></td>
+								<td><?php $prodfinish ?></td>
+								<td><?php $requestrelease; ?></td>
 							<?php else : ?>
 								<td></td>
 								<td></td>

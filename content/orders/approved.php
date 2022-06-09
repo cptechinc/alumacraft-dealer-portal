@@ -93,8 +93,8 @@
 						<td><?php echo $orderdate; ?></td>
 						<td><?php echo $ackdate; ?></td>
 						<?php //if (is_user_alumacraft_admin($userid)) : ?>
-							<td><?php echo $prodfinish ?></td>
-							<td><?php echo $requestrelease; ?></td>
+							<td><?php $prodfinish ?></td>
+							<td><?php $requestrelease; ?></td>
 
 						<?php //endif; ?>
 
@@ -113,8 +113,8 @@
 						<td><?php echo $order['OehdUserCode1']; ?></td>
 						<td><?php echo $orderdate; ?></td>
 						<td><?php echo $ackdate; ?></td>
-						<td><?php echo $prodfinish ?></td>
-						<td><?php echo $requestrelease; ?></td>
+						<td><?php $prodfinish ?></td>
+						<td><?php $requestrelease; ?></td>
 						<td>
 							<?php if (1==2): ?><a href="<?php echo $vieworderlink; ?>" target="_blank">View Order</a><?php endif; ?>
 							<?php if (1==2): ?><a href="ajax/load/orders/order-modal.php?ordn=<?php echo $order['OehdNbr']; ?>" rel="modal:open">View Order</a><?php endif; ?> |
