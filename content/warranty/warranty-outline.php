@@ -10,7 +10,7 @@
                 	<div class="row"> <div class="grid_12 grid"> <h2>Register Your Boat</h2> </div> </div>
 					<?php $url = htmlspecialchars($_SERVER['HTTP_REFERER']); ?>
 					<div class="row"> <div class="grid_12 grid"> <a href="<?php echo $url; ?>#inventory" class="aluma-btn">Back to Inventory</a> </div> </div>
-						<?php include 'content/warranty/warranty-form.php'; ?>
+					<?php include 'content/warranty/warranty-form.php'; ?>
                 <?php endif; ?>
             <?php else : ?>
                 Boat Doesn't Exist
