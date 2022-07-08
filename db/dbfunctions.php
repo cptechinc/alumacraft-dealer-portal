@@ -1697,6 +1697,14 @@
 		return $q->getOne();
 	}
 
+	function getSalesRep($id) {
+		$q = getQuery();
+		$q->table('ar_saleper1');
+		$q->field(['email'=>'ArspEmailAddr', 'name' => 'ArspName']);
+		$q->where('ArspSalePer1', $id);
+		return $q->getRow();
+	}
+
 	function getExternalSessionid($sessionid) {
 		global $db;
 		$q = new Query(['connection' => $db]);

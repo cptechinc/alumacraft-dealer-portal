@@ -452,68 +452,43 @@
 			$_SESSION['sql'] = log_acknowledgement_view($ordn, $userid, $doc, $location_id);
 			$_SESSION['loc'] = "index.php";
 			break;
-		case 'email-approval-cancellation':
-			$message = $_POST['reason'];
-			$ordn = $_POST['ordn'];
-			$repid = get_order_salesrep($ordn, false);
-			$alumarep = get_repid_from_dplus($repid);
-			$email = getSalesRepEmail($alumarep);
-			$loginemail = get_login_email($userid);
-
-			$rep2 = get_order_cust_salesrep2($ordn);
-			$alumarep2 = getSalesRepEmail($rep2);
-			$rep2email = getBrpRepEmail($alumarep2);
-
-			$fields = array();
-			$fields['action'] = 'email-decline-approval';
-			$fields['ordn'] = $ordn;
-			$fields['email'] = $email;
-			$fields['repemail'] = $rep2email;
-			$fields['message'] = $message;
-			$fields['login-name'] = $login_name;
-			$fields['sessionid'] = session_id();
-			$url = $alumadplusip."/reg/redir/remote-redir.php";
-			send_server_request($url, $fields);
-			log_approve_order($ordn, $userid, $repid, 'N', $message);
-
-			break;
 		case 'cancel-approval':
 			$ordn = $_POST['ordn'];
-			$repid = get_order_salesrep($ordn, false);
-			$alumarep = get_repid_from_dplus($repid);
-			$email = getBrpRepEmail($alumarep);
-			$loginemail = get_login_email($userid);
+			$repID = get_order_salesrep($ordn, false);
+			$rep = getSalesRep($repID);
 
-			$rep2 = get_order_cust_salesrep2($ordn);
-			$alumarep2 = get_repid_from_dplus($rep2);
-			$rep2email = getBrpRepEmail($alumarep2);
 			$fields = array();
 			$fields['action'] = 'email-decline-approval';
-			$fields['ordn'] = $_POST['ordn'];
-
-			$fields['email'] = getBrpRepEmail($alumarep);
-			$fields['repemail'] = $rep2email;
+			$fields['ordn'] = $ordn ;
+			$fields['repid'] = $repID;
+			$fields['rep-email'] = $rep['email'];
+			$fields['rep-name'] = $rep['name'];
 			$fields['message'] = $_POST['reason'];
 			$fields['login-name'] = $login_name;
+			$fields['login-email'] = get_login_email($userid);
 			$fields['sessionid'] = session_id();
+
 			$url = $alumadplusip."/reg/redir/remote-redir.php";
 			send_server_request($url, $fields);
 			log_approve_order($ordn, $userid, $repid, 'N', $message);
-
 			break;
 		case 'get-email-approval-cancellation':
-			$message = $_GET['reason'];
 			$ordn = $_GET['ordn'];
-			$repid = get_order_salesrep($ordn, false);
-			$alumarep = get_repid_from_dplus($repid);
-			$email = getBrpRepEmail($alumarep);
-			$loginemail = get_login_email($userid);
-			$_SESSION['email'] = $email.",paul@cptechinc.com";
-			$_SESSION['from-email'] = ",paul@cptechinc.com";
-			//$email = 'paul@cptechinc.com';
-			email_declined_approval("paul@cptechinc.com", "orders@alumacraft.com", $message.$userid, $ordn, $login_name);
-			log_approve_order($ordn, $userid, $repid, 'N', $message);
+			$repID = get_order_salesrep($ordn, false);
+			$rep = getSalesRep($repID);
 
+			$fields = array();
+			$fields['action'] = 'email-decline-approval';
+			$fields['ordn'] = $_GET['ordn'];
+			$fields['repid'] = $repID;
+			$fields['rep-email'] = $rep['email'];
+			$fields['rep-name'] = $rep['name'];
+			$fields['message'] = $_GET['reason'];
+			$fields['login-name'] = $login_name;
+			$fields['login-email'] = get_login_email($userid);
+			$fields['sessionid'] = session_id();
+			echo json_encode($fields);
+			exit;
 			break;
 		case 'logout':
 			session_regenerate_id(true);
