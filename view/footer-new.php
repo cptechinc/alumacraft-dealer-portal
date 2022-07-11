@@ -42,7 +42,6 @@
 		</div>
 	</div>
 	<div class="page-section bottom-space"></div>
-	<div id="builder_config" class="admin_toolbar_panel g972" style="z-index:1001;width:1000px;"></div>
 	<div id="admin_toolbar_panel" class="admin_toolbar_panel g972" style="z-index:1001;width:1000px;display:none;">
 		<div style="position:absolute;top:0;right:0;border:1px solid #cccccc;background-color:#F5F5ED;padding-top:3px;"><a href="#admin_toolbar_panel" class="admin_toolbar_toggle" style="padding:3px 4px;">X</a></div>
 		<div style="position:relative;margin:0 20px 20px 20px;">
@@ -130,27 +129,3 @@
 
 		}); //ready
 	</script>
-
-	<script type="text/javascript">
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-76627962-1']);
-		  _gaq.push(['_setDomainName', '.alumacraft.com']);
-		  _gaq.push(['_trackPageview']);
-
-
-		//_gaq.push(['_setCustomVar',1,'user_id','4189',1]);
-
-		  (function() {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();
-
-    </script>
-
-
-
-
-	<noscript>
-	 &lt;img height="1" width="1" src="https://www.facebook.com/tr?id=1860402154194791&amp;ev=PageView&amp;noscript=1"/&gt;
-	</noscript>
