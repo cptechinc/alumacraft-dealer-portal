@@ -55,7 +55,13 @@ class WarrantyMaster {
 	public function getOriginalWarrantyDate($serialnbr, $itemID) {
 		$q = $this->querySerialnbrItemid($serialnbr, $itemID);
 		$q->field('WarmAcOrigWarrDate');
-		return $q->getOne();
+		$date = '';
+		try {
+			$date = $q->getOne();
+		} catch (\Exception $e) {
+			return '';
+		}
+		return $date;
 	}
 
 	/**

@@ -60,6 +60,9 @@ class Library {
 		}
 		$regDate      = self::getOriginalWarrantyDate($serialnbr, $itemID);
 		$expirePeriod = self::getExpirationPeriod($itemID);
+		if (empty($regDate) || empty($expirePeriod)) {
+			return '';
+		}
 		return date($dateFormat, strtotime($regDate . " + $expirePeriod " . self::TIME_UNIT));
 	}
 }
