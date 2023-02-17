@@ -239,7 +239,7 @@
 				<div class="grid_4">
 					<div id="logo">
 						<a href="https://www.alumacraft.com/Alumacraft-Boats.php">
-							<img src="https://legacy.alumacraft.com/images/logo.jpg" alt="Alumacraft logo" class="max-img">
+							<img src="assets/images/logo.png" alt="Alumacraft logo" class="max-img">
 						</a>
 					</div>
 				</div>
