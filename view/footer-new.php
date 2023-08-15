@@ -1,21 +1,6 @@
 	<div class="page-section dealer-section dark-grey">
 		<div class="row">
-			<div class="grid_4">
-				<!--<img src="images/home/map.jpg" alt=""/>--></div>
-			<!--<div class="grid_4"><strong>YOUR CLOSEST DEALER:</strong><br>DAN’S SOUTHSIDE MARINE (13MI)<br>1900 W 98th Street<br>Bloomington, MN 55431<br>952-881-0077<br><a href="http://www.danssouthsidemarine.com">www.danssouthsidemarine.com</a><br><br><a href="#" class="your-boat-btn" style="color:#e3e3e3;">Find Another Dealer</a><p>&nbsp;</p></div>-->
-			<div class="grid_3">
-				<p>MINNESOTA
-					<br>315 W. Saint Julien St.
-					<br>St. Peter, MN 56082
-					<br><a href="mailto:customerservice@alumacraft.com">customerservice@alumacraft.com</a></p>
-				<!--<a href="tel:5079311050">507.931.1050</a></p>--></div>
-			<div class="grid_3">
-				<p>ARKANSAS
-					<br>1329 N. 10th St.
-					<br>Arkadelphia, AR 71923
-					<br><a href="mailto:customerservice@alumacraft.com">customerservice@alumacraft.com</a></p>
-				<!--<a href="tel:8702465555">870.246.5555</a></p>-->
-			</div>
+			
 		</div>
 	</div>
 	<div class="page-section dark-grey-2" style="padding:0">
@@ -23,7 +8,7 @@
 			<div class="row">
 				<div class="grid_5">
 					<ul class="footer-links">
-						<li><span>© 1946 - 2020 Alumacraft Boat Co</span></li>
+						<li><span>© 1946 - <?= date('Y'); ?> Alumacraft Boat Co</span></li>
 						<?php if ($role_type === 'SADMIN') : ?>
 							<li><span><a href="<?= $urlOrderingSession; ?>">View Order Docs</a></span></li>
 						<?php endif; ?>
