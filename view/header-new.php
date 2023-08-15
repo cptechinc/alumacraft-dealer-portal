@@ -13,17 +13,17 @@
 
 
     <!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="https://legacy.alumacraft.com/css/base.css?v=1">
-    <link rel="stylesheet" type="text/css" href="https://legacy.alumacraft.com/css/style.css?v=2" media="all">
-    <link rel="stylesheet" type="text/css" href="https://legacy.alumacraft.com/css/stylesheet.css?v=1" media="all">
-    <link rel="stylesheet" type="text/css" href="https://legacy.alumacraft.com/css/jetmenu.css?v=1">
-	<link rel="stylesheet" type="text/css" href="https://legacy.alumacraft.com/css/amazium.css?v=1">
-	<link rel="stylesheet" type="text/css" href="https://legacy.alumacraft.com/css/layout-new.css?v=1">
-	<link rel="stylesheet" type="text/css" href="https://legacy.alumacraft.com/css/everslider.css?v=1">
-	<link rel="stylesheet" type="text/css" href="https://legacy.alumacraft.com/css/everslider-custom.css?v=1">
+	<link rel="stylesheet" type="text/css" href="https://dealer.alumacraft.com/css/base.css?v=1">
+    <link rel="stylesheet" type="text/css" href="https://dealer.alumacraft.com/css/style.css?v=2" media="all">
+    <link rel="stylesheet" type="text/css" href="https://dealer.alumacraft.com/css/stylesheet.css?v=1" media="all">
+    <link rel="stylesheet" type="text/css" href="https://dealer.alumacraft.com/css/jetmenu.css?v=1">
+	<link rel="stylesheet" type="text/css" href="https://dealer.alumacraft.com/css/amazium.css?v=1">
+	<link rel="stylesheet" type="text/css" href="https://dealer.alumacraft.com/css/layout-new.css?v=1">
+	<link rel="stylesheet" type="text/css" href="https://dealer.alumacraft.com/css/everslider.css?v=1">
+	<link rel="stylesheet" type="text/css" href="https://dealer.alumacraft.com/css/everslider-custom.css?v=1">
 
 
-	<link rel="stylesheet" type="text/css" href="https://legacy.alumacraft.com/css/jquery-ui.css?v=1">
+	<link rel="stylesheet" type="text/css" href="https://dealer.alumacraft.com/css/jquery-ui.css?v=1">
 
         <link rel="stylesheet" type="text/css" href="assets/css/jquery.modal.css?v=1">
         <link rel="stylesheet" type="text/css" href="assets/css/select2.min.css?v=1">
@@ -31,16 +31,16 @@
 
 
 		<!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
-	<link rel="stylesheet" type="text/css" href="https://legacy.alumacraft.com/css/settings.css?v=1" media="screen">
-    <link rel="stylesheet" type="text/css" href="https://legacy.alumacraft.com/css/extralayers.css?v=1" media="all">
+	<link rel="stylesheet" type="text/css" href="https://dealer.alumacraft.com/css/settings.css?v=1" media="screen">
+    <link rel="stylesheet" type="text/css" href="https://dealer.alumacraft.com/css/extralayers.css?v=1" media="all">
 
  	<link href="https://alumacraftapp.alumacraft.com/css/admin-LAYOUT-2017.css?v=1" rel="stylesheet" type="text/css">
 
 	<script type="text/javascript" async="" src="https://www.google-analytics.com/ga.js"></script>
-	<script type="text/javascript" src="https://legacy.alumacraft.com/scripts/jquery-2.0.0.min.js"></script>
-	<script src="https://legacy.alumacraft.com/scripts/jquery-ui.js?v=1"></script>
-	<script src="https://legacy.alumacraft.com/scripts/modernizr.custom.js"></script>
-	<script src="https://legacy.alumacraft.com/scripts/jquery.magnific-popup.js"></script>
+	<script type="text/javascript" src="https://dealer.alumacraft.com/scripts/jquery-2.0.0.min.js"></script>
+	<script src="https://dealer.alumacraft.com/scripts/jquery-ui.js?v=1"></script>
+	<script src="https://dealer.alumacraft.com/scripts/modernizr.custom.js"></script>
+	<script src="https://dealer.alumacraft.com/scripts/jquery.magnific-popup.js"></script>
 
 	<!-- SLIDER REVOLUTION 4.x scripts  -->
 
@@ -53,13 +53,13 @@
 
 	<!-- JavaScript -->
 	<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>-->
-	<script type="text/javascript" src="https://legacy.alumacraft.com/scripts/jquery.easing.1.3.js"></script>
-	<script type="text/javascript" src="https://legacy.alumacraft.com/scripts/jquery.mousewheel.js"></script>
-	<script type="text/javascript" src="https://legacy.alumacraft.com/scripts/jquery.everslider.js"></script>
+	<script type="text/javascript" src="https://dealer.alumacraft.com/scripts/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="https://dealer.alumacraft.com/scripts/jquery.mousewheel.js"></script>
+	<script type="text/javascript" src="https://dealer.alumacraft.com/scripts/jquery.everslider.js"></script>
 
-    <script type="text/javascript" src="https://legacy.alumacraft.com/scripts/jetmenu.js"></script>
+    <script type="text/javascript" src="https://dealer.alumacraft.com/scripts/jetmenu.js"></script>
 
-    <script type="text/javascript" src="https://legacy.alumacraft.com/scripts/classie.js"></script>
+    <script type="text/javascript" src="https://dealer.alumacraft.com/scripts/classie.js"></script>
 
     <script type="text/javascript" src="assets/js/jquery.modal.min.js"></script>
         <script type="text/javascript" src="assets/js/select2.full.min.js"></script>
@@ -196,9 +196,9 @@
     <script src="https://alumacraftapp.alumacraft.com/Scripts/imageUpload.js?v=1" type="text/javascript"></script>
 	<script src="https://alumacraftapp.alumacraft.com/Scripts/general_2017.js?v=4"></script>
 
-	<!-- <script src="https://legacy.alumacraft.com/scripts/boat-builder-2018.js?v=17"></script> -->
+	<!-- <script src="https://dealer.alumacraft.com/scripts/boat-builder-2018.js?v=17"></script> -->
 	<script src="https://alumacraftapp.alumacraft.com/Scripts/jquery.formatCurrency-1.4.0.min.js"></script>
-	<!-- <script src="https://legacy.alumacraft.com/scripts/boat-builder.2017.js.php?id=119" type="text/javascript"></script> -->
+	<!-- <script src="https://dealer.alumacraft.com/scripts/boat-builder.2017.js.php?id=119" type="text/javascript"></script> -->
 	<script>
 	jQuery( function() {
 
@@ -215,8 +215,8 @@
 	</script>
 
 
-	<!--[if IE]><script src = 'https://legacy.alumacraft.com/scripts/ie.js'></script><![endif]-->
-	<!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="https://legacy.alumacraft.com/css/ie.css" /><![endif]-->
+	<!--[if IE]><script src = 'https://dealer.alumacraft.com/scripts/ie.js'></script><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="https://dealer.alumacraft.com/css/ie.css" /><![endif]-->
 
 
     <!--[if lt IE 9]>
