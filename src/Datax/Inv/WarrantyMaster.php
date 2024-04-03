@@ -70,9 +70,18 @@ class WarrantyMaster {
 	 * @param  string $itemID    Item ID
 	 * @return string
 	 */
-	public function getLastWarrantyDate($serialnbr, $itemID) {
+	public function getLastWarrantyDate($serialnbr, $itemID, $debug = false) {
 		$q = $this->querySerialnbrItemid($serialnbr, $itemID);
 		$q->field('WarmEntryDate');
-		return $q->getOne();
+		if ($debug) {
+			return $q->getDebugQuery();
+		}
+		$date = '';
+		try {
+			$date = $q->getOne();
+		} catch (\Exception $e) {
+			return '';
+		}
+		return $date;
 	}
 }

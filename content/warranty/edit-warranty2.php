@@ -1,5 +1,6 @@
 <?php
 	use Aluma\Datax\Warranty;
+	use Aluma\Datax\Inv\WarrantyMaster as WM;
 ?>
 <?php $boat = get_boat_info(urldecode($_GET['edit']), false); ?>
 <?php $invoicedate = date("m/d/Y", strtotime($boat['InvoiceDate'])); ?>

@@ -8,6 +8,7 @@
 	Aluma\Datax\Database::setPdo($dbData1);
 
 	session_start();
+	
 	if (isset($_GET['session'])) {
 		/* $login = load_login_session($_GET['session'], false);
 		$logins = decrypt_login_session(urldecode(strtoupper($_GET['session'])), urldecode(strtoupper($_GET['userid'])), false);
@@ -20,10 +21,10 @@
 		//session_id($_GET['session']);
 
 		$login = loadsession($_GET['session'], $_GET['userid'], false);
+
 		if (!sessionhasrecord(session_id(), false)) {
 			writesessionrecord(session_id(), $login['session'], $login['user_id'], $login['id'], date("Y-m-d H:i:s"));
 		}
-
 
 		$_SESSION['login'] = true;
 		$_SESSION['userID'] = $_GET['userid'];

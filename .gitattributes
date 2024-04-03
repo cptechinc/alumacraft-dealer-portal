@@ -1,7 +1,10 @@
+$ cat .gitattributes
+*.module linguist-language=PHP
+
 # Auto detect text files and perform LF normalization
 * text eol=lf
 
-#
+*.php text eol=lf
 *.html text eol=lf
 *.htm text eol=lf
 *.css text eol=lf
@@ -9,16 +12,3 @@
 *.sass text eol=lf
 *.less text eol=lf
 *.js text eol=lf
-
-*.php text eol=lf
-
-
-
-*.jpg binary
-*.png binary
-*.gif binary
-*.ttf binary
-*.eot binary
-*.woff binary
-*.woff2 binary
-*.otf binary

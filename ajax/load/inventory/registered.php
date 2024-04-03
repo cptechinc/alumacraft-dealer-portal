@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include '../../../init.php';
+	include '../../../init2.php';
 	include '../../../logic/role-type-logic.php';
 	// include 'init.php';
 

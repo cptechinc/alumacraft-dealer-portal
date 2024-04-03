@@ -1,4 +1,4 @@
-<?php include 'init.php'; ?>
+<?php include 'init2.php'; ?>
 <?php include 'view/bootstrap/header.php'; ?>
 <?php include 'logic/role-type-logic.php'; ?>
 

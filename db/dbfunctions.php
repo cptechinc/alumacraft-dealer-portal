@@ -1585,6 +1585,7 @@
 		$sql = "SELECT COUNT(*) as count FROM users_SDR_access WHERE user_id = '$userid' AND access_id = '$accessid'";
 		$results = $dba->query($sql);
 		$count = $results->fetchColumn();
+		
 		if (intval($count) > 0 ) {
 			return true;
 		} else {

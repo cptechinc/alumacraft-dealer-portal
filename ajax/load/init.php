@@ -1,9 +1,9 @@
 <?php 
-	include '../../../vendor/autoload.php';
-	include '../../../config/config.php';
-	include '../../../db/db.php';
-	include '../../../db/dbfunctions.php';
-	include '../../../functions/functions.php'; 
+	include '../../vendor/autoload.php';
+	include '../../config/config.php';
+	include '../../db/db.php';
+	include '../../db/dbfunctions.php';
+	include '../../functions/functions.php'; 
 
 	use Aluma\Sdr;
 	use Aluma\Util;
@@ -22,4 +22,4 @@ $role = $user->roleid;
 $role_type = $roles_array[$role];
 $location_id = $user->locationid;
 
-include '../../../logic/role-type-logic.php';
+include '../../logic/role-type-logic.php';

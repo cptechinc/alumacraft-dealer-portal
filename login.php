@@ -2,7 +2,7 @@
 	header('location: https://www.alumacraft.com/admin/Login.php'); exit;
 }
 ?>
-<?php include 'init.php'; ?>
+<?php include 'init2.php'; ?>
 
 <?php include 'view/login/header.php'; ?>
 

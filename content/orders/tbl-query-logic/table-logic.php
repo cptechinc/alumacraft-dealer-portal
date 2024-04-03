@@ -112,7 +112,6 @@
 				//$dealerid comes from the role-type-logic script
 				if (array_key_exists($role, $dealerroles)) {
 					if (isset($_GET['location'])) {
-						echo get_cust_orders($dealerid, $showonpage, $this_page, $approved, $boatsonly, true);
 						$orders = get_cust_orders($dealerid, $showonpage, $this_page, $approved, $boatsonly, false);
 					} else {
 						$orders = get_orders($dplus_custs, $showonpage, $this_page, $approved, $boatsonly, false);

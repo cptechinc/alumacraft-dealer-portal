@@ -24,7 +24,7 @@
 			<div class="row"> <div class="grid_12 grid"> <h2>Edit Boat Registration</h2> </div> </div>
 			<?php $url = htmlspecialchars($_SERVER['HTTP_REFERER']); ?>
 			<div class="row"> <div class="grid_12 grid"> <a href="<?php echo $url; ?>#inventory" class="aluma-btn">Back to Inventory</a> </div> </div>
-			<?php include 'content/warranty/edit-warranty.php'; ?>
+			<?php include 'content/warranty/edit-warranty2.php'; ?>
     	<?php else : ?>
     		You don't have access to edit registration.  <br>
     		<?php if ($user->hasAccessLevel($permissions['view-registered'])) : ?>

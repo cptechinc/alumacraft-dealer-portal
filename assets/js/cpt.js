@@ -44,12 +44,14 @@ $(function() {
 		log_acknowledgement_view(ordn, docname);
 	});
 
-	jQuery(".page-section").on("click", ".approve-order", function(event) {
+	jQuery("body").on("click", ".page-section .approve-order", function(event) {
 		event.preventDefault();
 		var ordn = jQuery(this).data('ordn');
 		var roletype = jQuery(this).data('role');
-		if (roletype !=='DEALER') {
 
+		console.log(ordn);
+
+		if (roletype !=='DEALER') {
 			//jQuery.get("/reg/ajax/load/non-dealer-approve-order.php?ordn="+ordn, function(html) {
 			jQuery.get("/reg/ajax/load/order-approve.php?ordn="+ordn, function(html) {
 				jQuery('#order-approve-modal').html(html);

@@ -1,6 +1,6 @@
 <?php  
 	session_start();
-	include 'includes.php';
+	include 'init.php';
 	$ordn = $_GET['ordn'];
 ?>
 <div>

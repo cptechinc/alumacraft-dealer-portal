@@ -7,7 +7,7 @@
         	<div class="">
                 <h3 style="color:#000;">&nbsp;</h3>
 				<h3 style="color:#000;">&nbsp;</h3>
-            	<?php include 'content/warranty/warranty-outline.php'; ?>
+            	<?php include 'content/warranty/warranty-outline2.php'; ?>
             	<div class="page-section bottom-space" style="height: 100px;"></div>
             	<div class="page-section bottom-space" style="height: 100px;"></div>
             </div>

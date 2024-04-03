@@ -1,6 +1,6 @@
 <?php  
 	session_start();
-	include 'includes.php';
+	include 'init.php';
 	$ordn = $_GET['ordn'];
 	//$documents = get_most_recent_docs(session_id(), str_pad($ordn, 10, "0", STR_PAD_LEFT), false);
 	$documents = get_sales_acknowledgements(session_id(), str_pad($ordn, 10, "0", STR_PAD_LEFT), false);

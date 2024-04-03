@@ -1,6 +1,6 @@
 <?php 
 	if (100 == 1) {
-		if (does_user_have_access($userid, $permissions['view-registered']) || has_role($userid, "'28','37'", false) == true)  {
+		if ($user->hasAccessLevel($permissions['view-registered']) || has_role($userid, "'28','37'", false) == true)  {
 			if (isset($_GET['view'])) {
 				if (strlen($_GET['view']) > 0) {
 					$serial = urldecode($_GET['view']);
