@@ -1,6 +1,7 @@
-<?php 
+<?php
 	 $selected_location_id = '';
 	 $repid ='';
+	 
 	 switch ($role_type) {
 		 case 'DEALER':
 			if (isset($_GET['location'])) {
@@ -19,7 +20,7 @@
 					$dealername = $dealer['name'];
 				} else {
 					$repid = $userid;
-					$repname = get_login_name($repid);	
+					$repname = get_login_name($repid);
 				}
 		 	break;
 			case 'SADMIN':

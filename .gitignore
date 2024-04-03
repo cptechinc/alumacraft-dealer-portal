@@ -54,3 +54,4 @@ project.cson
 alumarusty
 config/config.php
 db/db.php
+.vscode

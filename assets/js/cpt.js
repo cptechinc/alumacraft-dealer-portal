@@ -28,7 +28,7 @@ $(function() {
 
 	jQuery(".page-section").on("click", "#dealer-quotes-link", function(event) {
 		var addon = jQuery(this).data('addon');
-		window.location='http://alumacraft.com/Boat-Builder.php?action=list'+addon+'#dealer_quotes';
+		window.location='https://dealer.alumacraft.com/Boat-Builder.php?action=list'+addon+'#dealer_quotes';
 	});
 
 	jQuery(".page-section").on("click", ".get-document", function(event) {
@@ -74,7 +74,8 @@ $(function() {
 		var column = jQuery( "input[name='subset']" ).val();
 		console.log(action);
 		jQuery.post( action, jQuery( form ).serialize() ).done(function(json) {
-			console.log(json.href);
+			var uri = URI(json.href);
+			console.log(uri.toString());
 			jQuery( "#"+column ).load( json.href+"#load-"+column, function() {
 				jQuery.modal.close();
 			});

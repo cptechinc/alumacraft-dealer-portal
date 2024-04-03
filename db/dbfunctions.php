@@ -1,4 +1,5 @@
 <?php
+	use atk4\dsql\Query_MySQL as Query;
 /* =============================================================
   	INVENTORY FUNCTIONS
  ============================================================ */
@@ -791,30 +792,6 @@
 		}
 	}
 
-	// function get_wip_complete_date($ordn, $itemid, $debug) {
-	// 	global $db;
-	// 	$sql = "SELECT WIP_HEADER.WiphCmpltdDate FROM SO_HEADER JOIN SO_DETAIL ON SO_HEADER.OehdNbr = SO_DETAIL.OehdNbr JOIN WIP_HEADER ON SO_DETAIL.InitItemNbr = WIP_HEADER.InitItemNbr WHERE SO_HEADER.OehdNbr = '$ordn' AND SO_DETAIL.InitItemNbr = '$itemid' LIMIT 1";
-	// 	if ($debug) {
-	// 		return $sql;
-	// 	} else {
-	// 		$results = $db->query($sql);
-	// 		return $results->fetchColumn();
-	// 	}
-	// }
-
-	function get_wip_complete_date($ordn, $itemid, $debug) {
-		global $db;
-		$ordn = rtrim($ordn, '00');
-		$sql = "SELECT WIP_HEADER.WiphCmpltdDate FROM WIP_HEADER WHERE OehdNbr = '$ordn' LIMIT 1";
-
-		if ($debug) {
-			return $sql;
-		} else {
-			$results = $db->query($sql);
-			return $results->fetchColumn();
-		}
-	}
-
 	function is_in_inv_lot($ordn, $itemid, $debug) {
 		global $db;
 		$sql = "SELECT COUNT(*) FROM INV_INV_LOT JOIN SERIAL_MAST ON left(INV_INV_LOT.InltLotSer, 6) = left(SERIAL_MAST.SermSerNbr, 6)  WHERE INV_INV_LOT.InltOnHand = 1 AND INV_INV_LOT.InitItemNbr = '$itemid' AND SermAcAllocOrdr = left('$ordn', 6)";
@@ -1239,7 +1216,7 @@
 
 	function get_horsepowers($debug) {
 		global $db;
-		$sql = "SELECT * FROM horsepower;";
+		$sql = "SELECT * FROM horsepower ORDER BY horsepower ASC;";
 		if ($debug) {
 			return $sql;
 		} else {
@@ -1298,9 +1275,10 @@
 			return $sql;
 		} else {
 			$results = $db->query($sql);
-			return $results->fetchColumn;
+			return $results->fetchColumn();
 		}
 	}
+
 	function writesessionrecord($session, $externalsession, $userid, $externalrecnbr, $date) {
 		global $db;
 		$sql = "INSERT INTO sessions (sessionid, externalsessionid, externalrecord, userid, date) VALUES ('$session', '$externalsession', '$externalrecnbr', '$userid', '$date')";
@@ -1311,6 +1289,7 @@
 			return $sql;
 		}
 	}
+
 /* =============================================================
   	ORDERS FUNCTIONS
  ============================================================ */
@@ -1450,6 +1429,13 @@
 		return $results->fetchColumn();
 	}
 
+	function get_rep_name($repid) {
+		global $dba;
+		$sql = "SELECT name FROM view_users WHERE user_id = '$repid' LIMIT 1";
+		$results = $dba->query($sql);
+		return $results->fetchColumn();
+	}
+
 	function get_reps() {
 		global $dba;
 		$sql = "SELECT * FROM view_users WHERE user_id IN (SELECT user_id FROM reps) ORDER BY name";
@@ -1464,9 +1450,12 @@
 		return $results;
 	}
 
-	function get_reps_dealers($repid) {
+	function get_reps_dealers($repid, $debug = false) {
 		global $dba;
-		$sql = "SELECT dealer_brands.location_id, view_locations.name, view_locations.city, dealer_brands.status FROM dealer_brands LEFT JOIN view_locations ON dealer_brands.location_id = view_locations.location_id WHERE dealer_brands.status > 0 AND view_locations.name != '' AND dealer_brands.rep_id = '$repid' ORDER BY view_locations.name";
+		$sql = "SELECT dealer_brands.location_id, view_locations.name, view_locations.city, dealer_brands.status FROM dealer_brands LEFT JOIN view_locations ON dealer_brands.location_id = view_locations.location_id WHERE dealer_brands.status > 0 AND view_locations.name != '' AND (dealer_brands.rep_id = '$repid' OR dealer_brands.rep_id1 = '$repid') ORDER BY view_locations.name";
+		if ($debug) {
+			return $sql;
+		}
 		$results = $dba->query($sql);
 		return $results;
 	}
@@ -1485,7 +1474,7 @@
 
 	function get_reps_dealers_ids($repid) {
 		global $dba;
-		$sql = "SELECT dealer_brands.location_id, view_locations.name, view_locations.city, dealer_brands.status FROM dealer_brands LEFT JOIN view_locations ON dealer_brands.location_id = view_locations.location_id WHERE dealer_brands.status > 0 AND view_locations.name != '' AND dealer_brands.rep_id = '$repid' ORDER BY view_locations.location_id";
+		$sql = "SELECT dealer_brands.location_id, view_locations.name, view_locations.city, dealer_brands.status FROM dealer_brands LEFT JOIN view_locations ON dealer_brands.location_id = view_locations.location_id WHERE dealer_brands.status > 0 AND view_locations.name != '' AND (dealer_brands.rep_id = '$repid' OR dealer_brands.rep_id1 = '$repid') ORDER BY view_locations.location_id";
 		$results = $dba->query($sql);
 		return $results;
 	}
@@ -1507,7 +1496,7 @@
 
 	function get_reps_dplus_custids_list_alt($repid, $debug) {
 		global $dba; $dealerlist = '';
-		$sql = "SELECT dealer_brands.mfg_dealer_number as dealer FROM view_locations JOIN dealer_brands ON view_locations.location_id = dealer_brands.location_id WHERE rep_id = '$repid'";
+		$sql = "SELECT dealer_brands.mfg_dealer_number as dealer FROM view_locations JOIN dealer_brands ON view_locations.location_id = dealer_brands.location_id WHERE (rep_id = '$repid' OR dealer_brands.rep_id1 = '$repid')";
 		if ($debug) {
 			return $sql;
 		} else {
@@ -1550,9 +1539,12 @@
 		}
 	}
 
-	function get_dealer_clientid($dealerid) {
+	function get_dealer_clientid($dealerid, $debug = false) {
 		global $dba;
 		$sql = "SELECT client_id FROM view_locations WHERE location_id = '$dealerid' ";
+		if ($debug) {
+			return $sql;
+		}
 		$results = $dba->query($sql);
 		return $results->fetchColumn();
 	}
@@ -1688,6 +1680,62 @@
 			return $sql;
 		} else {
 			$results = $dba->query($sql);
+			return $results->fetchColumn();
+		}
+	}
+
+/* =============================================================
+	DSQL FUNCTIONS
+============================================================ */
+	function getQuery() {
+		global $dbData1;
+		return new Query(['connection' => $dbData1]);
+	}
+
+	function getSalesRepEmail($id) {
+		$q = getQuery();
+		$q->table('ar_saleper1');
+		$q->field('ArspEmailAddr');
+		$q->where('ArspSalePer1', $id);
+		return $q->getOne();
+	}
+
+	function getSalesRep($id) {
+		$q = getQuery();
+		$q->table('ar_saleper1');
+		$q->field(['email'=>'ArspEmailAddr', 'name' => 'ArspName']);
+		$q->where('ArspSalePer1', $id);
+		return $q->getRow();
+	}
+
+	function getExternalSessionid($sessionid) {
+		global $db;
+		$q = new Query(['connection' => $db]);
+		$q->table('sessions');
+		$q->field('externalsessionid');
+		$q->where('sessionid', $sessionid);
+		return $q->getOne();
+	}
+
+	function get_wip_complete_date2($ordn, $itemid, $debug = false) {
+		global $db;
+		$q = new Query(['connection' => $db]);
+		$q->table('WIP_HEADER');
+		$q->field('WiphCmpltdDate');
+		$q->where('OehdNbr', rtrim($ordn, '00'));
+		$q->where('InitItemNbr', $itemid);
+		return $q->getOne();
+	}
+
+	function get_wip_complete_date($ordn, $itemid, $debug = false) {
+		global $db;
+		$ordn = rtrim($ordn, '00');
+		$sql = "SELECT WIP_HEADER.WiphCmpltdDate FROM WIP_HEADER WHERE OehdNbr = '$ordn' AND InitItemNbr = '$itemid' LIMIT 1";
+
+		if ($debug) {
+			return $sql;
+		} else {
+			$results = $db->query($sql);
 			return $results->fetchColumn();
 		}
 	}

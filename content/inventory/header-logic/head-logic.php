@@ -109,7 +109,6 @@
 						$num_of_results = get_cust_boat_inventory_datesearch_count($dealerid, $datefrom, $datethrough, $reg, false);
 						$heading = " Searching for All boats that have an Invoice Date between ".$date_from." and ".$date_through." at ".$dealername . " (".$dealerid.")";
 					}
-
 					break;
 				case 'SREP':
 					if (isset($_GET['location'])) {

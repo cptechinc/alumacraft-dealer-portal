@@ -1,0 +1,10 @@
+{
+	"autoload": {
+		"psr-4": {
+			"Aluma\\": "src/"
+		}
+	},
+	"require": {
+		"atk4/dsql": "^2.1"
+	}
+}

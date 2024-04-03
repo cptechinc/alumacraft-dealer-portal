@@ -48,7 +48,7 @@
 			<?php foreach ($orders->fetchAll() as $order) : ?>
 				<?php $date = strtotime($order['OehdOrdrDate']); $orderdate = date("m/d/Y", $date); ?>
 				<?php $date = strtotime($order['OehdArrvDate']); $arrvdate = date("m/d/Y", $date);  ?>
-				<?php $vieworderlink = "http://alumacraft.com/Boat-Builder.php?action=print&pricing=cost&build_id=".$order['OehdUserCode2'].'&'/*.$rustyaddon */; ?>
+				<?php $vieworderlink = "https://dealer.alumacraft.com/Boat-Builder.php?action=print&pricing=cost&build_id=".$order['OehdUserCode2'].'&'/*.$rustyaddon */; ?>
 				<?php
 					$prodfinish = $requestrelease = '';
 					$wipcomplete = get_wip_complete_date($order['OehdNbr'], $order['itemid'], false);
@@ -93,13 +93,13 @@
 						<td><?php echo $orderdate; ?></td>
 						<td><?php echo $ackdate; ?></td>
 						<?php //if (is_user_alumacraft_admin($userid)) : ?>
-							<td><?php echo $prodfinish ?></td>
-							<td><?php echo $requestrelease; ?></td>
+							<td><?php $prodfinish ?></td>
+							<td><?php $requestrelease; ?></td>
 
 						<?php //endif; ?>
 
 						<td>
-							<a href="<?php echo $vieworderlink; ?>" target="_blank">View Order</a>
+							<?php if (1==2): ?><a href="<?php echo $vieworderlink; ?>" target="_blank">View Order</a><?php endif; ?>
 							<?php if (1==2): ?><a href="ajax/load/orders/order-modal.php?ordn=<?php echo $order['OehdNbr']; ?>" rel="modal:open">View Order</a><?php endif; ?> |
 							<a href="#" data-ordn="<?php echo $order['OehdNbr']; ?>" class="get-document">View Acknowledgement</a>
 						</td>
@@ -113,10 +113,10 @@
 						<td><?php echo $order['OehdUserCode1']; ?></td>
 						<td><?php echo $orderdate; ?></td>
 						<td><?php echo $ackdate; ?></td>
-						<td><?php echo $prodfinish ?></td>
-						<td><?php echo $requestrelease; ?></td>
+						<td><?php $prodfinish ?></td>
+						<td><?php $requestrelease; ?></td>
 						<td>
-							<a href="<?php echo $vieworderlink; ?>" target="_blank">View Order</a>
+							<?php if (1==2): ?><a href="<?php echo $vieworderlink; ?>" target="_blank">View Order</a><?php endif; ?>
 							<?php if (1==2): ?><a href="ajax/load/orders/order-modal.php?ordn=<?php echo $order['OehdNbr']; ?>" rel="modal:open">View Order</a><?php endif; ?> |
 							<a href="#" data-ordn="<?php echo $order['OehdNbr']; ?>" class="get-document">View Acknowledgement</a>
 						</td>

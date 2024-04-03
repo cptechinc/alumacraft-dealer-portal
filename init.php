@@ -1,9 +1,12 @@
 <?php
-
+	include 'vendor/autoload.php';
 	include 'config/config.php';
 	include 'db/db.php';
 	include 'db/dbfunctions.php';
 	include 'functions/functions.php';
+
+	Aluma\Datax\Database::setPdo($dbData1);
+
 	session_start();
 	if (isset($_GET['session'])) {
 		/* $login = load_login_session($_GET['session'], false);
@@ -16,7 +19,6 @@
 
 		//session_id($_GET['session']);
 
-
 		$login = loadsession($_GET['session'], $_GET['userid'], false);
 		if (!sessionhasrecord(session_id(), false)) {
 			writesessionrecord(session_id(), $login['session'], $login['user_id'], $login['id'], date("Y-m-d H:i:s"));
@@ -25,6 +27,7 @@
 
 		$_SESSION['login'] = true;
 		$_SESSION['userID'] = $_GET['userid'];
+		$_SESSION['session'] = $_GET['session'];
 		header('Location: '.$_SERVER['SCRIPT_NAME']);
 		exit;
 	}
@@ -47,7 +50,7 @@
 			//$hexeduserid = hexvalue($userid, false);
 			//$rustyaddon = "session=".urlencode($hexedsession)."&userid=".urlencode($hexeduserid);
 			/*if (!isset($_SESSION['sent-login']) || $_SESSION['sent-login'] == false) {
-				send_server_request("location: http://alumacraft.com/?session=".urlencode($hexedsession)."&userid=".urlencode($hexeduserid), '');
+				send_server_request("location: https://www.alumacraft.com/?session=".urlencode($hexedsession)."&userid=".urlencode($hexeduserid), '');
 				$_SESSION['sent-login'] = true;
 			}*/
 
@@ -89,3 +92,5 @@
 	}
 
 $overrideinventory = false;
+
+$urlOrderingSession = $urlOrdering . "?session=".$_SESSION['session']."&userid=$userid";
