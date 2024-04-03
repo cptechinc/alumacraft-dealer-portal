@@ -1,10 +1,10 @@
-<?php
+<?php		
 	if (isset($_GET['search'])) {
-
 		if ($search == 'all') {
 			switch ($role_type) {
 				case 'DEALER':
 					//$dealerid comes from the role-type-logic script
+
 					if (array_key_exists($role, $dealerroles)) {
 						if (isset($_GET['location'])) {
 							$orders = get_cust_orders_searchall($dealerid, $keyword, $showonpage, $this_page, $approved, $boatsonly, false);
