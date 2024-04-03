@@ -1539,9 +1539,12 @@
 		}
 	}
 
-	function get_dealer_clientid($dealerid) {
+	function get_dealer_clientid($dealerid, $debug = false) {
 		global $dba;
 		$sql = "SELECT client_id FROM view_locations WHERE location_id = '$dealerid' ";
+		if ($debug) {
+			return $sql;
+		}
 		$results = $dba->query($sql);
 		return $results->fetchColumn();
 	}
