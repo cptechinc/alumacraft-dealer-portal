@@ -189,15 +189,15 @@
 
 
 
-	<script src="https://alumacraftapp.alumacraft.com/Scripts/jquery.validate.min.js"></script>
+	<script src="https://dealer.alumacraft.com/Scripts_new/jquery.validate.min.js"></script>
 	<script type="text/javascript">jQuery.noConflict();</script>
 	<script type="text/javascript" src="https://wsqa.aimbase.com/Scripts/awa.js" id="AimbaseAnalytics" data-clientid="TI1480"></script>
-	<script src="https://alumacraftapp.alumacraft.com/Scripts/public_2017.js?v=3" type="text/javascript"></script>
-    <script src="https://alumacraftapp.alumacraft.com/Scripts/imageUpload.js?v=1" type="text/javascript"></script>
-	<script src="https://alumacraftapp.alumacraft.com/Scripts/general_2017.js?v=4"></script>
+	<script src="https://dealer.alumacraft.com/Scripts_new/public_2017.js?v=3" type="text/javascript"></script>
+    <script src="https://dealer.alumacraft.com/Scripts_new/imageUpload.js?v=1" type="text/javascript"></script>
+	<script src="https://dealer.alumacraft.com/Scripts_new/general_2017.js?v=4"></script>
 
 	<!-- <script src="https://dealer.alumacraft.com/scripts/boat-builder-2018.js?v=17"></script> -->
-	<script src="https://alumacraftapp.alumacraft.com/Scripts/jquery.formatCurrency-1.4.0.min.js"></script>
+	<script src="https://dealer.alumacraft.com/Scripts_new/jquery.formatCurrency-1.4.0.min.js"></script>
 	<!-- <script src="https://dealer.alumacraft.com/scripts/boat-builder.2017.js.php?id=119" type="text/javascript"></script> -->
 	<script>
 	jQuery( function() {
