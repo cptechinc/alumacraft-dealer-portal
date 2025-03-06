@@ -46,6 +46,9 @@
             <?php if ($num_of_results > 0) : ?>
                 <?php include '../../../content/inventory/tbl-query-logic/table-logic.php'; ?>
                 <?php foreach ($boats->fetchAll() as $boat) : ?>
+                    <?php if (in_array($boat['SerialNbr'], $HIDE_BOATSERIALS)) {
+                        continue;
+                    } ?>
                     <?php $date = strtotime($boat['InvoiceDate']); ?>
                     <?php $invoicedate = date("m/d/Y", $date);  ?>
                     <tr>

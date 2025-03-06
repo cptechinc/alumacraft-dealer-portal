@@ -70,6 +70,9 @@
                 <?php include '../../../content/inventory/tbl-query-logic/table-logic.php'; ?>
 
                 <?php foreach ($boats->fetchAll() as $boat) : ?>
+                    <?php if (in_array($boat['SerialNbr'], $HIDE_BOATSERIALS)) {
+                        continue;
+                    } ?>
                     <?php $date = strtotime($boat['InvoiceDate']); ?>
                     <?php $custname = get_custname_from_dplus($boat['CustId']); ?>
                     <?php $invoicedate = date("m/d/Y", $date);  ?>
