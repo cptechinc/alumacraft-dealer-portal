@@ -373,30 +373,39 @@ function loadpage(namespace, href) {
 
 function send_for_documents(ordn) {
 	console.log('send');
-	jQuery.ajax({
-		type: "GET",
-		url: "/reg/redir/redir.php?action=load-document&ordn="+ordn,
-		dataType: "html",
-		beforeSend: function() {
-			 jQuery('#loading').show();
-		},
-		complete: function(){
-			 jQuery('#loading').hide();
-		  },
-		success: function(json) {
-			console.log('reg.alumacraft.com/reg/ajax/load/show-documents.php?ordn='+ordn);
-			jQuery.get("/reg/ajax/load/show-documents.php?ordn="+ordn, function(html) {
-				jQuery('#documents-modal').html(html);
-				jQuery('#documents-modal').modal();
-				//var url = jQuery('#selected').attr('href');
-				//var w=window.open(url, '_blank');
-  // w.focus();
-			});
-		},
-		error: function() {
-			alert("The order documents JSON File could not be processed correctly.");
-		}
+	jQuery('#loading').show();
+	
+	jQuery.get("/reg/ajax/load/show-documents2.php?ordn="+ordn, function(html) {
+		jQuery('#loading').hide();
+		jQuery('#documents-modal').html(html);
+		jQuery('#documents-modal').modal();
 	});
+
+
+// 	jQuery.ajax({
+// 		type: "GET",
+// 		url: "/reg/redir/redir.php?action=load-document&ordn="+ordn,
+// 		dataType: "html",
+// 		beforeSend: function() {
+// 			 jQuery('#loading').show();
+// 		},
+// 		complete: function(){
+// 			 jQuery('#loading').hide();
+// 		  },
+// 		success: function(json) {
+// 			console.log('reg.alumacraft.com/reg/ajax/load/show-documents.php?ordn='+ordn);
+// 			jQuery.get("/reg/ajax/load/show-documents.php?ordn="+ordn, function(html) {
+// 				jQuery('#documents-modal').html(html);
+// 				jQuery('#documents-modal').modal();
+// 				//var url = jQuery('#selected').attr('href');
+// 				//var w=window.open(url, '_blank');
+//   // w.focus();
+// 			});
+// 		},
+// 		error: function() {
+// 			alert("The order documents JSON File could not be processed correctly.");
+// 		}
+// 	});
 }
 
 

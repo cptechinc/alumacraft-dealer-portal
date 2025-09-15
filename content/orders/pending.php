@@ -1,7 +1,6 @@
 <?php $ajaxdir = 'load-orders'; $subset = 'pending';  $approved = 'NO';  ?>
 <?php include 'content/pagination/ajax/pagination-logic.php'; ?>
 <?php include 'content/orders/header-logic/head-logic.php'; ?>
-
 <div><?php include 'content/pagination/ajax/pagination-links.php'; ?></div>
 <div class="clear"></div>
 <div style="padding-left:5px; padding-top:10px;">

@@ -62,11 +62,11 @@
     <script type="text/javascript" src="https://dealer.alumacraft.com/scripts/classie.js"></script>
 
     <script type="text/javascript" src="assets/js/jquery.modal.min.js"></script>
-        <script type="text/javascript" src="assets/js/select2.full.min.js"></script>
-        <script type="text/javascript" src="assets/js/moment.js"></script>
-        <script type="text/javascript" src="assets/js/cpt.js"></script>
-        <script type="text/javascript" src="assets/js/noty.js"></script>
-        <script type="text/javascript" src="assets/js/uri.js"></script>
+	<script type="text/javascript" src="assets/js/select2.full.min.js"></script>
+	<script type="text/javascript" src="assets/js/moment.js"></script>
+	<script type="text/javascript" src="assets/js/cpt.js?v=1"></script>
+	<script type="text/javascript" src="assets/js/noty.js"></script>
+	<script type="text/javascript" src="assets/js/uri.js"></script>
 
 		<script>
 		    window.dataLayer = window.dataLayer || [];

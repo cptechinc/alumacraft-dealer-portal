@@ -4,6 +4,8 @@
 	include '../db/db.php';
 	include '../db/dbfunctions.php';
 	include '../functions/functions.php';
+
+	Aluma\Datax\Database::setPdo($dbData1);
 ?>
 
 <?php

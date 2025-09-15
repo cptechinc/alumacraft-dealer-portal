@@ -1,10 +1,6 @@
 <?php namespace Aluma\Util;
 
 /**
- * Mincli Data
- *
- * This is the base data container class
- *
  * @property array $data Array where get/set properties are stored
  */
 class Data implements \IteratorAggregate, \ArrayAccess {

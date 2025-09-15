@@ -3,6 +3,10 @@
 	session_start();
 	$A = session_id();
 	include 'init.php';
+
+	use Aluma\Datax\So\SalesOrder as SalesOrdersTable;
+	use Aluma\Util\PhpInputGet;
+
 	if (isset($_POST['action'])) {
 		$action = $_POST['action'];
 	} else {
@@ -416,7 +420,14 @@
 			//$doctype = $_GET['doctype'];
 			$ordn = $_GET['ordn'];
 			$fields = array();
-			$fields['action'] = 'get-order-docs'; $fields['sessionid'] = session_id(); $fields['ordn'] = $ordn;
+			$fields['action'] = 'get-order-docs'; 
+			$fields['sessionid'] = session_id(); 
+			$fields['ordn'] = $ordn;
+
+			if (PhpInputGet::has('debug')) {
+				$fields['custid'] = SalesOrdersTable::instance()->getCustid($ordn);
+			}
+
 			send_server_request($alumadplusip."/reg/redir/remote-redir.php", $fields);
 			$_SESSION['sql'] = get_docs(session_id(), str_pad($ordn, 10, "0", STR_PAD_LEFT), true);
 			$docs = get_docs(session_id(), str_pad($ordn, 10, "0", STR_PAD_LEFT), false);

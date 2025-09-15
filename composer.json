@@ -1,4 +1,9 @@
 {
+	"config": {
+		"platform": {
+			"php": "7.2.34"
+		}
+	},
 	"autoload": {
 		"psr-4": {
 			"Aluma\\": "src/"
