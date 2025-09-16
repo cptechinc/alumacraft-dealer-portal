@@ -57,3 +57,4 @@ db/db.php
 .vscode
 test.php
 testing.php
+/vendor/
