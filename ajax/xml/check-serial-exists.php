@@ -1,6 +1,6 @@
 <?php header('Content-Type: application/xml'); ?>
 <?php session_start(); ?>
-<?php include 'includes.php'; ?>
+<?php include 'init.php'; ?>
 <?php $serialnbr = urldecode($_GET['serialnbr']); ?>
 
 <?php $serialexists = does_serial_exist($serialnbr); ?>

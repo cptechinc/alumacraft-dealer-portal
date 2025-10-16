@@ -53,7 +53,6 @@ class SoAck {
 	 */
 	public function getDocuments($ordernbr) {
 		$q = $this->queryOrdernbr($ordernbr);
-        echo $q->getDebugQuery();
 		return $q->get();
 	}
 }

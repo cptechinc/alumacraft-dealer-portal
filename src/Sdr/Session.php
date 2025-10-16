@@ -46,7 +46,7 @@ class Session extends Data {
 	Public Processing
 ============================================================= */
 	public static function process(Data $data) {
-		if (Db\Sessions::exists($data->sessionid, $data->userid) === false) {
+		if (Db\Sessions::exists($data->userid, $data->sessionid) === false) {
 			return false;
 		}
 
@@ -86,6 +86,9 @@ class Session extends Data {
 		$user->locationid = $sdrUser['location_id'];
 		$user->role       = Db\Roles::getSimpleRoleByUserid($user->userid);
 		$user->roleid     = Db\Roles::getHighestRole($user->userid);
+		// if (Db\Roles::hasRole($user->userid, array_keys(Db\Roles::ROLES_SALESREP))) {
+		// 	$user->roleid = '18';
+		// }
 		self::setupUserDplusCustid($user);
 		self::setupUserCustids($user);
 		self::setupUserAccess($user);

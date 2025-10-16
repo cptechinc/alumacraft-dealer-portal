@@ -1,3 +1,4 @@
+<?php include '../../vendor/autoload.php'; ?>
 <?php include '../../config/config.php'; ?>
 <?php include '../../db/db.php'; ?>
 <?php include '../../db/dbfunctions.php'; ?>

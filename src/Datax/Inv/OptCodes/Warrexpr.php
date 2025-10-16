@@ -8,7 +8,7 @@ use Aluma\Datax\Database;
  * Provides Querying to InvOptCode for an Optional Code
  * Handles Warranty Expiration OptCode querying
  */
-class Warrexpr extends OptCode{
+class Warrexpr extends OptCode {
 	const OPTCODE = 'WARREXPR';
 
 	private static $master;

@@ -15,12 +15,14 @@ class Sessions {
 	 * @param  string $userID
 	 * @return bool
 	 */
-	public static function exists($sessionID, $userID) {
+	public static function exists($userID, $sessionID = '') {
 		/** @var Query */
 		$q = Database::query();
 		$q->table('view_sessions');
 		$q->field('COUNT(*)');
-		$q->where('session', $sessionID);
+		if ($sessionID) {
+			$q->where('session', $sessionID);
+		}
 		$q->where('user_id', $userID);
 		return boolval($q->getOne());
 	}

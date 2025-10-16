@@ -7,7 +7,7 @@
 	function get_boat_inventory($allowedcusts, $limit, $page, $registered, $debug) { //ADD ADMIN CHECK
 		global $db;
 		if ($page > 1) { $start_point = ($page * $limit) - $limit; } else if ($page == 1) { $start_point = 0; } else { $start_point = 0; }
-		$sql = "SELECT * FROM boat_inventory WHERE Registered IN ($registered) AND CustId IN ($allowedcusts) LIMIT ".$start_point.",".$limit;
+		$sql = "SELECT * FROM view_boat_inventory WHERE Registered IN ($registered) AND CustId IN ($allowedcusts) LIMIT ".$start_point.",".$limit;
 		if ($debug) {
 			return $sql;
 		} else {
@@ -19,7 +19,7 @@
 	function get_boat_inventory_override($limit, $page, $registered, $debug) { //ADD ADMIN CHECK
 		global $db;
 		if ($page > 1) { $start_point = ($page * $limit) - $limit; } else if ($page == 1) { $start_point = 0; } else { $start_point = 0; }
-		$sql = "SELECT * FROM boat_inventory WHERE Registered IN ($registered) LIMIT ".$start_point.",".$limit;
+		$sql = "SELECT * FROM view_boat_inventory WHERE Registered IN ($registered) LIMIT ".$start_point.",".$limit;
 		if ($debug) {
 			return $sql;
 		} else {
@@ -30,7 +30,7 @@
 
 	function get_boat_inventory_count($allowedcusts, $registered, $debug) { //ADD ADMIN CHECK
 		global $db;
-		$sql = "SELECT COUNT(*) AS count FROM boat_inventory WHERE Registered IN ($registered) AND CustId IN ($allowedcusts)";
+		$sql = "SELECT COUNT(*) AS count FROM view_boat_inventory WHERE Registered IN ($registered) AND CustId IN ($allowedcusts)";
 		if ($debug) {
 			return $sql;
 		} else {
@@ -41,7 +41,7 @@
 
 	function get_boat_inventory_count_override($registered, $debug) {
 		global $db;
-		$sql = "SELECT COUNT(*) AS count FROM boat_inventory WHERE Registered IN ($registered)";
+		$sql = "SELECT COUNT(*) AS count FROM view_boat_inventory WHERE Registered IN ($registered)";
 		if ($debug) {
 			return $sql;
 		} else {
@@ -54,7 +54,7 @@
 		global $db;
 		$search = '%'.str_replace(' ', '%', $keyword).'%';
 		if ($page > 1) { $start_point = ($page * $limit) - $limit; } else if ($page == 1) { $start_point = 0; } else { $start_point = 0; }
-		$sql = "SELECT * FROM boat_inventory WHERE UCASE($searchcol) LIKE UCASE('$search') AND Registered IN ($registered) AND CustId IN ($allowedcusts) LIMIT ".$start_point.",".$limit;
+		$sql = "SELECT * FROM view_boat_inventory WHERE UCASE($searchcol) LIKE UCASE('$search') AND Registered IN ($registered) AND CustId IN ($allowedcusts) LIMIT ".$start_point.",".$limit;
 
 		if ($debug) {
 			return $sql;
@@ -68,7 +68,7 @@
 		global $db;
 		$search = '%'.str_replace(' ', '%', $keyword).'%';
 		if ($page > 1) { $start_point = ($page * $limit) - $limit; } else if ($page == 1) { $start_point = 0; } else { $start_point = 0; }
-		$sql = "SELECT * FROM boat_inventory WHERE UCASE($searchcol) LIKE UCASE('$search') AND Registered IN ($registered) LIMIT ".$start_point.",".$limit;
+		$sql = "SELECT * FROM view_boat_inventory WHERE UCASE($searchcol) LIKE UCASE('$search') AND Registered IN ($registered) LIMIT ".$start_point.",".$limit;
 
 		if ($debug) {
 			return $sql;
@@ -81,7 +81,7 @@
 	function get_boat_inventory_search_count($allowedcusts, $searchcol, $keyword, $registered, $debug) {
 		global $db;
 		$search = '%'.str_replace(' ', '%', $keyword).'%';
-		$sql = "SELECT COUNT(*) AS count FROM boat_inventory WHERE UCASE($searchcol) LIKE UCASE('$search') AND Registered IN ($registered) AND CustId IN ($allowedcusts) ";
+		$sql = "SELECT COUNT(*) AS count FROM view_boat_inventory WHERE UCASE($searchcol) LIKE UCASE('$search') AND Registered IN ($registered) AND CustId IN ($allowedcusts) ";
 		if ($debug) {
 			return $sql;
 		} else {
@@ -93,7 +93,7 @@
 	function get_boat_inventory_search_count_override($searchcol, $keyword, $registered, $debug) {
 		global $db;
 		$search = '%'.str_replace(' ', '%', $keyword).'%';
-		$sql = "SELECT COUNT(*) AS count FROM boat_inventory WHERE UCASE($searchcol) LIKE UCASE('$search') AND Registered IN ($registered)";
+		$sql = "SELECT COUNT(*) AS count FROM view_boat_inventory WHERE UCASE($searchcol) LIKE UCASE('$search') AND Registered IN ($registered)";
 		if ($debug) {
 			return $sql;
 		} else {
@@ -105,7 +105,7 @@
 	function get_boat_inventory_datesearch($allowedcusts, $limit, $page, $datefrom, $datethrough, $registered, $debug) {
 		global $db;
 		if ($page > 1) { $start_point = ($page * $limit) - $limit; } else if ($page == 1) { $start_point = 0; } else { $start_point = 0; }
-		$sql = "SELECT * FROM boat_inventory WHERE Registered IN ($registered) AND CustId IN ($allowedcusts) AND (STR_TO_DATE(InvoiceDate, '%Y%m%d') BETWEEN STR_TO_DATE('$datefrom', '%Y%m%d') AND STR_TO_DATE('$datethrough', '%Y%m%d')) LIMIT ".$start_point.",".$limit;
+		$sql = "SELECT * FROM view_boat_inventory WHERE Registered IN ($registered) AND CustId IN ($allowedcusts) AND (STR_TO_DATE(InvoiceDate, '%Y%m%d') BETWEEN STR_TO_DATE('$datefrom', '%Y%m%d') AND STR_TO_DATE('$datethrough', '%Y%m%d')) LIMIT ".$start_point.",".$limit;
 		if ($debug) {
 			return $sql;
 		} else {
@@ -117,7 +117,7 @@
 	function get_boat_inventory_datesearch_override($limit, $page, $datefrom, $datethrough, $registered, $debug) {
 		global $db;
 		if ($page > 1) { $start_point = ($page * $limit) - $limit; } else if ($page == 1) { $start_point = 0; } else { $start_point = 0; }
-		$sql = "SELECT * FROM boat_inventory WHERE Registered IN ($registered) AND (STR_TO_DATE(InvoiceDate, '%Y%m%d') BETWEEN STR_TO_DATE('$datefrom', '%Y%m%d') AND STR_TO_DATE('$datethrough', '%Y%m%d')) LIMIT ".$start_point.",".$limit;
+		$sql = "SELECT * FROM view_boat_inventory WHERE Registered IN ($registered) AND (STR_TO_DATE(InvoiceDate, '%Y%m%d') BETWEEN STR_TO_DATE('$datefrom', '%Y%m%d') AND STR_TO_DATE('$datethrough', '%Y%m%d')) LIMIT ".$start_point.",".$limit;
 		if ($debug) {
 			return $sql;
 		} else {
@@ -128,7 +128,7 @@
 
 	function get_boat_inventory_datesearch_count($allowedcusts, $datefrom, $datethrough, $registered, $debug) {
 		global $db;
-		$sql = "SELECT COUNT(*) AS count FROM boat_inventory WHERE Registered IN ($registered) AND CustId IN ($allowedcusts) AND (STR_TO_DATE(InvoiceDate, '%Y%m%d') BETWEEN STR_TO_DATE('$datefrom', '%Y%m%d') AND STR_TO_DATE('$datethrough', '%Y%m%d'))";
+		$sql = "SELECT COUNT(*) AS count FROM view_boat_inventory WHERE Registered IN ($registered) AND CustId IN ($allowedcusts) AND (STR_TO_DATE(InvoiceDate, '%Y%m%d') BETWEEN STR_TO_DATE('$datefrom', '%Y%m%d') AND STR_TO_DATE('$datethrough', '%Y%m%d'))";
 		if ($debug) {
 			return $sql;
 		} else {
@@ -142,7 +142,7 @@
 
 	function get_boat_inventory_datesearch_count_override($datefrom, $datethrough, $registered, $debug) {
 		global $db;
-		$sql = "SELECT COUNT(*) AS count FROM boat_inventory WHERE Registered IN ($registered) AND (STR_TO_DATE(InvoiceDate, '%Y%m%d') BETWEEN STR_TO_DATE('$datefrom', '%Y%m%d') AND STR_TO_DATE('$datethrough', '%Y%m%d'))";
+		$sql = "SELECT COUNT(*) AS count FROM view_boat_inventory WHERE Registered IN ($registered) AND (STR_TO_DATE(InvoiceDate, '%Y%m%d') BETWEEN STR_TO_DATE('$datefrom', '%Y%m%d') AND STR_TO_DATE('$datethrough', '%Y%m%d'))";
 		if ($debug) {
 			return $sql;
 		} else {
@@ -157,9 +157,9 @@
 		if ($page > 1) { $start_point = ($page * $limit) - $limit; } else if ($page == 1) { $start_point = 0; } else { $start_point = 0; }
 
 		if ($custlist) {
-			$sql = "SELECT * FROM (SELECT * FROM boat_inventory WHERE CustId IN ($custlist) AND Registered IN ($registered)) t WHERE UCASE(CONCAT(SerialNbr, ' ', ItemNbr, ' ', ItemDesc1, ' ', OrderNbr, ' ', DATE_FORMAT(STR_TO_DATE(InvoiceDate,'%Y%m%d'), '%m/%d/%Y'))) LIKE UCASE('$search') OR ItemNbr IN ($itemlist) LIMIT ".$start_point.",".$limit;
+			$sql = "SELECT * FROM (SELECT * FROM view_boat_inventory WHERE CustId IN ($custlist) AND Registered IN ($registered)) t WHERE UCASE(CONCAT(SerialNbr, ' ', ItemNbr, ' ', ItemDesc1, ' ', OrderNbr, ' ', DATE_FORMAT(STR_TO_DATE(InvoiceDate,'%Y%m%d'), '%m/%d/%Y'))) LIKE UCASE('$search') OR ItemNbr IN ($itemlist) LIMIT ".$start_point.",".$limit;
 		} else {
-			$sql = "SELECT * FROM (SELECT * FROM boat_inventory WHERE Registered IN ($registered)) t WHERE UCASE(CONCAT(SerialNbr, ' ', ItemNbr, ' ', ItemDesc1, ' ', OrderNbr, ' ', DATE_FORMAT(STR_TO_DATE(InvoiceDate,'%Y%m%d'), '%m/%d/%Y'))) LIKE UCASE('$search') OR ItemNbr IN ($itemlist) LIMIT ".$start_point.",".$limit;
+			$sql = "SELECT * FROM (SELECT * FROM view_boat_inventory WHERE Registered IN ($registered)) t WHERE UCASE(CONCAT(SerialNbr, ' ', ItemNbr, ' ', ItemDesc1, ' ', OrderNbr, ' ', DATE_FORMAT(STR_TO_DATE(InvoiceDate,'%Y%m%d'), '%m/%d/%Y'))) LIKE UCASE('$search') OR ItemNbr IN ($itemlist) LIMIT ".$start_point.",".$limit;
 		}
 
 		if ($debug) {
@@ -175,7 +175,7 @@
 		global $db;
 		$search = '%'.str_replace(' ', '%', $keyword).'%';
 		if ($page > 1) { $start_point = ($page * $limit) - $limit; } else if ($page == 1) { $start_point = 0; } else { $start_point = 0; }
-		$sql = "SELECT * FROM (SELECT * FROM boat_inventory WHERE Registered IN ($registered)) t WHERE UCASE(CONCAT(SerialNbr, ' ', ItemNbr, ' ', ItemDesc1, ' ', OrderNbr, ' ', DATE_FORMAT(STR_TO_DATE(InvoiceDate,'%Y%m%d'), '%m/%d/%Y'))) LIKE UCASE('$search') OR ItemNbr IN ($itemlist) LIMIT ".$start_point.",".$limit;
+		$sql = "SELECT * FROM (SELECT * FROM view_boat_inventory WHERE Registered IN ($registered)) t WHERE UCASE(CONCAT(SerialNbr, ' ', ItemNbr, ' ', ItemDesc1, ' ', OrderNbr, ' ', DATE_FORMAT(STR_TO_DATE(InvoiceDate,'%Y%m%d'), '%m/%d/%Y'))) LIKE UCASE('$search') OR ItemNbr IN ($itemlist) LIMIT ".$start_point.",".$limit;
 		if ($debug) {
 			return $sql;
 		} else {
@@ -189,9 +189,9 @@
 		global $db; $count = '';
 		$search = '%'.str_replace(' ', '%', $keyword).'%';
 		if ($custlist) {
-			$sql = "SELECT COUNT(*) AS count FROM (SELECT * FROM boat_inventory WHERE CustId IN ($custlist) AND Registered IN ($registered)) t WHERE UCASE(CONCAT(SerialNbr, ' ', ItemNbr, ' ', ItemDesc1, ' ', OrderNbr, ' ', DATE_FORMAT(STR_TO_DATE(InvoiceDate,'%Y%m%d'), '%m/%d/%Y'))) LIKE UCASE('$search') OR ItemNbr IN ($itemlist)";
+			$sql = "SELECT COUNT(*) AS count FROM (SELECT * FROM view_boat_inventory WHERE CustId IN ($custlist) AND Registered IN ($registered)) t WHERE UCASE(CONCAT(SerialNbr, ' ', ItemNbr, ' ', ItemDesc1, ' ', OrderNbr, ' ', DATE_FORMAT(STR_TO_DATE(InvoiceDate,'%Y%m%d'), '%m/%d/%Y'))) LIKE UCASE('$search') OR ItemNbr IN ($itemlist)";
 		} else {
-			$sql = "SELECT COUNT(*) AS count FROM (SELECT * FROM boat_inventory WHERE Registered IN ($registered)) t WHERE UCASE(CONCAT(SerialNbr, ' ', ItemNbr, ' ', ItemDesc1, ' ', OrderNbr, ' ', DATE_FORMAT(STR_TO_DATE(InvoiceDate,'%Y%m%d'), '%m/%d/%Y'))) LIKE UCASE('$search') OR ItemNbr IN ($itemlist)";
+			$sql = "SELECT COUNT(*) AS count FROM (SELECT * FROM view_boat_inventory WHERE Registered IN ($registered)) t WHERE UCASE(CONCAT(SerialNbr, ' ', ItemNbr, ' ', ItemDesc1, ' ', OrderNbr, ' ', DATE_FORMAT(STR_TO_DATE(InvoiceDate,'%Y%m%d'), '%m/%d/%Y'))) LIKE UCASE('$search') OR ItemNbr IN ($itemlist)";
 		}
 
 		if ($debug) {
@@ -208,7 +208,7 @@
 	function get_boat_inventory_allsearch_count_override($keyword, $itemlist, $registered, $debug) {
 		global $db; $count = '';
 		$search = '%'.str_replace(' ', '%', $keyword).'%';
-		$sql = "SELECT COUNT(*) AS count FROM (SELECT * FROM boat_inventory WHERE Registered IN ($registered)) t WHERE UCASE(CONCAT(SerialNbr, ' ', ItemNbr, ' ', ItemDesc1, ' ', OrderNbr, ' ', DATE_FORMAT(STR_TO_DATE(InvoiceDate,'%Y%m%d'), '%m/%d/%Y'))) LIKE UCASE('$search') OR ItemNbr IN ($itemlist)";
+		$sql = "SELECT COUNT(*) AS count FROM (SELECT * FROM view_boat_inventory WHERE Registered IN ($registered)) t WHERE UCASE(CONCAT(SerialNbr, ' ', ItemNbr, ' ', ItemDesc1, ' ', OrderNbr, ' ', DATE_FORMAT(STR_TO_DATE(InvoiceDate,'%Y%m%d'), '%m/%d/%Y'))) LIKE UCASE('$search') OR ItemNbr IN ($itemlist)";
 		if ($debug) {
 			return $sql;
 		} else {
@@ -223,7 +223,7 @@
 	function get_cust_boat_inventory($custID, $limit, $page, $registered, $debug) {
 		global $db;
 		if ($page > 1) { $start_point = ($page * $limit) - $limit; } else if ($page == 1) { $start_point = 0; } else { $start_point = 0; }
-		$sql = "SELECT * FROM boat_inventory WHERE CustId = '$custID' AND Registered IN ($registered) LIMIT ".$start_point.",".$limit;
+		$sql = "SELECT * FROM view_boat_inventory WHERE CustId = '$custID' AND Registered IN ($registered) LIMIT ".$start_point.",".$limit;
 		if ($debug) {
 			return $sql;
 		} else {
@@ -234,7 +234,7 @@
 
 	function get_cust_boat_inventory_count($custID, $registered, $debug) {
 		global $db;
-		$sql = "SELECT COUNT(*) AS count FROM boat_inventory WHERE CustId = '$custID' AND Registered IN ($registered)";
+		$sql = "SELECT COUNT(*) AS count FROM view_boat_inventory WHERE CustId = '$custID' AND Registered IN ($registered)";
 		if ($debug) {
 			return $sql;
 		} else {
@@ -250,7 +250,7 @@
 		global $db;
 		$search = '%'.str_replace(' ', '%', $keyword).'%';
 		if ($page > 1) { $start_point = ($page * $limit) - $limit; } else if ($page == 1) { $start_point = 0; } else { $start_point = 0; }
-		$sql = "SELECT * FROM boat_inventory WHERE CustId = '$custID' AND Registered IN ($registered) AND UCASE($searchcol) LIKE UCASE('$search') LIMIT ".$start_point.",".$limit;
+		$sql = "SELECT * FROM view_boat_inventory WHERE CustId = '$custID' AND Registered IN ($registered) AND UCASE($searchcol) LIKE UCASE('$search') LIMIT ".$start_point.",".$limit;
 		if ($debug) {
 			return $sql;
 		} else {
@@ -262,7 +262,7 @@
 	function get_cust_boat_inventory_search_count($custID, $searchcol, $keyword, $registered, $debug) {
 		global $db; $count = '';
 		$search = '%'.str_replace(' ', '%', $keyword).'%';
-		$sql = "SELECT COUNT(*) AS count FROM boat_inventory WHERE CustId = '$custID' AND Registered IN ($registered) AND UCASE($searchcol) LIKE UCASE('$search')";
+		$sql = "SELECT COUNT(*) AS count FROM view_boat_inventory WHERE CustId = '$custID' AND Registered IN ($registered) AND UCASE($searchcol) LIKE UCASE('$search')";
 		if ($debug) {
 			return $sql;
 		} else {
@@ -277,7 +277,7 @@
 	function get_cust_boat_inventory_datesearch($custID, $limit, $page, $datefrom, $datethrough, $registered, $debug) {
 		global $db;
 		if ($page > 1) { $start_point = ($page * $limit) - $limit; } else if ($page == 1) { $start_point = 0; } else { $start_point = 0; }
-		$sql = "SELECT * FROM boat_inventory WHERE CustId = '$custID' AND Registered IN ($registered) AND (STR_TO_DATE(InvoiceDate, '%Y%m%d') BETWEEN STR_TO_DATE('$datefrom', '%Y%m%d') AND STR_TO_DATE('$datethrough', '%Y%m%d')) LIMIT ".$start_point.",".$limit;
+		$sql = "SELECT * FROM view_boat_inventory WHERE CustId = '$custID' AND Registered IN ($registered) AND (STR_TO_DATE(InvoiceDate, '%Y%m%d') BETWEEN STR_TO_DATE('$datefrom', '%Y%m%d') AND STR_TO_DATE('$datethrough', '%Y%m%d')) LIMIT ".$start_point.",".$limit;
 		if ($debug) {
 			return $sql;
 		} else {
@@ -288,7 +288,7 @@
 
 	function get_cust_boat_inventory_datesearch_count($custID, $datefrom, $datethrough, $registered, $debug) {
 		global $db; $count = '';
-		$sql = "SELECT COUNT(*) AS count FROM boat_inventory WHERE CustId = '$custID' AND Registered IN ($registered) AND (STR_TO_DATE(InvoiceDate, '%Y%m%d') BETWEEN STR_TO_DATE('$datefrom', '%Y%m%d') AND STR_TO_DATE('$datethrough', '%Y%m%d'))";
+		$sql = "SELECT COUNT(*) AS count FROM view_boat_inventory WHERE CustId = '$custID' AND Registered IN ($registered) AND (STR_TO_DATE(InvoiceDate, '%Y%m%d') BETWEEN STR_TO_DATE('$datefrom', '%Y%m%d') AND STR_TO_DATE('$datethrough', '%Y%m%d'))";
 		if ($debug) {
 			return $sql;
 		} else {
@@ -304,7 +304,7 @@
 		global $db;
 		$search = '%'.str_replace(' ', '%', $keyword).'%';
 		if ($page > 1) { $start_point = ($page * $limit) - $limit; } else if ($page == 1) { $start_point = 0; } else { $start_point = 0; }
-		$sql = "SELECT * FROM (SELECT * FROM boat_inventory WHERE CustId = '$custID' AND Registered IN ($registered)) t WHERE UCASE(CONCAT(SerialNbr, ' ', ItemNbr, ' ', ItemDesc1, ' ', OrderNbr, ' ', DATE_FORMAT(STR_TO_DATE(InvoiceDate,'%Y%m%d'), '%m/%d/%Y'))) LIKE UCASE('$search') OR ItemNbr IN ($itemlist) LIMIT ".$start_point.",".$limit;
+		$sql = "SELECT * FROM (SELECT * FROM view_boat_inventory WHERE CustId = '$custID' AND Registered IN ($registered)) t WHERE UCASE(CONCAT(SerialNbr, ' ', ItemNbr, ' ', ItemDesc1, ' ', OrderNbr, ' ', DATE_FORMAT(STR_TO_DATE(InvoiceDate,'%Y%m%d'), '%m/%d/%Y'))) LIKE UCASE('$search') OR ItemNbr IN ($itemlist) LIMIT ".$start_point.",".$limit;
 		if ($debug) {
 			return $sql;
 		} else {
@@ -316,7 +316,7 @@
 	function get_cust_boat_inventory_allsearch_count($custID, $keyword, $itemlist, $registered, $debug) {
 		global $db; $count = '';
 		$search = '%'.str_replace(' ', '%', $keyword).'%';
-		$sql = "SELECT COUNT(*) AS count FROM (SELECT * FROM boat_inventory WHERE CustId = '$custID' AND Registered IN ($registered)) t WHERE UCASE(CONCAT(SerialNbr, ' ', ItemNbr, ' ', ItemDesc1, ' ', OrderNbr, ' ', DATE_FORMAT(STR_TO_DATE(InvoiceDate,'%Y%m%d'), '%m/%d/%Y'))) LIKE UCASE('$search') OR ItemNbr IN ($itemlist)";
+		$sql = "SELECT COUNT(*) AS count FROM (SELECT * FROM view_boat_inventory WHERE CustId = '$custID' AND Registered IN ($registered)) t WHERE UCASE(CONCAT(SerialNbr, ' ', ItemNbr, ' ', ItemDesc1, ' ', OrderNbr, ' ', DATE_FORMAT(STR_TO_DATE(InvoiceDate,'%Y%m%d'), '%m/%d/%Y'))) LIKE UCASE('$search') OR ItemNbr IN ($itemlist)";
 		if ($debug) {
 			return $sql;
 		} else {
@@ -330,7 +330,7 @@
 
 	function get_boat_ordernumber($serial, $debug) {
 		global $db; $count = '';
-		$sql = "SELECT OrderNbr AS count FROM boat_inventory WHERE SerialNbr = '$serial'";
+		$sql = "SELECT OrderNbr AS count FROM view_boat_inventory WHERE SerialNbr = '$serial'";
 		if ($debug) {
 			return $sql;
 		} else {
@@ -809,7 +809,7 @@
  ============================================================ */
 	function does_boat_exist($serial, $debug) {
 		global $db;
-		$sql = "SELECT COUNT(*) AS count FROM boat_inventory WHERE SerialNbr = '$serial';";
+		$sql = "SELECT COUNT(*) AS count FROM view_boat_inventory WHERE SerialNbr = '$serial';";
 		if ($debug) {
 			return $sql;
 		} else {
@@ -829,7 +829,7 @@
 
 	function is_registered($serial, $itemnbr, $returnfalse, $debug) {
 		global $db;
-		$sql = "SELECT Registered FROM boat_inventory WHERE SerialNbr = '$serial' AND ItemNbr = '$itemnbr'";
+		$sql = "SELECT Registered FROM view_boat_inventory WHERE SerialNbr = '$serial' AND ItemNbr = '$itemnbr'";
 		if ($debug) {
 			return $sql;
 		} else {
@@ -848,7 +848,7 @@
 
 	function get_boat_custid($serial, $debug) {
 		global $db;
-		$sql = "SELECT CustId FROM boat_inventory WHERE SerialNbr = '$serial'";
+		$sql = "SELECT CustId FROM view_boat_inventory WHERE SerialNbr = '$serial'";
 		if ($debug) {
 			return $sql;
 		} else {
@@ -863,7 +863,7 @@
 
 	function get_boat_itemid($serial, $debug) {
 		global $db;
-		$sql = "SELECT ItemNbr FROM boat_inventory WHERE SerialNbr = '$serial'";
+		$sql = "SELECT ItemNbr FROM view_boat_inventory WHERE SerialNbr = '$serial'";
 		if ($debug) {
 			return $sql;
 		} else {
@@ -898,7 +898,7 @@
 
 	function get_boat_info($serial, $debug) {
 		global $db;
-		$sql = "SELECT boat_inventory.*, ItemDesc1 FROM boat_inventory WHERE boat_inventory.SerialNbr = '$serial' LIMIT 1";
+		$sql = "SELECT view_boat_inventory.*, ItemDesc1 FROM view_boat_inventory WHERE view_boat_inventory.SerialNbr = '$serial' LIMIT 1";
 		if ($debug) {
 			return $sql;
 		} else {
@@ -1076,7 +1076,7 @@
 
 	function update_boat_registry($serial, $register, $debug) {
 		global $db;
-		$sql = "UPDATE boat_inventory SET Registered = '$register' WHERE SerialNbr = '$serial'";
+		$sql = "UPDATE view_boat_inventory SET Registered = '$register' WHERE SerialNbr = '$serial'";
 		if ($debug) {
 			return $sql;
 		} else {

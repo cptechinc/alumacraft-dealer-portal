@@ -1,6 +1,6 @@
 <?php header('Content-Type: application/xml'); ?>
 <?php session_start(); ?>
-<?php include 'includes.php'; ?>
+<?php include 'init.php'; ?>
 <?php $serialnbr = urldecode($_GET['serialnbr']); $boats = get_boat_info($serialnbr, false); $boat_array = array(); ?>
 
 

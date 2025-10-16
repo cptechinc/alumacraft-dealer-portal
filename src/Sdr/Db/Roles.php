@@ -27,6 +27,11 @@ class Roles {
 		"29" => "DEALER",
 	];
 
+	const ROLES_SALESREP = [
+		"15" => "SREP",
+		"18" => "SREP",
+	];
+
 	const ROLES_DEALER = [
 		"28" => "ADMIN",
 		"15" => "SALESMANAGER",
@@ -74,6 +79,16 @@ class Roles {
 		$q->field('MAX(role_id)');
 		$q->where('user_id', $userID);
 		return $q->getOne();
+	}
+
+	public static function hasRole($userID, $roleID) {
+		/** @var Query */
+		$q = Database::query();
+		$q->table('users_SDR_roles');
+		$q->field('COUNT(*)');
+		$q->where('role_id', $roleID);
+		$q->where('user_id', $userID);		
+		return boolval($q->getOne());
 	}
 
 	/**

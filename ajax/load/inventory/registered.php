@@ -60,6 +60,7 @@
 				<th class="sortable_table_header">Item ID</th>
 				<th class="sortable_table_header">Boat </th>
                 <th class="sortable_table_header" style="width:90px;">Sale Date</th>
+                <th class="sortable_table_header" style="width:90px;">Consumer Sale Date</th>
 				<th style="width:200px;" class="sortable_table_header">Customer</th>
 				<th>Warranty Expires</th>
 				<th class="sortable_table_header" >Registered</th>
@@ -76,11 +77,13 @@
                     <?php $date = strtotime($boat['InvoiceDate']); ?>
                     <?php $custname = get_custname_from_dplus($boat['CustId']); ?>
                     <?php $invoicedate = date("m/d/Y", $date);  ?>
+                    <?php $warranty = getregistrationinfo($boat['SerialNbr'], $boat['ItemNbr']); ?>
                     <tr>
                         <td><?php echo $boat['SerialNbr']; ?></td>
 						<td><?php echo $boat['ItemNbr']; ?></td>
 						<td><?php echo $boat['ItemDesc1']; ?></td>
                         <td><?php echo $invoicedate; ?></td>
+                        <td><?php echo date("m/d/Y", strtotime($warranty['WarmSaleDate'])); ?></td>
 						<td style="text-align:right;"><?php echo $custname; ?> </td>
 						<td style="text-align:center;">
 							<?= Warranty\Expiration\Library::getWarrantyExpireDate($boat['SerialNbr'], $boat['ItemNbr']); ?>

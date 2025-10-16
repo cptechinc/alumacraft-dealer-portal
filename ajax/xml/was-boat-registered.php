@@ -1,9 +1,11 @@
 <?php header('Content-Type: application/xml'); ?>
 <?php session_start(); ?>
-<?php include 'includes.php'; ?>
+<?php include 'init.php'; ?>
 <?php $serialnbr = urldecode($_GET['serialnbr']); ?>
 <?php $itemnbr = urldecode($_GET['itemnbr']); ?>
-<?php $serialexists = check_if_boat_got_registered($serialnbr, $itemnbr, false)  ?>
+
+<?php $serialexists = check_if_boat_got_registered($serialnbr, $itemnbr, false);  ?>
+
 <response>
 	<?php if ($serialexists) : ?>
     	<status>true</status>

@@ -14,7 +14,7 @@
 	session_start();
 
 	// if (Sdr\Session::isLoggedIn() === false) {
-	// 	echo 'not logged in';
+	//	echo 'not logged in';
 	// }
 
 	if (Util\PhpCookie::has('session') && Sdr\Session::isLoggedIn() === false) {
@@ -32,10 +32,13 @@
 	if (Util\PhpInputGet::has('session')) {
 		$login = new Util\Data();
 		$login->sessionid = $_GET['session'];
-		$login->userid    = isset($_GET['userid']) ? $_GET['userid'] : '';
+		$login->userid	  = isset($_GET['userid']) ? $_GET['userid'] : '';
 
 		Sdr\Session::process($login);
-		header('Location: '.$_SERVER['SCRIPT_NAME']);
+		$get = $_GET;
+		unset($get['session']);
+		unset($get['userid']);
+		header('Location: '.$_SERVER['SCRIPT_NAME'] . '?' . http_build_query($get));
 		exit;
 	}
 
