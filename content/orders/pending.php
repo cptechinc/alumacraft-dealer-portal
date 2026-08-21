@@ -1,6 +1,9 @@
 <?php $ajaxdir = 'load-orders'; $subset = 'pending';  $approved = 'NO';  ?>
 <?php include 'content/pagination/ajax/pagination-logic.php'; ?>
 <?php include 'content/orders/header-logic/head-logic.php'; ?>
+<?php 
+    $ITM = Aluma\Datax\Inv\ItemMaster::getInstance();
+?>
 <div><?php include 'content/pagination/ajax/pagination-links.php'; ?></div>
 <div class="clear"></div>
 <div style="padding-left:5px; padding-top:10px;">
@@ -36,6 +39,12 @@
     	<?php if ($num_of_results > 0) : ?>
 			<?php include 'content/orders/tbl-query-logic/table-logic.php'; ?>
             <?php foreach ($orders->fetchAll() as $order) : ?>
+                <?php 
+                    if (in_array($ITM->getItemgroup($order['itemid']), $config->itemGroupsBoat) === false) {
+                        continue;
+                    }
+
+                ?>
                 <?php $date = strtotime($order['OehdOrdrDate']); $orderdate = date("m/d/Y", $date); ?>
                 <?php $date = strtotime($order['OehdArrvDate']); $arrvdate = date("m/d/Y", $date);  ?>
                 <?php $vieworderlink = "https://dealer.alumacraft.com/Boat-Builder.php?action=print&pricing=cost&build_id=".$order['OehdUserCode2'].'&'/*.$rustyaddon*/; ?>
@@ -44,7 +53,7 @@
                         <td><?php echo $order['OehdNbr']; ?></td>
                         <td><?php echo $order['OehdUserCode2']; ?></td>
                         <td><?php echo get_custname_from_dplus($order['ArcuCustId']); ?></td>
-                        <td><?php echo $order['descr']; ?></td>
+                        <td><?php echo $order['itemid']; ?> - <?php echo $order['descr']; ?></td>
                         <td><?php echo $orderdate; ?></td>
                         <td><?php echo $arrvdate; ?></td>
                         <td>
